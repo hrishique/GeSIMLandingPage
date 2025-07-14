@@ -21,9 +21,9 @@ import {
   Wifi,
   Radio,
   Network,
-  BookOpen,
 } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function GeSIMLanding() {
   const [isDark, setIsDark] = useState(false)
@@ -37,29 +37,22 @@ export default function GeSIMLanding() {
   const toggleTheme = () => setIsDark(!isDark)
   const connectWallet = () => setWalletConnected(!walletConnected)
 
-  const scrollToWaitlist = () => {
-    const waitlistSection = document.getElementById('waitlist')
-    if (waitlistSection) {
-      waitlistSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   const partners = [
     {
       name: "Airalo",
-      logo: "/airalo_logo.png",
+      logo: "A",
       color: "from-blue-500 to-blue-600",
       description: "Global eSIM marketplace leader",
     },
     {
       name: "eSIM Access",
-      logo: "/esimaccess_logo.png",
+      logo: "eA",
       color: "from-green-500 to-green-600",
       description: "Enterprise eSIM solutions",
     },
     {
       name: "Telnyx",
-      logo: "/telnyx_logo.png",
+      logo: "T",
       color: "from-purple-500 to-purple-600",
       description: "Telecom infrastructure platform",
     },
@@ -73,8 +66,8 @@ export default function GeSIMLanding() {
       <header className="relative z-50 px-6 py-6">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="relative w-10 h-10 p-0.5 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-lg overflow-hidden">
-              <Image src={isDark ? "/gesim-logo.png" : "/gesim_light.png"} alt="GeSIM" fill className={`object-cover ${isDark ? "scale-150" : "scale-125"}`} />
+            <div className="relative w-10 h-10 p-1.5 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-lg">
+              <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain" />
             </div>
             <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</span>
           </div>
@@ -94,21 +87,19 @@ export default function GeSIMLanding() {
               <Building2 className="w-4 h-4" />
               Partners
             </a>
+            <Link
+              href="/blog"
+              className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
+            >
+              <Globe className="w-4 h-4" />
+              Blog
+            </Link>
             <a
               href="#app"
               className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
             >
               <Smartphone className="w-4 h-4" />
               App
-            </a>
-            <a
-              href="https://gesim.gitbook.io/gesim"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
-            >
-              <BookOpen className="w-4 h-4" />
-              Docs
             </a>
           </nav>
 
@@ -122,7 +113,6 @@ export default function GeSIMLanding() {
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
             <Button
-              onClick={scrollToWaitlist}
               className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-6 py-2 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all flex items-center gap-2`}
             >
               <Mail className="w-4 h-4" />
@@ -133,7 +123,7 @@ export default function GeSIMLanding() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative px-6 pt-12 pb-20 overflow-hidden">
+      <section className="relative px-6 pt-20 pb-32 overflow-hidden">
         {/* Subtle Background Elements */}
         <div className="absolute inset-0">
           <div
@@ -180,14 +170,14 @@ export default function GeSIMLanding() {
               <p
                 className={`text-xl md:text-2xl font-medium mb-12 ${isDark ? "text-slate-400" : "text-slate-600"} max-w-2xl leading-relaxed`}
               >
-               Smart, borderless eSIM — connect globally, pay locally.
+                Revolutionizing global connectivity with crypto-powered eSIM technology. Pay once, roam everywhere, own
+                your data.
               </p>
 
               {/* CTA Section */}
-              <div className="flex flex-col sm:flex-row gap-6 mb-12">
+              <div className="flex flex-col sm:flex-row gap-6 mb-16">
                 <Button
                   size="lg"
-                  onClick={() => window.open('https://t.me/charchit_web3', '_blank')}
                   className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-12 py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3`}
                 >
                   <ArrowRight className="w-5 h-5" />
@@ -206,6 +196,8 @@ export default function GeSIMLanding() {
                   Watch Demo
                 </Button>
               </div>
+
+              {/* Stats */}
             </div>
 
             {/* Right Animation - Telecom x Web3 Intersection */}
@@ -216,16 +208,10 @@ export default function GeSIMLanding() {
                   <div className="relative">
                     {/* Core Hub */}
                     <div
-                      className={`w-24 h-24 ${isDark ? "bg-gradient-to-br from-slate-700 to-slate-800" : "bg-gradient-to-br from-slate-800 to-slate-900"} rounded-full shadow-2xl flex items-center justify-center border-4 ${isDark ? "border-slate-600" : "border-white"} overflow-hidden`}
+                      className={`w-24 h-24 ${isDark ? "bg-gradient-to-br from-slate-700 to-slate-800" : "bg-gradient-to-br from-slate-800 to-slate-900"} rounded-full shadow-2xl flex items-center justify-center border-4 ${isDark ? "border-slate-600" : "border-slate-700"}`}
                     >
-                      <div className="relative w-16 h-16 flex items-center justify-center">
-                        <Image 
-                          src={isDark ? "/gesim-logo.png" : "/gesim_light.png"} 
-                          alt="GeSIM" 
-                          fill 
-                          className="object-cover scale-[1.7]" 
-                          style={{ objectPosition: 'center' }}
-                        />
+                      <div className="relative w-12 h-12">
+                        <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain" />
                       </div>
                     </div>
 
@@ -322,41 +308,35 @@ export default function GeSIMLanding() {
       </section>
 
       {/* Product number stats */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-            <div
-              className={`p-10 rounded-2xl backdrop-blur-sm ${isDark ? "bg-slate-800/30 border-slate-700/50" : "bg-white/70 border-slate-200"} border shadow-lg`}
-            >
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <Globe className={`w-8 h-8 ${isDark ? "text-slate-300" : "text-slate-700"}`} />
-                <div className={`text-3xl font-black ${isDark ? "text-white" : "text-slate-900"}`}>150+</div>
-              </div>
-              <div className={`text-center ${isDark ? "text-slate-400" : "text-slate-600"} font-medium`}>Countries</div>
-            </div>
-            <div
-              className={`p-10 rounded-2xl backdrop-blur-sm ${isDark ? "bg-slate-800/30 border-slate-700/50" : "bg-white/70 border-slate-200"} border shadow-lg`}
-            >
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <Award className={`w-8 h-8 ${isDark ? "text-slate-300" : "text-slate-700"}`} />
-                <div className={`text-3xl font-black ${isDark ? "text-white" : "text-slate-900"}`}>3+
-            </div>
-              </div>
-              <div className={`text-center ${isDark ? "text-slate-400" : "text-slate-600"} font-medium`}>Integration Partners</div>
-            </div>
-            <div
-              className={`p-10 rounded-2xl backdrop-blur-sm ${isDark ? "bg-slate-800/30 border-slate-700/50" : "bg-white/70 border-slate-200"} border shadow-lg`}
-            >
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <Users className={`w-8 h-8 ${isDark ? "text-slate-300" : "text-slate-700"}`} />
-                <div className={`text-3xl font-black ${isDark ? "text-white" : "text-slate-900"}`}>2,000+
-                </div>
-              </div>
-              <div className={`text-center ${isDark ? "text-slate-400" : "text-slate-600"} font-medium`}>Waitlist Signups</div>
-            </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div
+          className={`p-8 rounded-2xl backdrop-blur-sm ${isDark ? "bg-slate-800/30 border-slate-700/50" : "bg-white/70 border-slate-200"} border shadow-lg`}
+        >
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Globe className={`w-8 h-8 ${isDark ? "text-slate-300" : "text-slate-700"}`} />
+            <div className={`text-3xl font-black ${isDark ? "text-white" : "text-slate-900"}`}>150+</div>
           </div>
+          <div className={`${isDark ? "text-slate-400" : "text-slate-600"} font-medium`}>Countries</div>
         </div>
-      </section>
+        <div
+          className={`p-8 rounded-2xl backdrop-blur-sm ${isDark ? "bg-slate-800/30 border-slate-700/50" : "bg-white/70 border-slate-200"} border shadow-lg`}
+        >
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Award className={`w-8 h-8 ${isDark ? "text-slate-300" : "text-slate-700"}`} />
+            <div className={`text-3xl font-black ${isDark ? "text-white" : "text-slate-900"}`}>$90B+</div>
+          </div>
+          <div className={`${isDark ? "text-slate-400" : "text-slate-600"} font-medium`}>Valuation</div>
+        </div>
+        <div
+          className={`p-8 rounded-2xl backdrop-blur-sm ${isDark ? "bg-slate-800/30 border-slate-700/50" : "bg-white/70 border-slate-200"} border shadow-lg`}
+        >
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Users className={`w-8 h-8 ${isDark ? "text-slate-300" : "text-slate-700"}`} />
+            <div className={`text-3xl font-black ${isDark ? "text-white" : "text-slate-900"}`}>10M+</div>
+          </div>
+          <div className={`${isDark ? "text-slate-400" : "text-slate-600"} font-medium`}>Users</div>
+        </div>
+      </div>
 
       {/* Partners Section */}
       <section id="partners" className={`py-24 px-6 ${isDark ? "bg-slate-900/30" : "bg-slate-50"}`}>
@@ -369,9 +349,9 @@ export default function GeSIMLanding() {
               </h2>
             </div>
             <p
-              className={`text-lg ${isDark ? "text-slate-400" : "text-slate-600"} flex items-baseline justify-center gap-2`}
+              className={`text-lg ${isDark ? "text-slate-400" : "text-slate-600"} flex items-center justify-center gap-2`}
             >
-              <Star className="w-5 h-5 translate-y-0.5" />
+              <Star className="w-5 h-5" />
               Leading the telecom revolution together
             </p>
           </div>
@@ -380,18 +360,21 @@ export default function GeSIMLanding() {
             {partners.map((partner, index) => (
               <div
                 key={partner.name}
-                className={`group p-8 rounded-3xl backdrop-blur-sm ${isDark ? "bg-slate-800/30 border-slate-700/50 hover:bg-slate-800/50" : "bg-white/70 border-slate-200 hover:bg-white"} border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center flex items-center justify-center`}
+                className={`group p-8 rounded-3xl backdrop-blur-sm ${isDark ? "bg-slate-800/30 border-slate-700/50 hover:bg-slate-800/50" : "bg-white/70 border-slate-200 hover:bg-white"} border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center`}
               >
-                <div className="w-32 h-32 relative group-hover:scale-110 transition-transform">
-                  <Image
-                    src={partner.logo}
-                    alt={partner.name}
-                    fill
-                    className={`object-contain ${
-                      (partner.name === "Telnyx" && !isDark) || (partner.name === "eSIM Access" && isDark) ? "invert" : ""
-                    }`}
-                  />
+                <div
+                  className={`w-20 h-20 bg-gradient-to-br ${partner.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 transition-transform`}
+                >
+                  <span className="text-white font-bold text-xl">{partner.logo}</span>
                 </div>
+                <h3
+                  className={`text-xl font-bold mb-3 ${isDark ? "text-white" : "text-slate-900"} group-hover:${isDark ? "text-white" : "text-slate-900"} transition-colors`}
+                >
+                  {partner.name}
+                </h3>
+                <p className={`text-sm ${isDark ? "text-slate-400" : "text-slate-600"} leading-relaxed`}>
+                  {partner.description}
+                </p>
               </div>
             ))}
           </div>
@@ -399,7 +382,6 @@ export default function GeSIMLanding() {
           <div className="text-center mt-16">
             <Button
               variant="outline"
-              onClick={() => window.open('https://t.me/charchit_web3', '_blank')}
               className={`px-8 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-3 mx-auto ${
                 isDark
                   ? "border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white"
@@ -434,14 +416,15 @@ export default function GeSIMLanding() {
             >
               <div className="flex items-center gap-4 mb-6">
                 <div
-                  className={`w-16 h-16 min-w-[4rem] min-h-[4rem] ${isDark ? "bg-slate-700" : "bg-slate-800"} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg`}
+                  className={`w-16 h-16 ${isDark ? "bg-slate-700" : "bg-slate-800"} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg`}
                 >
-                  <Globe className="h-8 w-8 min-w-[2rem] min-h-[2rem] text-white flex-shrink-0" />
+                  <Globe className="h-8 w-8 text-white" />
                 </div>
-                <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>Global Pay-Per-Use Connectivity</h3>
+                <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>Global Network</h3>
               </div>
               <p className={`${isDark ? "text-slate-400" : "text-slate-600"} leading-relaxed`}>
-                Smart billing, no changing eSIM, 150+ countries
+                Seamless connectivity across 150+ countries with enterprise-grade infrastructure and real-time
+                optimization.
               </p>
             </div>
 
@@ -450,14 +433,14 @@ export default function GeSIMLanding() {
             >
               <div className="flex items-center gap-4 mb-6">
                 <div
-                  className={`w-16 h-16 min-w-[4rem] min-h-[4rem] ${isDark ? "bg-slate-700" : "bg-slate-800"} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg`}
+                  className={`w-16 h-16 ${isDark ? "bg-slate-700" : "bg-slate-800"} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg`}
                 >
-                  <Network className="h-8 w-8 min-w-[2rem] min-h-[2rem] text-white flex-shrink-0" />
+                  <CreditCard className="h-8 w-8 text-white" />
                 </div>
-                <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>Operator Switch Logic</h3>
+                <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>Crypto Native</h3>
               </div>
               <p className={`${isDark ? "text-slate-400" : "text-slate-600"} leading-relaxed`}>
-                Seamless Effortless Travel Connectivity
+                Pay with USDC, Bitcoin, Ethereum and other major cryptocurrencies with instant, secure transactions.
               </p>
             </div>
 
@@ -466,37 +449,24 @@ export default function GeSIMLanding() {
             >
               <div className="flex items-center gap-4 mb-6">
                 <div
-                  className={`w-16 h-16 min-w-[4rem] min-h-[4rem] ${isDark ? "bg-slate-700" : "bg-slate-800"} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg`}
+                  className={`w-16 h-16 ${isDark ? "bg-slate-700" : "bg-slate-800"} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg`}
                 >
-                  <CreditCard className="h-8 w-8 min-w-[2rem] min-h-[2rem] text-white flex-shrink-0" />
+                  <Shield className="h-8 w-8 text-white" />
                 </div>
-                <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>Buy Regional Data</h3>
+                <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>DID Security</h3>
               </div>
               <p className={`${isDark ? "text-slate-400" : "text-slate-600"} leading-relaxed`}>
-              Roam Free with Stablecoin – Local Prices, Pre/Postpaid, Full Control            </p>
+                Your identity and travel data secured by advanced blockchain technology and decentralized protocols.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Mobile App Section */}
-      <section id="app" className={`py-20 px-6 ${isDark ? "bg-slate-900/30" : "bg-slate-50"}`}>
+      <section id="app" className={`py-32 px-6 ${isDark ? "bg-slate-900/30" : "bg-slate-50"}`}>
         <div className="container mx-auto max-w-4xl text-center">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <Smartphone className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} />
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
-              Your Digital Passport
-            </h2>
-          </div>
-
-          <p
-            className={`text-xl mb-12 max-w-3xl mx-auto leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"} flex items-baseline justify-center gap-2`}
-          >
-            <Globe className="w-5 h-5 flex-shrink-0 translate-y-0.5" />
-            Empower Global Connectivity, Local Access, and Micro-Billing Standardization with One Sleek Mobile App
-          </p>
-
-          <div className="relative w-72 h-96 mx-auto mb-8">
+          <div className="relative w-72 h-96 mx-auto mb-16">
             <div
               className={`w-full h-full rounded-3xl p-4 shadow-2xl ${isDark ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"} border`}
             >
@@ -511,16 +481,15 @@ export default function GeSIMLanding() {
                       <Smartphone className="h-10 w-10 text-white" />
                     </div>
                   </div>
-                  <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-slate-900"}`}>Mint GeSIM</h3>
+                  <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</h3>
                   <p
-                    className={`text-sm ${isDark ? "text-slate-400" : "text-slate-600"} mb-4 flex items-baseline justify-center gap-2`}
+                    className={`text-sm ${isDark ? "text-slate-400" : "text-slate-600"} mb-4 flex items-center justify-center gap-2`}
                   >
-                    <Zap className="w-4 h-4 translate-y-0.5" />
-                    Coming Q4 2025
+                    <Zap className="w-4 h-4" />
+                    Coming Q2 2025
                   </p>
                   <div
-                    onClick={scrollToWaitlist}
-                    className={`inline-flex items-center gap-2 ${isDark ? "bg-slate-600 hover:bg-slate-500" : "bg-slate-800 hover:bg-slate-700"} text-white px-4 py-2 rounded-full text-xs font-semibold cursor-pointer transition-all duration-200 hover:scale-105`}
+                    className={`inline-flex items-center gap-2 ${isDark ? "bg-slate-600" : "bg-slate-800"} text-white px-4 py-2 rounded-full text-xs font-semibold`}
                   >
                     <Star className="w-3 h-3" />
                     Beta Access
@@ -529,11 +498,26 @@ export default function GeSIMLanding() {
               </div>
             </div>
           </div>
+
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Smartphone className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} />
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
+              Your Digital Passport
+            </h2>
+          </div>
+
+          <p
+            className={`text-xl mb-12 max-w-3xl mx-auto leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"} flex items-center justify-center gap-2`}
+          >
+            <Globe className="w-5 h-5 flex-shrink-0" />
+            Manage global connectivity, track usage in real-time, and pay with crypto from one elegant mobile
+            application.
+          </p>
         </div>
       </section>
 
       {/* Waitlist Section */}
-      <section id="waitlist" className={`py-32 px-6 ${isDark ? "bg-slate-950" : "bg-white"}`}>
+      <section className={`py-32 px-6 ${isDark ? "bg-slate-950" : "bg-white"}`}>
         <div className="container mx-auto max-w-3xl text-center">
           <div className="flex items-center justify-center gap-3 mb-8">
             <Mail className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} />
@@ -543,10 +527,10 @@ export default function GeSIMLanding() {
           </div>
 
           <p
-            className={`text-xl mb-12 ${isDark ? "text-slate-400" : "text-slate-600"} flex items-baseline justify-center gap-2`}
+            className={`text-xl mb-12 ${isDark ? "text-slate-400" : "text-slate-600"} flex items-center justify-center gap-2`}
           >
-            <Users className="w-5 h-5 translate-y-0.5" />
-            Join a Thriving Global Community of Digital Nomads with GeSIM
+            <Users className="w-5 h-5" />
+            Join thousands of digital nomads already using GeSIM
           </p>
 
           <div className="space-y-6">
@@ -558,6 +542,19 @@ export default function GeSIMLanding() {
                 onChange={(e) => setEmail(e.target.value)}
                 className={`flex-1 h-14 px-6 rounded-xl text-lg ${isDark ? "bg-slate-800 border-slate-700 text-white placeholder:text-slate-400" : "bg-white border-slate-300 text-slate-900 placeholder:text-slate-500"} shadow-lg`}
               />
+              <Button
+                onClick={connectWallet}
+                className={`h-14 px-8 rounded-xl font-semibold transition-all flex items-center gap-3 ${
+                  walletConnected
+                    ? "bg-green-600 hover:bg-green-700 text-white"
+                    : isDark
+                      ? "bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 hover:text-white"
+                      : "bg-slate-100 border border-slate-300 text-slate-700 hover:bg-slate-200 hover:text-slate-900"
+                }`}
+              >
+                <Wallet className="w-5 h-5" />
+                {walletConnected ? "Connected" : "Connect Wallet"}
+              </Button>
             </div>
 
             <Button
@@ -570,9 +567,9 @@ export default function GeSIMLanding() {
           </div>
 
           <p
-            className={`text-sm mt-8 ${isDark ? "text-slate-500" : "text-slate-600"} flex items-baseline justify-center gap-2`}
+            className={`text-sm mt-8 ${isDark ? "text-slate-500" : "text-slate-600"} flex items-center justify-center gap-2`}
           >
-            <Shield className="w-4 h-4 translate-y-0.5" />
+            <Shield className="w-4 h-4" />
             No spam, ever. Be the first to know when we launch.
           </p>
         </div>
@@ -584,15 +581,15 @@ export default function GeSIMLanding() {
       >
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center space-x-3 mb-6">
-            <div className="relative w-8 h-8 p-0.5 bg-gradient-to-br from-slate-800 to-slate-900 shadow-lg overflow-hidden">
-              <Image src={isDark ? "/gesim-logo.png" : "/gesim_light.png"} alt="GeSIM" fill className="object-cover scale-150" />
+            <div className="relative w-8 h-8 p-1.5 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-lg">
+              <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain" />
             </div>
             <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</span>
           </div>
           <p
-            className={`${isDark ? "text-slate-500" : "text-slate-600"} text-sm flex items-baseline justify-center gap-2`}
+            className={`${isDark ? "text-slate-500" : "text-slate-600"} text-sm flex items-center justify-center gap-2`}
           >
-           © 2025 GeSIM. Revolutionizing global connectivity with blockchain technology.
+            <Globe className="w-4 h-4" />© 2025 GeSIM. Revolutionizing global connectivity with blockchain technology.
           </p>
         </div>
       </footer>
