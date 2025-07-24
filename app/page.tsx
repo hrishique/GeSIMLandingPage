@@ -1,7 +1,15 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect, useRef } from "react"
+import {
+  Button,
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
   Moon,
@@ -10,7 +18,6 @@ import {
   Smartphone,
   CreditCard,
   Shield,
-  Wallet,
   Mail,
   Zap,
   ArrowRight,
@@ -21,9 +28,232 @@ import {
   Wifi,
   Radio,
   Network,
+  FlaskConical,
+  ShieldCheck,
+  Rocket,
+  Twitter,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+
+const PhoneMockup = ({ isDark }: { isDark: boolean }) => {
+  const [status, setStatus] = useState("inserting") // inserting -> connecting -> connected
+  const [logoPlugged, setLogoPlugged] = useState(false)
+  const [currentLocation, setCurrentLocation] = useState({ city: "Delhi", flag: "🇮🇳" })
+  const [isVisible, setIsVisible] = useState(false)
+  const phoneRef = useRef<HTMLDivElement>(null)
+
+  const locations = [
+    { city: "Delhi", flag: "🇮🇳" },
+    { city: "New York", flag: "🇺🇸" },
+    { city: "Paris", flag: "🇫🇷" },
+    { city: "Tokyo", flag: "🇯🇵" },
+  ]
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.5 },
+    )
+
+    if (phoneRef.current) {
+      observer.observe(phoneRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!isVisible) return
+
+    const sequence = setTimeout(() => {
+      setLogoPlugged(true)
+      const t1 = setTimeout(() => {
+        setStatus("connecting")
+        const t2 = setTimeout(() => setStatus("connected"), 2000)
+        return () => clearTimeout(t2)
+      }, 800)
+      return () => clearTimeout(t1)
+    }, 300)
+    return () => clearTimeout(sequence)
+  }, [isVisible])
+
+  useEffect(() => {
+    if (status !== "connected") return
+
+    const interval = setInterval(() => {
+      setCurrentLocation((prev) => {
+        const currentIndex = locations.findIndex((loc) => loc.city === prev.city)
+        const nextIndex = (currentIndex + 1) % locations.length
+        return locations[nextIndex]
+      })
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [status])
+
+  const statusText = {
+    inserting: "🔌 Inserting GeSIM...",
+    connecting: "🌐 Connecting...",
+    connected: `✅ Connected to ${currentLocation.city} ${currentLocation.flag}`,
+  }
+
+  return (
+    <div
+      ref={phoneRef}
+      className={`relative w-80 h-[34rem] rounded-[3.5rem] p-4 shadow-2xl transition-all duration-500 hover:scale-105 group cursor-pointer ${isDark ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"} border`}
+      onClick={() => !isVisible && setIsVisible(true)}
+    >
+      <div
+        className={`w-full h-full rounded-[2.5rem] flex flex-col items-center justify-center p-6 transition-colors ${isDark ? "bg-slate-900" : "bg-slate-100"}`}
+      >
+        <div className="flex-grow flex flex-col items-center justify-center gap-6">
+          <div
+            className={`relative w-24 h-24 transition-all duration-1000 ease-out ${
+              logoPlugged ? "translate-y-0 scale-100 opacity-100" : "-translate-y-8 scale-75 opacity-0"
+            }`}
+          >
+            <Image
+              src="/gesim-logo.png"
+              alt="GeSIM Logo"
+              fill
+              className="object-contain transition-all duration-300 dark:invert dark:brightness-125 dark:drop-shadow-[0_0_3px_rgba(255,255,255,0.4)] drop-shadow-[0_2px_2px_rgba(0,0,0,0.2)]"
+            />
+          </div>
+          <h3 className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</h3>
+        </div>
+        <div
+          className={`w-full text-center p-4 rounded-xl transition-all duration-500 ${isDark ? "bg-slate-800" : "bg-white"} ${
+            status === "connected" ? "ring-2 ring-green-400/50" : ""
+          }`}
+        >
+          <p
+            className={`font-medium transition-all duration-300 ${
+              status === "connected"
+                ? isDark
+                  ? "text-green-400"
+                  : "text-green-600"
+                : isDark
+                  ? "text-slate-300"
+                  : "text-slate-700"
+            }`}
+          >
+            {statusText[status as keyof typeof statusText]}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const RoadmapTimeline = ({ isDark }: { isDark: boolean }) => {
+  const [activeStep, setActiveStep] = useState<number | null>(null)
+
+  const roadmapSteps = [
+    {
+      icon: FlaskConical,
+      quarter: "Q2 2024",
+      title: "Research & Ideation",
+      description: "Conceptualizing decentralized telecom.",
+      details: "Deep research into blockchain telecom infrastructure and user needs analysis.",
+      status: "complete",
+    },
+    {
+      icon: Zap,
+      quarter: "Q3 2024",
+      title: "MVP & DevNet Testing",
+      description: "Building the core protocol on our DevNet.",
+      details: "Smart contract development, security audits, and initial protocol testing.",
+      status: "complete",
+    },
+    {
+      icon: ShieldCheck,
+      quarter: "Q4 2024",
+      title: "NFT-Gated Beta Launch",
+      description: "Inviting early adopters via exclusive NFTs.",
+      details: "Limited beta access for community members with special NFT credentials.",
+      status: "active",
+    },
+    {
+      icon: Rocket,
+      quarter: "Q2 2025",
+      title: "Global Launch",
+      description: "Public access with expanded coverage.",
+      details: "Full public launch with 150+ countries coverage and mainstream adoption.",
+      status: "upcoming",
+    },
+  ]
+
+  return (
+    <div className="w-full max-w-md mx-auto lg:mx-0">
+      <div className="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-slate-300 dark:before:bg-slate-700">
+        {roadmapSteps.map((step, index) => {
+          const isComplete = step.status === "complete"
+          const isActive = step.status === "active"
+          const isUpcoming = step.status === "upcoming"
+          const isExpanded = activeStep === index
+
+          return (
+            <div
+              key={index}
+              className="relative flex items-start group cursor-pointer"
+              onClick={() => setActiveStep(isExpanded ? null : index)}
+            >
+              <div
+                className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center z-10 transition-all duration-300 transform group-hover:scale-110
+                ${isComplete ? "bg-green-500 text-white shadow-lg shadow-green-500/30" : ""}
+                ${isActive ? `bg-blue-500 text-white animate-pulse shadow-lg shadow-blue-500/30` : ""}
+                ${isUpcoming ? `${isDark ? "bg-slate-700 border-2 border-slate-600 text-slate-400" : "bg-slate-200 border-2 border-slate-300 text-slate-500"}` : ""}
+              `}
+              >
+                <step.icon className="w-5 h-5" />
+              </div>
+              <div className="ml-6">
+                <h4 className={`font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
+                  {step.title} <span className="text-sm font-medium text-slate-500">{step.quarter}</span>
+                </h4>
+                <p className={`text-sm mt-1 ${isDark ? "text-slate-400" : "text-slate-600"}`}>{step.description}</p>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isExpanded ? "max-h-40 mt-2" : "max-h-0"
+                  }`}
+                >
+                  <div
+                    className={`p-3 rounded-lg text-xs ${isDark ? "bg-slate-800" : "bg-slate-100"} ${isDark ? "text-slate-300" : "text-slate-600"}`}
+                  >
+                    {step.details}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+const AnimatedBackground = ({ isDark }: { isDark: boolean }) => {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div
+        className={`absolute inset-0 transition-opacity duration-500 ${isDark ? "opacity-10" : "opacity-5"}`}
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, currentColor 1px, transparent 1px), radial-gradient(circle, currentColor 1px, transparent 1px)",
+          backgroundSize: "50px 50px, 50px 50px",
+          backgroundPosition: "0 0, 25px 25px",
+          maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 70%)",
+        }}
+      ></div>
+    </div>
+  )
+}
 
 export default function GeSIMLanding() {
   const [isDark, setIsDark] = useState(false)
@@ -342,7 +572,7 @@ export default function GeSIMLanding() {
       <section id="partners" className={`py-24 px-6 ${isDark ? "bg-slate-900/30" : "bg-slate-50"}`}>
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="flex items-center justify-center space-x-3 mb-6">
               <Building2 className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} />
               <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
                 Strategic Partners
@@ -463,115 +693,96 @@ export default function GeSIMLanding() {
         </div>
       </section>
 
-      {/* Mobile App Section */}
-      <section id="app" className={`py-32 px-6 ${isDark ? "bg-slate-900/30" : "bg-slate-50"}`}>
-        <div className="container mx-auto max-w-4xl text-center">
-          <div className="relative w-72 h-96 mx-auto mb-16">
-            <div
-              className={`w-full h-full rounded-3xl p-4 shadow-2xl ${isDark ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"} border`}
-            >
-              <div
-                className={`w-full h-full rounded-2xl flex items-center justify-center ${isDark ? "bg-slate-700/50" : "bg-slate-100/50"}`}
-              >
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-3 mb-6">
-                    <div
-                      className={`w-20 h-20 ${isDark ? "bg-slate-600" : "bg-slate-800"} rounded-3xl flex items-center justify-center shadow-xl`}
+      {/* Product Preview Section */}
+      <section id="app" className={`relative py-32 px-6 overflow-hidden ${isDark ? "bg-slate-900/30" : "bg-slate-50"}`}>
+        <AnimatedBackground isDark={isDark} />
+
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="flex justify-center">
+              <PhoneMockup isDark={isDark} />
+            </div>
+
+            <div className="text-center lg:text-left">
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isDark ? "text-white" : "text-slate-900"}`}>
+                The Coordination Layer for Global Telecom
+              </h2>
+              <p className={`text-xl mb-12 ${isDark ? "text-slate-400" : "text-slate-600"} max-w-2xl mx-auto lg:mx-0`}>
+                Bringing standardization, transparency, and trust to the world's most fragmented industry.
+              </p>
+
+              <RoadmapTimeline isDark={isDark} />
+
+              <div className="mt-16">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button
+                      size="lg"
+                      className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-12 py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3`}
                     >
-                      <Smartphone className="h-10 w-10 text-white" />
+                      <ShieldCheck className="w-5 h-5" />
+                      Join Beta Access
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent
+                    className={`${isDark ? "bg-slate-900 border-slate-800" : "bg-white"} rounded-2xl max-w-md`}
+                  >
+                    <DialogHeader>
+                      <DialogTitle className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
+                        Join the GeSIM Beta
+                      </DialogTitle>
+                      <DialogDescription className={`${isDark ? "text-slate-400" : "text-slate-600"}`}>
+                        Get early access, receive an NFT pass, and join our closed Discord community.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="py-4">
+                      <div className="space-y-4">
+                        <Input
+                          type="email"
+                          placeholder="Enter your email or wallet address"
+                          className={`h-12 px-4 rounded-xl text-base ${isDark ? "bg-slate-800 border-slate-700 text-white placeholder:text-slate-400" : "bg-white border-slate-300 text-slate-900 placeholder:text-slate-500"} shadow-inner`}
+                        />
+                        <Button className="w-full h-12 text-base font-semibold">Join Waitlist</Button>
+
+                        <div className="flex items-center gap-3 pt-2">
+                          <div className={`h-px flex-1 ${isDark ? "bg-slate-700" : "bg-slate-300"}`} />
+                          <span className={`text-xs ${isDark ? "text-slate-500" : "text-slate-400"}`}>
+                            or follow us
+                          </span>
+                          <div className={`h-px flex-1 ${isDark ? "bg-slate-700" : "bg-slate-300"}`} />
+                        </div>
+
+                        <div className="flex gap-3">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className={`flex-1 ${isDark ? "border-slate-700 text-slate-300 hover:bg-slate-800" : "border-slate-300 text-slate-700 hover:bg-slate-100"}`}
+                            asChild
+                          >
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                              <Twitter className="w-4 h-4 mr-2" />
+                              Twitter
+                            </a>
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className={`flex-1 ${isDark ? "border-slate-700 text-slate-300 hover:bg-slate-800" : "border-slate-300 text-slate-700 hover:bg-slate-100"}`}
+                            asChild
+                          >
+                            <a href="https://farcaster.xyz" target="_blank" rel="noopener noreferrer">
+                              <Globe className="w-4 h-4 mr-2" />
+                              Farcaster
+                            </a>
+                          </Button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</h3>
-                  <p
-                    className={`text-sm ${isDark ? "text-slate-400" : "text-slate-600"} mb-4 flex items-center justify-center gap-2`}
-                  >
-                    <Zap className="w-4 h-4" />
-                    Coming Q2 2025
-                  </p>
-                  <div
-                    className={`inline-flex items-center gap-2 ${isDark ? "bg-slate-600" : "bg-slate-800"} text-white px-4 py-2 rounded-full text-xs font-semibold`}
-                  >
-                    <Star className="w-3 h-3" />
-                    Beta Access
-                  </div>
-                </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
           </div>
-
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <Smartphone className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} />
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
-              Your Digital Passport
-            </h2>
-          </div>
-
-          <p
-            className={`text-xl mb-12 max-w-3xl mx-auto leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"} flex items-center justify-center gap-2`}
-          >
-            <Globe className="w-5 h-5 flex-shrink-0" />
-            Manage global connectivity, track usage in real-time, and pay with crypto from one elegant mobile
-            application.
-          </p>
-        </div>
-      </section>
-
-      {/* Waitlist Section */}
-      <section className={`py-32 px-6 ${isDark ? "bg-slate-950" : "bg-white"}`}>
-        <div className="container mx-auto max-w-3xl text-center">
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <Mail className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} />
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
-              Join the Revolution
-            </h2>
-          </div>
-
-          <p
-            className={`text-xl mb-12 ${isDark ? "text-slate-400" : "text-slate-600"} flex items-center justify-center gap-2`}
-          >
-            <Users className="w-5 h-5" />
-            Join thousands of digital nomads already using GeSIM
-          </p>
-
-          <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className={`flex-1 h-14 px-6 rounded-xl text-lg ${isDark ? "bg-slate-800 border-slate-700 text-white placeholder:text-slate-400" : "bg-white border-slate-300 text-slate-900 placeholder:text-slate-500"} shadow-lg`}
-              />
-              <Button
-                onClick={connectWallet}
-                className={`h-14 px-8 rounded-xl font-semibold transition-all flex items-center gap-3 ${
-                  walletConnected
-                    ? "bg-green-600 hover:bg-green-700 text-white"
-                    : isDark
-                      ? "bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 hover:text-white"
-                      : "bg-slate-100 border border-slate-300 text-slate-700 hover:bg-slate-200 hover:text-slate-900"
-                }`}
-              >
-                <Wallet className="w-5 h-5" />
-                {walletConnected ? "Connected" : "Connect Wallet"}
-              </Button>
-            </div>
-
-            <Button
-              className={`w-full max-w-2xl ${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} h-14 rounded-xl text-lg font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3`}
-              disabled={!email}
-            >
-              <ArrowRight className="w-5 h-5" />
-              Join the Revolution
-            </Button>
-          </div>
-
-          <p
-            className={`text-sm mt-8 ${isDark ? "text-slate-500" : "text-slate-600"} flex items-center justify-center gap-2`}
-          >
-            <Shield className="w-4 h-4" />
-            No spam, ever. Be the first to know when we launch.
-          </p>
         </div>
       </section>
 
