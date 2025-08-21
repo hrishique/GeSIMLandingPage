@@ -17,7 +17,7 @@ function Header({isDark, toggleTheme, scrollToWaitlist}) {
 
 
   return (
-    <header className="top-0 z-50 px-6 py-6 bg-white/80 dark:bg-[#0B1127] backdrop-blur-md transition-colors shadow-lg dark:shadow-slate-900">
+    <header className="top-0 z-50 px-6 py-6 bg-white/80 dark:bg-[#0B1127]  transition-colors">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="relative w-10 h-10 p-0.5 overflow-hidden">

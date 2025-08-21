@@ -73,7 +73,7 @@ export default function PhoneMockup({ isDark }) {
     return (
       <div
         id="phone-mockup"
-        className={`relative w-80 h-[34rem] rounded-[3.5rem] p-4 shadow-2xl transition-all duration-500 hover:scale-105 group cursor-pointer ${isDark ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"} border`}
+        className={`relative w-80 h-[34rem] rounded-[3.5rem] p-4 shadow-2xl transition-all duration-500 hover:scale-105 group cursor-pointer ${isDark ? "bg-slate-800 border-slate-700 shadow-slate-900/60" : "bg-white border-slate-200"} border`}
         onClick={() => !isVisible && setIsVisible(true)}
       >
         <div
