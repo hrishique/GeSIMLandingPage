@@ -4,7 +4,7 @@ Welcome to the official landing page repository for **GeSIM**!
 
 ## What is GeSIM?
 
-**GeSIM** is a revolutionary platform designed for digital nomads, travelers, and global citizens. GeSIM provides seamless, global eSIM connectivity, allowing you to stay connected anywhere in the world without the hassle of physical SIM cards or expensive roaming charges. Join a thriving global community and experience the freedom of borderless mobile connectivity.
+**GeSIM** is a revolutionary platform designed for digital nomads, travelers, and global citizens. GeSIM provides seamless, global eSIM connectivity, allowing you to stay connected anywhere in the world without the hassle of physical SIM cards or expensive roaming charges. Join a thriving global community and experience the freedom of borderless mobile connectivity.  
 
 ## About This Repository
 
