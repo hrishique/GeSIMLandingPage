@@ -71,16 +71,16 @@ const handleSubmit = async (e) => {
               placeholder="Enter your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-80 sm:w-80 h-12 sm:h-14 px-4 sm:px-6 rounded-lg sm:rounded-xl text-base sm:text-lg ${isDark ? "bg-slate-800 border-slate-700 text-white placeholder:text-slate-400" : "bg-white border-slate-300 text-slate-900 placeholder:text-slate-500"} shadow-lg`}
+              className={`sm:w-80 h-12 sm:h-14 px-4 sm:px-6 rounded-lg sm:rounded-xl text-base sm:text-lg ${isDark ? "bg-slate-800 border-slate-700 text-white placeholder:text-slate-400" : "bg-white border-slate-300 text-slate-900 placeholder:text-slate-500"} shadow-lg`}
             />
             <Button
               // size='lg'
               type="submit"
-              className={`w-48 sm:w-48 h-12 sm:h-14 rounded-lg sm:rounded-xl text-base sm:text-lg font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 px-6 ${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"}`}
+              className={`sm:w-48 h-12 sm:h-14 rounded-lg sm:rounded-xl text-base sm:text-lg font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 px-6 ${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"}`}
               disabled={!email}
             >
               <ArrowRight className="w-5 h-5" />
-              <span>Join the Revolution</span>
+              <span className='text-sm'>Join the Revolution</span>
             </Button>
           </div>
         </form>

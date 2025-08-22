@@ -7,7 +7,7 @@ import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { CreditCard, Globe, Shield, ShieldCheck, Star, Twitter, Users } from 'lucide-react'
 
-export default function CoordinationLayer({isDark}) {
+export default function CoordinationLayer({isDark,scrollToWaitlist}) {
 
   return (
     <section id="app" className={`relative py-32 px-6 overflow-hidden ${isDark ? "bg-slate-900/30" : "bg-slate-50"}`}>
@@ -30,15 +30,17 @@ export default function CoordinationLayer({isDark}) {
           <RoadmapTimeline isDark={isDark} />
 
           <div className="mt-16">
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button
+          <Button
+          onClick={()=>scrollToWaitlist()}
                   size="lg"
                   className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-12 py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3`}
                 >
                   <ShieldCheck className="w-5 h-5" />
                   Join Beta Access
                 </Button>
+            {/* <Dialog>
+              <DialogTrigger asChild>
+               
               </DialogTrigger>
               <DialogContent
                 className={`${isDark ? "bg-slate-900 border-slate-800" : "bg-white"} rounded-2xl max-w-md`}
@@ -95,7 +97,7 @@ export default function CoordinationLayer({isDark}) {
                   </div>
                 </div>
               </DialogContent>
-            </Dialog>
+            </Dialog> */}
           </div>
         </div>
       </div>

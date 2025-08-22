@@ -46,7 +46,7 @@ export default function GeSIMLanding() {
       <FeaturesSection isDark={isDark} />
 
       {/* Product Preview Section */}
-    <CoordinationLayer isDark={isDark} />
+    <CoordinationLayer isDark={isDark} scrollToWaitlist={scrollToWaitlist}/>
 
 
       <WaitlistSection isDark={isDark}/>

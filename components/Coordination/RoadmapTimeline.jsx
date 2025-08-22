@@ -18,7 +18,7 @@ const RoadmapTimeline = ({ isDark }) => {
       icon: SignalHighIcon,
       quarter: "Q1 2026",
       title: "MNO onboarding",
-      description: "Turn your SIM into a programmable revenue engine.",
+      description: "Turning your eSIM into a programmable revenue engine for MNOs",
       details: "Immediate ARPU lift, lower churn, and near-zero-friction global roaming — wallet-first microbilling unlocked give you stronger compliance, not weaker.",
       status: "upcoming",
     },
@@ -47,7 +47,7 @@ const RoadmapTimeline = ({ isDark }) => {
           const isComplete = step.status === "complete"
           const isActive = step.status === "active"
           const isUpcoming = step.status === "upcoming"
-          const isExpanded = activeStep === index
+          const isExpanded = activeStep === index || step.status === "active"
 
           return (
             <div

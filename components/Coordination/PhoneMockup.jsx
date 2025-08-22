@@ -77,7 +77,7 @@ export default function PhoneMockup({ isDark }) {
         onClick={() => !isVisible && setIsVisible(true)}
       >
         <div
-          className={`w-full h-full rounded-[2.5rem] flex flex-col items-center justify-center p-6 transition-colors ${isDark ? "bg-slate-900" : "bg-slate-100"}`}
+          className={`w-full h-full rounded-[2.5rem] flex flex-col items-center justify-center p-6 transition-colors ${isDark ? "bg-slate-900" : "bg-slate-200"}`}
         >
           <div className="flex-grow flex flex-col items-center justify-center gap-6">
             <div

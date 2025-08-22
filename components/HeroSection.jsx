@@ -65,15 +65,16 @@ function HeroSection({ isDark }) {
               <p
                 className={`text-xl md:text-2xl font-medium mb-12 ${isDark ? "text-slate-400" : "text-slate-600"} max-w-2xl leading-relaxed`}
               >
-                Revolutionizing global connectivity with crypto-powered eSIM technology. Pay once, roam everywhere, own
-                your data.
+                Smart, borderless eSIM — connect globally, pay locally.
+
+
               </p>
 
               {/* CTA Section */}
               <div className="flex flex-col sm:flex-row gap-6 mb-16">
                 <Link
-                  href="https://app.gesim.xyz"
-                  target="_blank"
+                  href="#app"
+                  // target="_blank"
                   className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-12 py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3`}
 
                 >
@@ -107,7 +108,7 @@ function HeroSection({ isDark }) {
                     <div
                       className={`w-24 h-24 ${isDark ? "bg-gradient-to-br from-slate-700 to-slate-800" : "bg-gradient-to-br from-slate-800 to-slate-900"} rounded-full shadow-2xl flex items-center justify-center border-4 ${isDark ? "border-slate-600" : "border-slate-700"}`}
                     >
-                      <div className="relative w-12 h-12">
+                      <div className="relative w-36 h-36">
                         <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain" />
                       </div>
                     </div>

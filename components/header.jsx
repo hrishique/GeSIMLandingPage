@@ -10,6 +10,7 @@ import {
     Zap,
     Building2,
     Globe,
+    Book,
   
   } from "lucide-react"
 import Link from 'next/link'
@@ -17,7 +18,7 @@ function Header({isDark, toggleTheme, scrollToWaitlist}) {
 
 
   return (
-    <header className="top-0 z-50 px-6 py-6 bg-white/80 dark:bg-[#0B1127]  transition-colors">
+    <header className={`top-0 z-50 px-6 py-6 ${!isDark ? 'bg-white/80' : 'bg-slate-950'}  transition-colors`}>
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="relative w-10 h-10 p-0.5 overflow-hidden">
@@ -41,30 +42,26 @@ function Header({isDark, toggleTheme, scrollToWaitlist}) {
             <Building2 className="w-4 h-4" />
             Partners
           </Link>
-          <Link
-              href="/blog"
-              className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
-            >
-              <Globe className="w-4 h-4" />
-              Blog
-            </Link>
+         
             <Link
-              href="https://app.gesim.xyz"
+              href="#app"
               className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
             >
               <Smartphone className="w-4 h-4" />
               App
+            </Link> 
+            <Link
+              href="https://gesim.gitbook.io/gesim"
+              target='_blank'
+              className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
+            >
+              <Book className="w-4 h-4" />
+              docs
             </Link>
         </nav>
 
         <div className="flex items-center space-x-4 ms-4">
-          <Button
-            onClick={scrollToWaitlist}
-            className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-6 py-2 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all flex items-center gap-2`}
-          >
-            <Mail className="w-4 h-4" />
-            Join Waitlist
-          </Button>
+          
           <Button
             variant="ghost"
             size="icon"
@@ -72,6 +69,13 @@ function Header({isDark, toggleTheme, scrollToWaitlist}) {
             className={`${isDark ? "text-slate-400 hover:text-white hover:bg-slate-800" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"} rounded-xl`}
           >
             {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </Button>
+          <Button
+            onClick={scrollToWaitlist}
+            className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-6 py-2 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all flex items-center gap-2`}
+          >
+            <Mail className="w-4 h-4" />
+            Join Waitlist
           </Button>
         </div>
       </div>
