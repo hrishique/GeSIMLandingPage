@@ -80,9 +80,9 @@ function HeroSection({ isDark }) {
                   <ArrowRight className={`w-5 h-5`} />
                   Start Your Journey
                 </Link>
-                <Button
-                  size="lg"
-                  variant="outline"
+                <Link
+                  href={'https://www.loom.com/share/5257955a15d84419916b07ecd5ef4899?sid=7c72cfb9-c83e-490e-9c3a-934f23fd9c24'}
+                  target='_blank'
                   className={`px-12 py-4 text-lg font-semibold rounded-xl border-2 transition-all duration-300 flex items-center gap-3 ${
                     isDark
                       ? "border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white"
@@ -91,7 +91,7 @@ function HeroSection({ isDark }) {
                 >
                   <Smartphone className="w-5 h-5" />
                   Watch Demo
-                </Button>
+                </Link>
               </div>
 
               {/* Stats */}
