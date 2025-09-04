@@ -20,12 +20,12 @@ function Header({isDark, toggleTheme, scrollToWaitlist}) {
   return (
     <header className={`top-0 z-50 px-6 py-6 ${!isDark ? 'bg-white/80' : 'bg-slate-950'}  transition-colors`}>
       <div className="container mx-auto flex items-center justify-between">
-        <div className="flex items-center space-x-3">
+        <Link href='/' className="flex items-center space-x-3">
           <div className="relative w-10 h-10 p-0.5 overflow-hidden">
             <Image src={"/gesim-logo.png"} alt="GeSIM" fill className={`object-cover ${isDark ? "scale-150" : "scale-125"}`} />
           </div>
           <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</span>
-        </div>
+        </Link>
 
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
           <Link
@@ -51,6 +51,13 @@ function Header({isDark, toggleTheme, scrollToWaitlist}) {
               App
             </Link> 
             <Link
+              href="/blog"
+              className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
+            >
+              <Globe className="w-4 h-4" />
+              Blog
+            </Link>
+             <Link
               href="https://gesim.gitbook.io/gesim"
               target='_blank'
               className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
