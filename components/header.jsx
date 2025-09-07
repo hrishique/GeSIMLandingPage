@@ -50,13 +50,14 @@ function Header({isDark, toggleTheme, scrollToWaitlist}) {
               <Smartphone className="w-4 h-4" />
               App
             </Link> 
-            <Link
+           {/* <Link
               href="/blog"
               className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
             >
               <Globe className="w-4 h-4" />
               Blog
             </Link>
+            */}
              <Link
               href="https://gesim.gitbook.io/gesim"
               target='_blank'

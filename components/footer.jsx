@@ -49,7 +49,7 @@ export default function Footer({ isDark }) {
           <p
             className={`${isDark ? "text-slate-500" : "text-slate-600"} text-sm flex items-baseline justify-center gap-2`}
           >
-            © {new Date().getFullYear()} GeSIM. Revolutionizing global connectivity with blockchain technology.
+            © {new Date().getFullYear()} GeSIM. All rights reserved.
           </p>
         </div>
    

@@ -65,7 +65,7 @@ function HeroSection({ isDark }) {
               <p
                 className={`text-xl md:text-2xl font-medium mb-12 ${isDark ? "text-slate-400" : "text-slate-600"} max-w-2xl leading-relaxed`}
               >
-                Smart, borderless eSIM — connect globally, pay locally.
+                AI-powered blockchain eSIM: Connect globally, Pay locally
 
 
               </p>
