@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
-export default function PhoneMockup({ isDark }) {
+export default function PhoneMockup() {
     const [status, setStatus] = useState("inserting") // inserting -> connecting -> connected
     const [logoPlugged, setLogoPlugged] = useState(false)
     const [currentLocation, setCurrentLocation] = useState({ city: "Tokyo", flag: "🇯🇵", country: "Japan" })
@@ -73,11 +73,11 @@ export default function PhoneMockup({ isDark }) {
     return (
       <div
         id="phone-mockup"
-        className={`relative w-80 h-[34rem] rounded-[3.5rem] p-4 shadow-2xl transition-all duration-500 hover:scale-105 group cursor-pointer ${isDark ? "bg-slate-800 border-slate-700 shadow-slate-900/60" : "bg-white border-slate-200"} border`}
+        className={`relative w-80 h-[34rem] rounded-[3.5rem] p-4 shadow-2xl transition-all duration-500 hover:scale-105 group cursor-pointer dark:bg-white dark:border-slate-200 bg-slate-800 border-slate-700 shadow-slate-900/60 border`}
         onClick={() => !isVisible && setIsVisible(true)}
       >
         <div
-          className={`w-full h-full rounded-[2.5rem] flex flex-col items-center justify-center p-6 transition-colors ${isDark ? "bg-slate-900" : "bg-slate-200"}`}
+          className={`w-full h-full rounded-[2.5rem] flex flex-col items-center justify-center p-6 transition-colors dark:bg-slate-200 bg-slate-900`}
         >
           <div className="flex-grow flex flex-col items-center justify-center gap-6">
             <div
@@ -93,22 +93,18 @@ export default function PhoneMockup({ isDark }) {
                 }`}
               />
             </div>
-            <h3 className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</h3>
+            <h3 className={`text-2xl font-bold dark:text-slate-900 text-white`}>GeSIM</h3>
           </div>
           <div
-            className={`w-full text-center p-4 rounded-xl transition-all duration-500 ${!isDark ? "bg-slate-800" : "bg-white"} ${
+            className={`w-full text-center p-4 rounded-xl transition-all duration-500 bg-white dark:bg-slate-800 ${
               status === "connected" ? "ring-2 ring-green-400/50" : ""
             }`}
           >
             <p
               className={`font-medium text-xs md:text-base transition-all duration-2000 animate-pulse ${
                 status === "connected"
-                  ? !isDark
-                    ? "text-green-400 animate-pulse"
-                    : "text-green-600 animate-pulse"
-                  : !isDark
-                    ? "text-slate-300 animate-pulse"
-                    : "text-slate-700 animate-pulse"
+                  ? "dark:text-green-400 text-green-600 animate-pulse"
+                  : "dark:text-slate-300 text-slate-700 animate-pulse"
               }`}
             >
               {statusText[status]}

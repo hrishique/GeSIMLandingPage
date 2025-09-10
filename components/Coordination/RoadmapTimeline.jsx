@@ -5,7 +5,7 @@ import { FaTowerCell } from "react-icons/fa6";
 import { BsSim } from "react-icons/bs";
 
 
-const RoadmapTimeline = ({ isDark }) => {
+const RoadmapTimeline = () => {
   const [activeStep, setActiveStep] = useState(null)
 
   const roadmapSteps = [
@@ -66,23 +66,23 @@ const RoadmapTimeline = ({ isDark }) => {
                 className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center z-10 transition-all duration-1000 ease-in-out transform group-hover:scale-110
                 ${isComplete ? "bg-green-500 text-white shadow-lg shadow-green-500/30" : ""}
                 ${isActive ? `bg-blue-500 text-white animate-bounce shadow-lg shadow-blue-500/30 ` : ""}
-                ${isUpcoming && !isActive ? `${isDark ? "bg-slate-700 border-2 border-slate-600 text-slate-400" : "bg-slate-200 border-2 border-slate-300 text-slate-500"}` : ""}
+                ${isUpcoming && !isActive ? "bg-slate-200 border-2 border-slate-300 text-slate-500 dark:bg-slate-700 dark:border-slate-600 dark:text-slate-400" : ""}
               `}
               >
                 <step.icon className="w-8 h-8 p-1" />
               </div>
               <div className="ml-6">
-                <h4 className={`font-bold text-lg ${isDark ? "text-white" : "text-slate-900"}`}>
+                <h4 className={`font-bold text-lg text-slate-900 dark:text-white`}>
                   {step.title} <span className="ms-1 text-sm font-medium text-slate-500">{step.quarter}</span>
                 </h4>
-                <p className={`text-base text-justify mt-1 ${isDark ? "text-slate-400" : "text-slate-600"}`}>{step.description}</p>
+                <p className={`text-base text-justify mt-1 text-slate-600 dark:text-slate-400`}>{step.description}</p>
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${
                     isExpanded ? "max-h-40 mt-2" : "max-h-0"
                   }`}
                 >
                   <div
-                    className={`p-3 rounded-lg text-xs text-justify ${isDark ? "bg-slate-800" : "bg-slate-100"} ${isDark ? "text-slate-300" : "text-slate-600"}`}
+                    className={`p-3 rounded-lg text-xs text-justify bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300`}
                   >
                     {step.details}
                   </div>

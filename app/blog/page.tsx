@@ -16,7 +16,6 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useThemeContext } from "@/components/theme-provider"
 
 // Mock blog data
 const blogPosts = [
@@ -97,7 +96,6 @@ const blogPosts = [
 const categories = ["All", "Product Updates", "Partnerships", "Travel Tips"]
 
 export default function BlogPage() {
-  const { isDark } = useThemeContext()
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [searchQuery, setSearchQuery] = useState("")
@@ -122,17 +120,17 @@ export default function BlogPage() {
   
   return (
     <div
-      className={`min-h-screen transition-all duration-700 ${isDark ? "bg-slate-900" : "bg-gradient-to-br from-slate-50 via-white to-slate-100"}`}
+      className={`min-h-screen transition-all duration-700 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:bg-none dark:bg-slate-900`}
     >    
       {/* Blog Header */}
       <section className="relative px-6 pt-20 pb-16">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h1 className={`text-5xl md:text-6xl font-black mb-6 ${isDark ? "text-white" : "text-slate-900"}`}>
+            <h1 className={`text-5xl md:text-6xl font-black mb-6 text-slate-900 dark:text-white`}>
               GeSIM Insights
             </h1>
             <p
-              className={`text-xl md:text-2xl ${isDark ? "text-slate-400" : "text-slate-600"} max-w-3xl mx-auto leading-relaxed`}
+              className={`text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed`}
             >
               Stay updated with the latest in global connectivity, Web3 technology, and digital nomad lifestyle
             </p>
@@ -143,14 +141,14 @@ export default function BlogPage() {
             {/* Search */}
             <div className="relative flex-1 max-w-md">
               <Search
-                className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 ${isDark ? "text-slate-400" : "text-slate-500"}`}
+                className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-500 dark:text-slate-400`}
               />
               <Input
                 type="text"
                 placeholder="Search articles..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className={`pl-12 h-12 rounded-xl ${isDark ? "bg-slate-800 border-slate-700 text-white placeholder:text-slate-400" : "bg-white border-slate-300 text-slate-900 placeholder:text-slate-500"} shadow-lg`}
+                className={`pl-12 h-12 rounded-xl bg-white border-slate-300 text-slate-900 placeholder:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:placeholder:text-slate-400 shadow-lg`}
               />
             </div>
 
@@ -162,12 +160,8 @@ export default function BlogPage() {
                 onClick={() => setViewMode("grid")}
                 className={`rounded-lg ${
                   viewMode === "grid"
-                    ? isDark
-                      ? "bg-slate-800 text-white"
-                      : "bg-slate-900 text-white"
-                    : isDark
-                      ? "border-slate-700 text-slate-300 hover:bg-slate-800"
-                      : "border-slate-300 text-slate-700 hover:bg-slate-100"
+                    ? "bg-slate-900 text-white dark:bg-slate-800"
+                    : "border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
                 }`}
               >
                 <Grid3X3 className="w-4 h-4" />
@@ -178,12 +172,8 @@ export default function BlogPage() {
                 onClick={() => setViewMode("list")}
                 className={`rounded-lg ${
                   viewMode === "list"
-                    ? isDark
-                      ? "bg-slate-800 text-white"
-                      : "bg-slate-900 text-white"
-                    : isDark
-                      ? "border-slate-700 text-slate-300 hover:bg-slate-800"
-                      : "border-slate-300 text-slate-700 hover:bg-slate-100"
+                    ? "bg-slate-900 text-white dark:bg-slate-800"
+                    : "border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
                 }`}
               >
                 <List className="w-4 h-4" />
@@ -200,12 +190,8 @@ export default function BlogPage() {
                 onClick={() => setSelectedCategory(category)}
                 className={`rounded-full px-6 py-2 font-medium transition-all ${
                   selectedCategory === category
-                    ? isDark
-                      ? "bg-slate-800 text-white"
-                      : "bg-slate-900 text-white"
-                    : isDark
-                      ? "border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white"
-                      : "border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                    ? "bg-slate-900 text-white dark:bg-slate-800"
+                    : "border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
                 }`}
               >
                 <Filter className="w-4 h-4 mr-2" />
@@ -224,7 +210,7 @@ export default function BlogPage() {
               {filteredPosts.map((post) => (
                 <article
                   key={post.id}
-                  className={`group rounded-3xl overflow-hidden ${isDark ? "bg-slate-800/30 border-slate-700/50" : "bg-white border-slate-200"} border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105`}
+                  className={`group rounded-3xl overflow-hidden bg-white border-slate-200 dark:bg-slate-800/30 dark:border-slate-700/50 border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105`}
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
@@ -250,31 +236,31 @@ export default function BlogPage() {
 
                   <div className="p-6">
                     <div className="flex items-center gap-4 mb-3 text-sm">
-                      <div className={`flex items-center gap-1 ${isDark ? "text-slate-400" : "text-slate-600"}`}>
+                      <div className={`flex items-center gap-1 text-slate-600 dark:text-slate-400`}>
                         <Calendar className="w-4 h-4" />
                         {formatDate(post.publishedAt)}
                       </div>
-                      <div className={`flex items-center gap-1 ${isDark ? "text-slate-400" : "text-slate-600"}`}>
+                      <div className={`flex items-center gap-1 text-slate-600 dark:text-slate-400`}>
                         <Clock className="w-4 h-4" />
                         {post.readTime}
                       </div>
                     </div>
 
                     <h2
-                      className={`text-xl font-bold mb-3 ${isDark ? "text-white" : "text-slate-900"} group-hover:${isDark ? "text-white" : "text-slate-900"} line-clamp-2`}
+                      className={`text-xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-slate-900 dark:group-hover:text-white line-clamp-2`}
                     >
                       {post.title}
                     </h2>
 
-                    <p className={`${isDark ? "text-slate-400" : "text-slate-600"} mb-4 line-clamp-3 leading-relaxed`}>
+                    <p className={`text-slate-600 dark:text-slate-400 mb-4 line-clamp-3 leading-relaxed`}>
                       {post.excerpt}
                     </p>
 
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {post.tags.slice(0, 3).map((tag) => (
+                      {post.tags.map((tag) => (
                         <span
                           key={tag}
-                          className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium ${isDark ? "bg-slate-700 text-slate-300" : "bg-slate-100 text-slate-700"}`}
+                          className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300`}
                         >
                           <Tag className="w-3 h-3" />
                           {tag}
@@ -284,7 +270,7 @@ export default function BlogPage() {
 
                     <Link
                       href={`/blog/${post.slug}`}
-                      className={`inline-flex items-center gap-2 font-semibold ${isDark ? "text-slate-300 hover:text-white" : "text-slate-700 hover:text-slate-900"} transition-colors group-hover:gap-3`}
+                      className={`inline-flex items-center gap-2 font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors group-hover:gap-3`}
                     >
                       Read More
                       <ArrowRight className="w-4 h-4" />
@@ -298,7 +284,7 @@ export default function BlogPage() {
               {filteredPosts.map((post) => (
                 <article
                   key={post.id}
-                  className={`group flex flex-col md:flex-row gap-6 p-6 rounded-3xl ${isDark ? "bg-slate-800/30 border-slate-700/50" : "bg-white border-slate-200"} border shadow-lg hover:shadow-2xl transition-all duration-300`}
+                  className={`group flex flex-col md:flex-row gap-6 p-6 rounded-3xl bg-white border-slate-200 dark:bg-slate-800/30 dark:border-slate-700/50 border shadow-lg hover:shadow-2xl transition-all duration-300`}
                 >
                   <div className="relative w-full md:w-80 h-48 flex-shrink-0 overflow-hidden rounded-2xl">
                     <Image
@@ -324,23 +310,23 @@ export default function BlogPage() {
 
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-3 text-sm">
-                      <div className={`flex items-center gap-1 ${isDark ? "text-slate-400" : "text-slate-600"}`}>
+                      <div className={`flex items-center gap-1 text-slate-600 dark:text-slate-400`}>
                         <Calendar className="w-4 h-4" />
                         {formatDate(post.publishedAt)}
                       </div>
-                      <div className={`flex items-center gap-1 ${isDark ? "text-slate-400" : "text-slate-600"}`}>
+                      <div className={`flex items-center gap-1 text-slate-600 dark:text-slate-400`}>
                         <Clock className="w-4 h-4" />
                         {post.readTime}
                       </div>
                     </div>
 
                     <h2
-                      className={`text-2xl font-bold mb-4 ${isDark ? "text-white" : "text-slate-900"} group-hover:${isDark ? "text-white" : "text-slate-900"}`}
+                      className={`text-2xl font-bold mb-4 text-slate-900 dark:text-white group-hover:text-slate-900 dark:group-hover:text-white`}
                     >
                       {post.title}
                     </h2>
 
-                    <p className={`${isDark ? "text-slate-400" : "text-slate-600"} mb-4 leading-relaxed`}>
+                    <p className={`text-slate-600 dark:text-slate-400 mb-4 leading-relaxed`}>
                       {post.excerpt}
                     </p>
 
@@ -348,7 +334,7 @@ export default function BlogPage() {
                       {post.tags.map((tag) => (
                         <span
                           key={tag}
-                          className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium ${isDark ? "bg-slate-700 text-slate-300" : "bg-slate-100 text-slate-700"}`}
+                          className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300`}
                         >
                           <Tag className="w-3 h-3" />
                           {tag}
@@ -358,7 +344,7 @@ export default function BlogPage() {
 
                     <Link
                       href={`/blog/${post.slug}`}
-                      className={`inline-flex items-center gap-2 font-semibold ${isDark ? "text-slate-300 hover:text-white" : "text-slate-700 hover:text-slate-900"} transition-colors group-hover:gap-3`}
+                      className={`inline-flex items-center gap-2 font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors group-hover:gap-3`}
                     >
                       Read More
                       <ArrowRight className="w-4 h-4" />
@@ -371,13 +357,13 @@ export default function BlogPage() {
 
           {filteredPosts.length === 0 && (
             <div className="text-center py-16">
-              <div className={`text-6xl mb-4 ${isDark ? "text-slate-700" : "text-slate-300"}`}>
+              <div className={`text-6xl mb-4 text-slate-300 dark:text-slate-700`}>
                 <Search className="w-16 h-16 mx-auto" />
               </div>
-              <h3 className={`text-2xl font-bold mb-2 ${isDark ? "text-slate-400" : "text-slate-600"}`}>
+              <h3 className={`text-2xl font-bold mb-2 text-slate-600 dark:text-slate-400`}>
                 No articles found
               </h3>
-              <p className={`${isDark ? "text-slate-500" : "text-slate-500"}`}>
+              <p className={`text-slate-500`}>
                 Try adjusting your search or filter criteria
               </p>
             </div>

@@ -35,7 +35,7 @@ html {
 }
         `}</style>
       </head>
-      <body>
+      <body cz-shortcut-listen="true">
         <ThemeProvider>
          <Header />
           {children}
