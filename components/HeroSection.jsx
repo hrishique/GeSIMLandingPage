@@ -1,24 +1,15 @@
+'use client'
 import React from 'react'
-import {
-    Globe,
-    Smartphone,
-    CreditCard,
-    Shield,
-    Zap,
-    ArrowRight,
-    Wifi,
-    Radio,
-    Network,
- 
-  } from "lucide-react"
+import { Globe, Smartphone, CreditCard, Shield, Zap, ArrowRight, Wifi, Radio, Network, } from "lucide-react"
 import Link from "next/link"
-import { Button } from './ui/button'
 import Image from 'next/image'
+import { useThemeContext } from './theme-provider'
 
-function HeroSection({ isDark }) {
+function HeroSection() {
+  const { isDark } = useThemeContext()
   return (
       
-      <section className="relative px-6 pt-20 pb-32 overflow-hidden">
+      <section className="md:container md:mx-auto relative px-6 pt-20 pb-32 overflow-hidden">
         {/* Subtle Background Elements */}
         <div className="absolute inset-0">
           <div
@@ -29,13 +20,13 @@ function HeroSection({ isDark }) {
           ></div>
         </div>
 
-        <div className="container mx-auto relative z-10">
+        <div className="mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <div className="text-left">
               {/* Tag Line */}
               <div className="flex items-center gap-3 mb-8">
-                <Zap className={`w-6 h-6 flex-shrink-0 ${isDark ? "text-slate-400" : "text-slate-600"}`} />
+                {/* <Zap className={`w-6 h-6 flex-shrink-0 ${isDark ? "text-slate-400" : "text-slate-600"}`} /> */}
                 <span className={`text-lg font-medium ${isDark ? "text-slate-400" : "text-slate-600"}`}>
                   One eSIM for the world
                 </span>
@@ -65,9 +56,7 @@ function HeroSection({ isDark }) {
               <p
                 className={`text-xl md:text-2xl font-medium mb-12 ${isDark ? "text-slate-400" : "text-slate-600"} max-w-2xl leading-relaxed`}
               >
-                Smart, borderless eSIM — connect globally, pay locally.
-
-
+                AI-driven blockchain eSIM: Connect globally, Pay locally
               </p>
 
               {/* CTA Section */}
@@ -75,7 +64,8 @@ function HeroSection({ isDark }) {
                 <Link
                   href="#app"
                   // target="_blank"
-                  className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-12 py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3`}
+                  className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} 
+                    px-12 py-4 text-lg font-semibold rounded-xl border-2 transition-all duration-300 flex items-center gap-3`}
 
                 >
                   <ArrowRight className={`w-5 h-5`} />
@@ -100,25 +90,26 @@ function HeroSection({ isDark }) {
 
             {/* Right Animation - Telecom x Web3 Intersection */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative w-96 h-96">
+              <div className="relative aspect-square w-[min(22rem,90vw)] sm:w-96">
                 {/* Central Intersection Hub */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="relative flex items-center justify-center w-full h-full">
                     {/* Core Hub */}
-                    <div
-                      className={`w-24 h-24 ${isDark ? "bg-gradient-to-br from-slate-700 to-slate-800" : "bg-gradient-to-br from-slate-800 to-slate-900"} rounded-full shadow-2xl flex items-center justify-center border-4 ${isDark ? "border-slate-600" : "border-slate-700"}`}
-                    >
-                      <div className="relative w-36 h-36">
-                        <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain" />
-                      </div>
+                    <div className="relative flex items-center justify-center w-32 h-32 z-20">
+                      <Image
+                        src="/gesim-logo.png"
+                        alt="GeSIM"
+                        fill
+                        className="object-contain rounded-full"
+                        style={{ zIndex: 10 }}
+                      />
                     </div>
-
-                    {/* Pulsing Rings */}
+                    {/* Centered Pulsing Rings */}
                     <div
-                      className={`absolute inset-0 w-24 h-24 border-2 ${isDark ? "border-slate-600/40" : "border-slate-400/40"} rounded-full animate-ping`}
+                      className={`absolute w-32 h-32 border-2 ${isDark ? "border-slate-600/40" : "border-slate-400/40"} rounded-full animate-ping`}
                     ></div>
                     <div
-                      className={`absolute -inset-2 w-28 h-28 border-2 ${isDark ? "border-slate-600/30" : "border-slate-400/30"} rounded-full animate-ping`}
+                      className={`absolute w-32 h-32 border-2 ${isDark ? "border-slate-600/30" : "border-slate-400/30"} rounded-full animate-ping`}
                       style={{ animationDelay: "0.5s" }}
                     ></div>
                   </div>
@@ -128,18 +119,18 @@ function HeroSection({ isDark }) {
                 <div className="absolute inset-0 animate-spin-slow">
                   <div className="relative w-full h-full">
                     {/* Telecom Node 1 */}
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-6">
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 md:-translate-y-6">
                       <div
-                        className={`w-16 h-16 ${isDark ? "bg-blue-600" : "bg-blue-700"} rounded-2xl p-3 shadow-xl border-2 ${isDark ? "border-blue-500" : "border-blue-600"}`}
+                        className={`w-12 md:w-16 h-12 md:h-16 ${isDark ? "bg-blue-600" : "bg-blue-700"} rounded-full p-3 shadow-xl border-2 ${isDark ? "border-blue-500" : "border-blue-600"}`}
                       >
                         <Radio className="w-full h-full text-white" />
                       </div>
                     </div>
 
                     {/* Telecom Node 2 */}
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-6">
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 md:translate-y-6">
                       <div
-                        className={`w-16 h-16 ${isDark ? "bg-green-600" : "bg-green-700"} rounded-2xl p-3 shadow-xl border-2 ${isDark ? "border-green-500" : "border-green-600"}`}
+                        className={`w-12 md:w-16 h-12 md:h-16 ${isDark ? "bg-green-600" : "bg-green-700"} rounded-full p-3 shadow-xl border-2 ${isDark ? "border-green-500" : "border-green-600"}`}
                       >
                         <Wifi className="w-full h-full text-white" />
                       </div>
@@ -151,18 +142,18 @@ function HeroSection({ isDark }) {
                 <div className="absolute inset-0 animate-spin-reverse">
                   <div className="relative w-full h-full">
                     {/* Web3 Node 1 */}
-                    <div className="absolute left-0 top-1/2 transform -translate-x-6 -translate-y-1/2">
+                    <div className="absolute left-0 top-1/2 transform md:-translate-x-6 md:-translate-y-1/2">
                       <div
-                        className={`w-14 h-14 ${isDark ? "bg-purple-600" : "bg-purple-700"} rounded-xl p-2.5 shadow-xl border-2 ${isDark ? "border-purple-500" : "border-purple-600"}`}
+                        className={`w-12 md:w-14 h-12 md:h-14 ${isDark ? "bg-purple-600" : "bg-purple-700"} rounded-full p-2.5 shadow-xl border-2 ${isDark ? "border-purple-500" : "border-purple-600"}`}
                       >
                         <CreditCard className="w-full h-full text-white" />
                       </div>
                     </div>
 
                     {/* Web3 Node 2 */}
-                    <div className="absolute right-0 top-1/2 transform translate-x-6 -translate-y-1/2">
+                    <div className="absolute right-0 top-1/2 transform md:translate-x-6 md:-translate-y-1/2">
                       <div
-                        className={`w-14 h-14 ${isDark ? "bg-cyan-600" : "bg-cyan-700"} rounded-xl p-2.5 shadow-xl border-2 ${isDark ? "border-cyan-500" : "border-cyan-600"}`}
+                        className={`w-12 md:w-14 h-12 md:h-14 ${isDark ? "bg-cyan-600" : "bg-cyan-700"} rounded-full p-2.5 shadow-xl border-2 ${isDark ? "border-cyan-500" : "border-cyan-600"}`}
                       >
                         <Shield className="w-full h-full text-white" />
                       </div>
@@ -173,14 +164,14 @@ function HeroSection({ isDark }) {
                 {/* Connection Lines */}
                 <div className="absolute inset-0">
                   {/* Telecom Orbit Ring */}
-                  <div
-                    className={`absolute inset-8 border-2 border-dashed ${isDark ? "border-blue-500/30" : "border-blue-600/30"} rounded-full`}
-                  ></div>
+                                      <div
+                      className={`absolute inset-[12%] sm:inset-8 border-2 border-dashed ${isDark ? "border-blue-500/30" : "border-blue-600/30"} rounded-full`}
+                    ></div>
 
                   {/* Web3 Orbit Ring */}
-                  <div
-                    className={`absolute inset-12 border-2 border-dashed ${isDark ? "border-purple-500/30" : "border-purple-600/30"} rounded-full`}
-                  ></div>
+                                      <div
+                      className={`absolute inset-[18%] sm:inset-12 border-2 border-dashed ${isDark ? "border-purple-500/30" : "border-purple-600/30"} rounded-full`}
+                    ></div>
                 </div>
 
                 {/* Floating Network Nodes */}

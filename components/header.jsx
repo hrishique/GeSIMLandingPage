@@ -1,30 +1,30 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 import { Button } from "@/components/ui/button"
-
-import {
-    Moon,
-    Sun,
-    Smartphone,
-    Mail,
-    Zap,
-    Building2,
-    Globe,
-    Book,
-  
-  } from "lucide-react"
+import { Moon, Sun, Smartphone, Mail, Zap, Building2, Globe, Book, } from "lucide-react"
 import Link from 'next/link'
-function Header({isDark, toggleTheme, scrollToWaitlist}) {   
+import { useThemeContext } from '@/components/theme-provider'
+
+function Header() {   
+  const { isDark, toggleTheme } = useThemeContext()
+
+  const scrollToWaitlist = () => {
+    const waitlistSection = document.getElementById('waitlist')
+    if (waitlistSection) {
+      waitlistSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
 
   return (
     <header className={`top-0 z-50 px-6 py-6 ${!isDark ? 'bg-white/80' : 'bg-slate-950'}  transition-colors`}>
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="md:container md:mx-auto flex items-center justify-between">
         <Link href='/' className="flex items-center space-x-3">
-          <div className="relative w-10 h-10 p-0.5 overflow-hidden">
-            <Image src={"/gesim-logo.png"} alt="GeSIM" fill className={`object-cover ${isDark ? "scale-150" : "scale-125"}`} />
-          </div>
-          <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</span>
+        <div className={`ms-4 relative w-8 h-8 p-1.5 ${isDark ? "bg-slate-800" : "bg-gradient-to-br from-slate-200 to-slate-300"} rounded-xl shadow-lg`}>
+              <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain rounded-xl" />
+        </div>
+        <span className={`text-xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">

@@ -1,8 +1,10 @@
+'use client'
 import React from 'react'
-import { Button } from './ui/button'
-import { CreditCard, FileText, Globe, Network, Settings, Shield, Zap } from 'lucide-react'
+import { CreditCard, Globe, Network, Zap } from 'lucide-react'
+import { useThemeContext } from './theme-provider'
 
-function FeaturesSection({isDark}) {
+function FeaturesSection() {
+  const { isDark } = useThemeContext()
 
     const handleStartJourney = (section) => {
         window.open(`https://app.gesim.xyz/?section=${section}`, "_blank")
@@ -10,15 +12,15 @@ function FeaturesSection({isDark}) {
 
   return (
     <section id="features" className={`py-32 px-6 ${isDark ? "bg-slate-950" : "bg-white"}`}>
-    <div className="container mx-auto max-w-6xl">
+    <div className="md:container md:mx-auto max-w-6xl">
       <div className="text-center mb-20">
         <div className="flex items-center justify-center gap-3 mb-6">
-          <Zap className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} />
-          <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
+          {/* <Zap className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} /> */}
+          <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
             Revolutionary Features
           </h2>
         </div>
-        <p className={`text-xl ${isDark ? "text-slate-400" : "text-slate-600"}`}>
+        <p className={`md:text-xl text-lg ${isDark ? "text-slate-400" : "text-slate-600"}`}>
           The future of global connectivity is here
         </p>
       </div>
@@ -33,7 +35,7 @@ function FeaturesSection({isDark}) {
             >
               <Globe className="h-8 w-8 min-w-[2rem] min-h-[2rem] text-white flex-shrink-0" />
             </div>
-            <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>Global Pay-Per-Use Connectivity</h3>
+            <h3 className={`text-lg md:text-xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>Global Pay-Per-Use Connectivity</h3>
           </div>
           <p className={`${isDark ? "text-slate-400" : "text-slate-600"} leading-relaxed`}>
             Smart billing, Single eSIM, 150+ countries

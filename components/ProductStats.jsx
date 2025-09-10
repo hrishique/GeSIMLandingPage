@@ -1,10 +1,12 @@
 import React from 'react'
 import { Globe, Award, Users } from 'lucide-react'
+import { useThemeContext } from './theme-provider'
 
-function ProductStats({isDark}) {
+function ProductStats() {
+  const { isDark } = useThemeContext()
   return (
     <section className="py-16 px-6">
-    <div className="container mx-auto">
+    <div className="md:container md:mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
         <div
           className={`p-10 rounded-2xl backdrop-blur-sm ${isDark ? "bg-slate-800/30 border-slate-700/50" : "bg-white/70 border-slate-200"} border shadow-lg`}

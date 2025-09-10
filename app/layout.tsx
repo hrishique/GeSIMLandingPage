@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'GeSIM ',
@@ -21,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <style>{`
 html {
@@ -31,7 +35,14 @@ html {
 }
         `}</style>
       </head>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>
+         <Header />
+          {children}
+          <Analytics />
+          <Footer />
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

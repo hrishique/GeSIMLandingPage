@@ -1,10 +1,13 @@
+'use client'
+import { useThemeContext } from './theme-provider'
 import { ArrowRight, Mail, Shield, Users } from 'lucide-react'
 import React, { useState } from 'react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
 import axios from 'axios'
 
-function WaitlistSection({ isDark }) {
+function WaitlistSection() {
+  const { isDark } = useThemeContext()
   const [email, setEmail] = useState("")
 
 
@@ -41,20 +44,20 @@ const handleSubmit = async (e) => {
       id="waitlist"
       className={`py-16 sm:py-28 px-4 sm:px-6 ${isDark ? "bg-slate-950" : "bg-white"}`}
     >
-      <div className="container mx-auto text-center">
+      <div className="md:container md:mx-auto text-center">
         <div className="flex items-center justify-center gap-2 sm:flex-row sm:gap-3 mb-6 sm:mb-8">
-          <Mail className={`w-8 h-8 sm:w-10 sm:h-10 ${isDark ? "text-slate-400" : "text-slate-600"}`} />
+          {/* <Mail className={`w-8 h-8 sm:w-10 sm:h-10 ${isDark ? "text-slate-400" : "text-slate-600"}`} /> */}
           <h2
-            className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-slate-900"} leading-tight`}
+            className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-slate-900"} leading-tight`}
           >
             Join the Revolution
           </h2>
         </div>
 
         <p
-          className={`text-base xs:text-lg sm:text-xl mb-8 sm:mb-12 ${isDark ? "text-slate-400" : "text-slate-600"} flex justify-center items-center md:gap-4`}
+          className={`text-base md:text-lg mb-8 sm:mb-12 ${isDark ? "text-slate-400" : "text-slate-600"} flex justify-center items-center md:gap-4`}
         >
-          <Users className="w-10 h-10 sm:w-6 sm:h-6 translate-y-0.5 items-center" />
+          {/* <Users className="w-10 h-10 sm:w-6 sm:h-6 translate-y-0.5 items-center" /> */}
           <span className="max-w-xs sm:max-w-none">
             Join a Thriving Global Community of Digital Nomads with GeSIM
           </span>
@@ -76,7 +79,9 @@ const handleSubmit = async (e) => {
             <Button
               // size='lg'
               type="submit"
-              className={`sm:w-48 h-12 sm:h-14 rounded-lg sm:rounded-xl text-base sm:text-lg font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 px-6 ${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"}`}
+              className={`
+                    px-12 py-4 text-lg font-semibold rounded-xl border-2 transition-all duration-300 flex items-center gap-3 w-full
+                ${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"}`}
               disabled={!email}
             >
               <ArrowRight className="w-5 h-5" />
@@ -86,9 +91,9 @@ const handleSubmit = async (e) => {
         </form>
 
         <p
-          className={`pt-8 text-xs sm:text-sm mt-6 sm:mt-8 ${isDark ? "text-slate-500" : "text-slate-600"} flex items-baseline justify-center gap-2`}
+          className={`pt-8 text-xs md:text-sm mt-6 sm:mt-8 ${isDark ? "text-slate-500" : "text-slate-600"} flex items-center justify-center gap-2`}
         >
-          <Shield className="w-4 h-4 translate-y-0.5" />
+          <Shield className="w-4 h-4" />
           <span>No spam, ever. Be the first to know when we launch.</span>
         </p>
       </div>

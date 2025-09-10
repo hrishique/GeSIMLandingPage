@@ -1,43 +1,16 @@
 "use client"
-
-import { useEffect, useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Search, Globe, Moon, Sun, ArrowLeft } from "lucide-react"
+import { Search, Globe, ArrowLeft } from "lucide-react"
+import Header from "@/components/header"
+import { useThemeContext } from "@/components/theme-provider"
 
 export default function NotFound() {
-  const [isDark, setIsDark] = useState(false)
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark)
-  }, [isDark])
+  const { isDark } = useThemeContext()
 
   return (
     <div className={`min-h-screen transition-all duration-700 ${isDark ? "bg-slate-950" : "bg-gradient-to-br from-slate-50 via-white to-slate-100"}`}>
       {/* Header */}
-      <header className="relative z-50 px-6 py-6">
-        <div className="container mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="relative w-10 h-10 p-1.5 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-lg">
-              <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain" />
-            </div>
-            <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</span>
-          </Link>
-
-          <div className="flex items-center space-x-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsDark((v) => !v)}
-              className={`${isDark ? "text-slate-400 hover:text-white hover:bg-slate-800" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"} rounded-xl`}
-            >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
-          </div>
-        </div>
-      </header>
-
       {/* 404 Content */}
       <main className="container mx-auto max-w-4xl px-6 py-24 md:py-32 text-center">
         <div className={`text-8xl mb-8 ${isDark ? "text-slate-700" : "text-slate-300"}`}>

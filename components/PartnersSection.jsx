@@ -5,8 +5,10 @@ import {
   } from "lucide-react"
 import { Button } from './ui/button'
 import Image from 'next/image'
+import { useThemeContext } from './theme-provider'
 
-function PartnersSection({isDark}) {
+function PartnersSection() {
+  const { isDark } = useThemeContext()
 
     const partners = [
         {
@@ -31,10 +33,10 @@ function PartnersSection({isDark}) {
 
   return (
     <section id="partners" className={`py-24 px-6 ${isDark ? "bg-slate-900/30" : "bg-slate-50"}`}>
-    <div className="container mx-auto max-w-6xl">
+    <div className="md:container md:mx-auto max-w-6xl">
       <div className="text-center mb-16">
         <div className="flex items-center justify-center gap-3 mb-6">
-          <Building2 className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} />
+          {/* <Building2 className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} /> */}
           <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
             Strategic Partners
           </h2>
@@ -42,7 +44,7 @@ function PartnersSection({isDark}) {
         <p
           className={`text-lg ${isDark ? "text-slate-400" : "text-slate-600"} flex items-baseline justify-center gap-2`}
         >
-          <Star className="w-5 h-5 translate-y-0.5" />
+          {/* <Star className="w-5 h-5 translate-y-0.5" /> */}
           Leading the telecom revolution together
         </p>
       </div>
