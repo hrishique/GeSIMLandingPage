@@ -43,9 +43,9 @@ export default function PhoneMockup({ isDark }) {
           setStatus("connecting")
           const t2 = setTimeout(() => setStatus("connected"), 2000)
           return () => clearTimeout(t2)
-        }, 800)
+        }, 1200)
         return () => clearTimeout(t1)
-      }, 300)
+      }, 800)
       return () => clearTimeout(sequence)
     }, [isVisible])
   
@@ -67,7 +67,7 @@ export default function PhoneMockup({ isDark }) {
     const statusText = {
       inserting: "🔌 Inserting GeSIM...",
       connecting: "🌐 Connecting...",
-      connected: `✅ Connected to ${currentLocation.city} ${currentLocation.flag}`,
+      connected: `Connected to ${currentLocation.city} ${currentLocation.flag}`,
     }
   
     return (
@@ -85,7 +85,7 @@ export default function PhoneMockup({ isDark }) {
                 logoPlugged ? "translate-y-0 scale-100 opacity-100" : "-translate-y-8 scale-75 opacity-60"
               }`}
             >
-              <Image src="/gesim-logo.png" alt="GeSIM Logo" fill className="object-contain rounded-3xl" />
+              <Image src="/gesim-logo.png" alt="GeSIM Logo" fill className="object-contain rounded-full" />
               {/* Insertion effect */}
               <div
                 className={`absolute inset-0 border-2 border-dashed transition-opacity duration-500 rounded-full ${
@@ -96,19 +96,19 @@ export default function PhoneMockup({ isDark }) {
             <h3 className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</h3>
           </div>
           <div
-            className={`w-full text-center p-4 rounded-xl transition-all duration-500 ${isDark ? "bg-slate-800" : "bg-white"} ${
+            className={`w-full text-center p-4 rounded-xl transition-all duration-500 ${!isDark ? "bg-slate-800" : "bg-white"} ${
               status === "connected" ? "ring-2 ring-green-400/50" : ""
             }`}
           >
             <p
-              className={`font-medium transition-all duration-300 ${
+              className={`font-medium text-xs md:text-base transition-all duration-2000 animate-pulse ${
                 status === "connected"
-                  ? isDark
-                    ? "text-green-400"
-                    : "text-green-600"
-                  : isDark
-                    ? "text-slate-300"
-                    : "text-slate-700"
+                  ? !isDark
+                    ? "text-green-400 animate-pulse"
+                    : "text-green-600 animate-pulse"
+                  : !isDark
+                    ? "text-slate-300 animate-pulse"
+                    : "text-slate-700 animate-pulse"
               }`}
             >
               {statusText[status]}

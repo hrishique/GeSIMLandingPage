@@ -1,16 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
-  Moon,
-  Sun,
   Globe,
-  Smartphone,
-  Building2,
-  Zap,
-  Mail,
   Search,
   Calendar,
   Clock,
@@ -22,7 +16,7 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import Header from "@/components/header"
+import { useThemeContext } from "@/components/theme-provider"
 
 // Mock blog data
 const blogPosts = [
@@ -103,16 +97,10 @@ const blogPosts = [
 const categories = ["All", "Product Updates", "Partnerships", "Travel Tips"]
 
 export default function BlogPage() {
-  const [isDark, setIsDark] = useState(false)
+  const { isDark } = useThemeContext()
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [searchQuery, setSearchQuery] = useState("")
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark)
-  }, [isDark])
-
-  const toggleTheme = () => setIsDark(!isDark)
 
   const filteredPosts = blogPosts.filter((post) => {
     const matchesCategory = selectedCategory === "All" || post.category === selectedCategory
@@ -131,20 +119,11 @@ export default function BlogPage() {
     })
   }
 
-    const scrollToWaitlist = () => {
-    const waitlistSection = document.getElementById('waitlist')
-    if (waitlistSection) {
-      waitlistSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
   
   return (
     <div
-      className={`min-h-screen transition-all duration-700 ${isDark ? "bg-slate-950" : "bg-gradient-to-br from-slate-50 via-white to-slate-100"}`}
-    >
-   
-          <Header isDark={isDark} toggleTheme={toggleTheme} scrollToWaitlist={scrollToWaitlist} />
-    
+      className={`min-h-screen transition-all duration-700 ${isDark ? "bg-slate-900" : "bg-gradient-to-br from-slate-50 via-white to-slate-100"}`}
+    >    
       {/* Blog Header */}
       <section className="relative px-6 pt-20 pb-16">
         <div className="container mx-auto max-w-6xl">
@@ -405,25 +384,6 @@ export default function BlogPage() {
           )}
         </div>
       </section>
-
-      {/* Footer */}
-      <footer
-        className={`py-16 px-6 ${isDark ? "bg-slate-900 border-t border-slate-800" : "bg-slate-50 border-t border-slate-200"}`}
-      >
-        <div className="container mx-auto text-center">
-          <div className="flex items-center justify-center space-x-3 mb-6">
-            <div className="relative w-8 h-8 p-1.5 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-lg">
-              <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain" />
-            </div>
-            <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</span>
-          </div>
-          <p
-            className={`${isDark ? "text-slate-500" : "text-slate-600"} text-sm flex items-center justify-center gap-2`}
-          >
-            <Globe className="w-4 h-4" />© 2025 GeSIM. Revolutionizing global connectivity with blockchain technology.
-          </p>
-        </div>
-      </footer>
     </div>
   )
 }
