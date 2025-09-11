@@ -42,7 +42,7 @@ const handleSubmit = async (e) => {
       id="waitlist"
       className={`py-16 sm:py-28 px-4 sm:px-6 bg-white dark:bg-slate-950`}
     >
-      <div className="md:container md:mx-auto text-center">
+      <div className=" text-center">
         <div className="flex items-center justify-center gap-2 sm:flex-row sm:gap-3 mb-6 sm:mb-8">
           {/* <Mail className={`w-8 h-8 sm:w-10 sm:h-10 ${isDark ? "text-slate-400" : "text-slate-600"}`} /> */}
           <h2
@@ -75,10 +75,10 @@ const handleSubmit = async (e) => {
               className={`sm:w-80 h-12 sm:h-14 px-4 sm:px-6 rounded-lg sm:rounded-xl text-base sm:text-lg bg-white border-slate-300 text-slate-900 placeholder:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:placeholder:text-slate-400 shadow-lg`}
             />
             <Button
-              // size='lg'
+              // size='sm'
               type="submit"
               className={`
-                    px-12 py-4 text-lg font-semibold rounded-xl border-2 transition-all duration-300 flex items-center gap-3 w-full
+                    px-4 py-4 text-lg font-semibold rounded-xl border-2 transition-all duration-300 flex items-center gap-3 w-full
                 bg-slate-900 hover:bg-slate-800 text-white dark:bg-slate-800 dark:hover:bg-slate-700`}
               disabled={!email}
             >

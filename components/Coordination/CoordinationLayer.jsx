@@ -43,7 +43,7 @@ export default function CoordinationLayer() {
                   <ShieldCheck className="w-5 h-5" />
                   Join Beta Access
                 </Button>
-          
+           
           </div>
         </div>
       </div>

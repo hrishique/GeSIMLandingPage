@@ -47,7 +47,7 @@ function PartnersSection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
         {partners.map((partner, index) => (
           <div
             key={partner.name}

@@ -34,20 +34,12 @@ export default function PhoneMockup() {
     }, [isVisible])
   
     // Animation sequence
-    useEffect(() => {
-      if (!isVisible) return
+    // useEffect(() => {
+    //   if (!isVisible) return
   
-      const sequence = setTimeout(() => {
-        setLogoPlugged(true)
-        const t1 = setTimeout(() => {
-          setStatus("connecting")
-          const t2 = setTimeout(() => setStatus("connected"), 2000)
-          return () => clearTimeout(t2)
-        }, 1200)
-        return () => clearTimeout(t1)
-      }, 800)
-      return () => clearTimeout(sequence)
-    }, [isVisible])
+     
+    //   return () => clearTimeout(sequence)
+    // }, [isVisible])
   
     // Location cycling
     useEffect(() => {
@@ -69,12 +61,27 @@ export default function PhoneMockup() {
       connecting: "🌐 Connecting...",
       connected: `Connected to ${currentLocation.city} ${currentLocation.flag}`,
     }
+
+    const startAnimation = () => {
+      const sequence = setTimeout(() => {
+        setLogoPlugged(true)
+        const t1 = setTimeout(() => {
+          setStatus("connecting")
+          const t2 = setTimeout(() => setStatus("connected"), 2000)
+          return () => clearTimeout(t2)
+        }, 1200)
+        return () => clearTimeout(t1)
+      }, 800)
+    }
   
     return (
       <div
         id="phone-mockup"
         className={`relative w-80 h-[34rem] rounded-[3.5rem] p-4 shadow-2xl transition-all duration-500 hover:scale-105 group cursor-pointer dark:bg-white dark:border-slate-200 bg-slate-800 border-slate-700 shadow-slate-900/60 border`}
-        onClick={() => !isVisible && setIsVisible(true)}
+        onClick={() => {
+          !isVisible && setIsVisible(true)
+          startAnimation()
+        }}
       >
         <div
           className={`w-full h-full rounded-[2.5rem] flex flex-col items-center justify-center p-6 transition-colors dark:bg-slate-200 bg-slate-900`}
@@ -96,15 +103,15 @@ export default function PhoneMockup() {
             <h3 className={`text-2xl font-bold dark:text-slate-900 text-white`}>GeSIM</h3>
           </div>
           <div
-            className={`w-full text-center p-4 rounded-xl transition-all duration-500 bg-white dark:bg-slate-800 ${
+            className={`w-full text-center p-4 rounded-xl transition-all duration-500 dark:bg-white bg-slate-800 ${
               status === "connected" ? "ring-2 ring-green-400/50" : ""
             }`}
           >
             <p
-              className={`font-medium text-xs md:text-base transition-all duration-2000 animate-pulse ${
+              className={`font-medium text-xs md:text-base transition-all duration-2000  ${
                 status === "connected"
-                  ? "dark:text-green-400 text-green-600 animate-pulse"
-                  : "dark:text-slate-300 text-slate-700 animate-pulse"
+                  ? "text-green-400 dark:text-green-600"
+                  : "text-slate-300 dark:text-slate-700"
               }`}
             >
               {statusText[status]}

@@ -36,7 +36,7 @@ function InnerThemeProvider({ children }: { children: React.ReactNode }) {
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
-    <NextThemesProvider attribute="class" enableSystem defaultTheme="system" disableTransitionOnChange {...props}>
+    <NextThemesProvider attribute="class" enableSystem defaultTheme="light" disableTransitionOnChange {...props}>
       <InnerThemeProvider>{children}</InnerThemeProvider>
     </NextThemesProvider>
   )

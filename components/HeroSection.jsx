@@ -7,8 +7,11 @@ import Image from 'next/image'
 function HeroSection() {
   return (
       
-      <section className="md:container md:mx-auto relative px-6 pt-20 pb-32 overflow-hidden">
-        {/* Subtle Background Elements */}
+  <section
+    className="container mx-auto relative px-6 pt-20 pb-12 overflow-hidden 
+              min-h-[calc(100vh-120px)] md:min-h-[calc(100vh-160px)] lg:min-h-[calc(100vh-180px)]"> 
+    
+    {/* Subtle Background Elements */}
         <div className="absolute inset-0">
           <div
             className={`absolute top-20 left-10 w-72 h-72 bg-slate-200/30 dark:bg-slate-800/20 rounded-full blur-3xl`}
@@ -24,7 +27,6 @@ function HeroSection() {
             <div className="text-left">
               {/* Tag Line */}
               <div className="flex items-center gap-3 mb-8">
-                {/* <Zap className={`w-6 h-6 flex-shrink-0 ${isDark ? "text-slate-400" : "text-slate-600"}`} /> */}
                 <span className={`text-lg font-medium text-slate-600 dark:text-slate-400`}>
                   One eSIM for the world
                 </span>
@@ -54,7 +56,7 @@ function HeroSection() {
               <p
                 className={`text-xl md:text-2xl font-medium mb-12 text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed`}
               >
-                AI-driven blockchain eSIM: Connect globally, Pay locally
+                AI-Driven blockchain eSIM: Connect globally, Pay locally
               </p>
 
               {/* CTA Section */}
@@ -83,27 +85,26 @@ function HeroSection() {
             </div>
 
             {/* Right Animation - Telecom x Web3 Intersection */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative aspect-square w-[min(22rem,90vw)] sm:w-96">
+            <div className="container mx-auto flex justify-center lg:justify-end">
+              <div className="relative w-96 h-96">
                 {/* Central Intersection Hub */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="relative flex items-center justify-center w-full h-full">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative">
                     {/* Core Hub */}
-                    <div className="relative flex items-center justify-center w-32 h-32 z-20">
-                      <Image
-                        src="/gesim-logo.png"
-                        alt="GeSIM"
-                        fill
-                        className="object-contain rounded-full"
-                        style={{ zIndex: 10 }}
-                      />
-                    </div>
-                    {/* Centered Pulsing Rings */}
                     <div
-                      className={`absolute w-32 h-32 border-2 border-slate-400/40 dark:border-slate-600/40 rounded-full animate-ping`}
+                      className={`w-24 h-24 dark:bg-gradient-to-br from-slate-700 to-slate-800 bg-gradient-to-br from-slate-800 to-slate-900 rounded-full shadow-2xl flex items-center justify-center border-4 dark:border-slate-600 border-slate-700`}
+                    >
+                      <div className="relative w-12 h-12">
+                        <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain rounded-full scale-[1.9]" />
+                      </div>
+                    </div>
+
+                    {/* Pulsing Rings */}
+                    <div
+                      className={`absolute inset-0 w-24 h-24 border-2 dark:border-slate-600/40 border-slate-400/40 rounded-full animate-ping`}
                     ></div>
                     <div
-                      className={`absolute w-32 h-32 border-2 border-slate-400/30 dark:border-slate-600/30 rounded-full animate-ping`}
+                      className={`absolute -inset-2 w-28 h-28 border-2 dark:border-slate-600/30 border-slate-400/30 rounded-full animate-ping`}
                       style={{ animationDelay: "0.5s" }}
                     ></div>
                   </div>
@@ -113,18 +114,18 @@ function HeroSection() {
                 <div className="absolute inset-0 animate-spin-slow">
                   <div className="relative w-full h-full">
                     {/* Telecom Node 1 */}
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 md:-translate-y-6">
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-6">
                       <div
-                        className={`w-12 md:w-16 h-12 md:h-16 bg-blue-700 dark:bg-blue-600 rounded-full p-3 shadow-xl border-2 border-blue-600 dark:border-blue-500`}
+                        className={`w-16 h-16 dark:bg-blue-600 bg-blue-700 rounded-2xl p-3 shadow-xl border-2 dark:border-blue-500 border-blue-600`}
                       >
                         <Radio className="w-full h-full text-white" />
                       </div>
                     </div>
 
                     {/* Telecom Node 2 */}
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 md:translate-y-6">
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-6">
                       <div
-                        className={`w-12 md:w-16 h-12 md:h-16 bg-green-700 dark:bg-green-600 rounded-full p-3 shadow-xl border-2 border-green-600 dark:border-green-500`}
+                        className={`w-16 h-16 dark:bg-green-600 bg-green-700 rounded-2xl p-3 shadow-xl border-2 dark:border-green-500 border-green-600`}
                       >
                         <Wifi className="w-full h-full text-white" />
                       </div>
@@ -136,18 +137,18 @@ function HeroSection() {
                 <div className="absolute inset-0 animate-spin-reverse">
                   <div className="relative w-full h-full">
                     {/* Web3 Node 1 */}
-                    <div className="absolute left-0 top-1/2 transform md:-translate-x-6 md:-translate-y-1/2">
+                    <div className="absolute left-0 top-1/2 transform -translate-x-3 -translate-y-1/2">
                       <div
-                        className={`w-12 md:w-14 h-12 md:h-14 bg-purple-700 dark:bg-purple-600 rounded-full p-2.5 shadow-xl border-2 border-purple-600 dark:border-purple-500`}
+                        className={`w-14 h-14 dark:bg-purple-600 bg-purple-700 rounded-xl p-2.5 shadow-xl border-2 dark:border-purple-500 border-purple-600`}
                       >
                         <CreditCard className="w-full h-full text-white" />
                       </div>
                     </div>
 
                     {/* Web3 Node 2 */}
-                    <div className="absolute right-0 top-1/2 transform md:translate-x-6 md:-translate-y-1/2">
+                    <div className="absolute right-0 top-1/2 transform translate-x-3 -translate-y-1/2">
                       <div
-                        className={`w-12 md:w-14 h-12 md:h-14 bg-cyan-700 dark:bg-cyan-600 rounded-full p-2.5 shadow-xl border-2 border-cyan-600 dark:border-cyan-500`}
+                        className={`w-14 h-14 dark:bg-cyan-600 bg-cyan-700 rounded-xl p-2.5 shadow-xl border-2 dark:border-cyan-500 border-cyan-600`}
                       >
                         <Shield className="w-full h-full text-white" />
                       </div>
@@ -158,20 +159,20 @@ function HeroSection() {
                 {/* Connection Lines */}
                 <div className="absolute inset-0">
                   {/* Telecom Orbit Ring */}
-                                      <div
-                      className={`absolute inset-[12%] sm:inset-8 border-2 border-dashed border-blue-600/30 dark:border-blue-500/30 rounded-full`}
-                    ></div>
+                  <div
+                    className={`absolute inset-8 border-2 border-dashed dark:border-blue-500/30 border-blue-600/30 rounded-full`}
+                  ></div>
 
                   {/* Web3 Orbit Ring */}
-                                      <div
-                      className={`absolute inset-[18%] sm:inset-12 border-2 border-dashed border-purple-600/30 dark:border-purple-500/30 rounded-full`}
-                    ></div>
+                  <div
+                    className={`absolute inset-12 border-2 border-dashed dark:border-purple-500/30 border-purple-600/30 rounded-full`}
+                  ></div>
                 </div>
 
                 {/* Floating Network Nodes */}
                 <div className="absolute top-16 right-16 animate-bounce">
                   <div
-                    className={`w-8 h-8 bg-orange-700 dark:bg-orange-600 rounded-full flex items-center justify-center shadow-lg`}
+                    className={`w-8 h-8 dark:bg-orange-600 bg-orange-700 rounded-full flex items-center justify-center shadow-lg`}
                   >
                     <Network className="w-4 h-4 text-white" />
                   </div>
@@ -179,7 +180,7 @@ function HeroSection() {
 
                 <div className="absolute bottom-16 left-16 animate-bounce" style={{ animationDelay: "1s" }}>
                   <div
-                    className={`w-6 h-6 bg-pink-700 dark:bg-pink-600 rounded-full flex items-center justify-center shadow-lg`}
+                    className={`w-6 h-6 dark:bg-pink-600 bg-pink-700 rounded-full flex items-center justify-center shadow-lg`}
                   >
                     <Zap className="w-3 h-3 text-white" />
                   </div>

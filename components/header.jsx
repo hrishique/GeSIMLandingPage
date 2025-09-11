@@ -34,11 +34,11 @@ function Header() {
       label: "App",
       icon: <Smartphone className="w-4 h-4" />,
     },
-    {
-      href: "/blog",
-      label: "Blog",
-      icon: <Globe className="w-4 h-4" />,
-    },
+    // {
+    //   href: "/blog",
+    //   label: "Blog",
+    //   icon: <Globe className="w-4 h-4" />,
+    // },
     {
       href: "https://gesim.gitbook.io/gesim",
       label: "docs",
@@ -48,7 +48,16 @@ function Header() {
   ]
   return (
     <header className={`top-0 z-50 px-6 py-6 bg-white/80 dark:bg-slate-950 transition-colors`}>
-      <div className="md:container md:mx-auto flex items-center justify-between">
+      <div className="md:container md:mx-auto flex items-center gap-4 justify-between">
+      {/* <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsMenuOpen(true)}
+            className={`md:hidden rounded-xl text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800`}
+            aria-label="Open menu"
+          >
+            <Menu className="h-5 w-5" />
+          </Button> */}
         <Link href='/' className="flex items-center ">
         <div className={`relative w-8 h-8 p-1.5 bg-gradient-to-br from-slate-200 to-slate-300 dark:bg-slate-800 rounded-xl shadow-lg`}>
               <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain rounded-lg" />
@@ -79,7 +88,7 @@ function Header() {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            className={`hidden md:inline-flex text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800 rounded-xl`}
+            className={`md:inline-flex text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800 rounded-xl`}
             aria-label="Toggle theme"
           >
             <Sun className="h-5 w-5 hidden dark:inline" />
@@ -93,15 +102,7 @@ function Header() {
             Join Waitlist
           </Button>
           {/* Mobile menu toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsMenuOpen(true)}
-            className={`md:hidden rounded-xl text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800`}
-            aria-label="Open menu"
-          >
-            <Menu className="h-5 w-5" />
-          </Button>
+         
         </div>
       </div>
 
@@ -115,7 +116,7 @@ function Header() {
         />
         {/* Panel */}
         <div
-          className={`fixed right-0 top-0 z-[70] h-full w-80 max-w-[90vw] bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100 shadow-2xl border-l border-slate-200 dark:border-slate-800 transform transition-transform duration-300 ease-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+          className={`fixed left-0 top-0 z-[70] h-full w-80 max-w-[90vw] bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100 shadow-2xl border-r border-slate-200 dark:border-slate-800 transform transition-transform duration-300 ease-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
           role="dialog"
           aria-modal="true"
         >
@@ -123,15 +124,15 @@ function Header() {
               <span className="text-base font-semibold">Menu</span>
               <div className='flex items-center gap-2'>
               <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            className={`inline-flex text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800 rounded-xl`}
-            aria-label="Toggle theme"
-          >
-            <Sun className="h-5 w-5 hidden dark:inline" />
-            <Moon className="h-5 w-5 inline dark:hidden" />
-          </Button>
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                className={`inline-flex text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800 rounded-xl`}
+                aria-label="Toggle theme"
+              >
+                <Sun className="h-5 w-5 hidden dark:inline" />
+                <Moon className="h-5 w-5 inline dark:hidden" />
+              </Button>
               <Button
                 variant="ghost"
                 size="icon"

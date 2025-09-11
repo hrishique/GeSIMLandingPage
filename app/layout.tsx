@@ -5,18 +5,18 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/header'
-import Footer from '@/components/footer'
+import { FooterNew } from '@/components/FooterNew'
 
 export const metadata: Metadata = {
   title: 'GeSIM ',
   description: 'Revolutionizing global connectivity with crypto-powered eSIM technology. Pay once, roam everywhere, own your data.',
   icons: {
     icon: [
-      { url: '/gesim-logo.png', sizes: '32x32', type: 'image/png' },
-      { url: '/gesim-logo.png', sizes: '16x16', type: 'image/png' },
+      { url: '/gesim-logo-icon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/gesim-logo-icon.png', sizes: '16x16', type: 'image/png' },
     ],
-    shortcut: '/gesim-logo.png',
-    apple: '/gesim-logo.png',
+    shortcut: '/gesim-logo-icon.png',
+    apple: '/gesim-logo-icon.png',
   },
 }
 export default function RootLayout({
@@ -40,7 +40,7 @@ html {
          <Header />
           {children}
           <Analytics />
-          <Footer />
+          <FooterNew />
         </ThemeProvider>
       </body>
     </html>
