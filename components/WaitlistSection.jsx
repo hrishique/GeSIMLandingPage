@@ -12,25 +12,23 @@ function WaitlistSection() {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
-  let url =  process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL
+  let url =  process.env.NEXT_PUBLIC_API
   console.log('url',url)
+
   const inputValue = {
     'email': email,
-    'created At': (new Date()).toLocaleString(),
+    'createdAt': (new Date()).toLocaleString(),
   }
   try {
-    const formData = new FormData()
-    Object.keys(inputValue).forEach((key) => {
-      formData.append(key, inputValue[key])
-    })
-    const response = await axios.post(url, formData, { headers: { "Content-Type": "application/json"} });
 
-    if (response.data.status === "success") {
-      // setMessage("Email saved to Google Sheet!");
-      setEmail("");
-    } else {
-      // setMessage("Error: " + response.data.message);
-    }
+    const response = await axios.post(url, inputValue, { headers: { "Content-Type": "application/json"} });
+
+    // if (response.data.status === "success") {
+    //   // setMessage("Email saved to Google Sheet!");
+    //   setEmail("");
+    // } else {
+    //   // setMessage("Error: " + response.data.message);
+    // }
   } catch (err) {
     console.log("Request failed: " + err.message);
   }
@@ -65,25 +63,24 @@ const handleSubmit = async (e) => {
           className="space-y-4 sm:space-y-6 flex flex-col items-center w-full"
           onSubmit={handleSubmit}
         >
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mx-auto items-center justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mx-auto items-center justify-center w-full md:max-w-2xl">
             <Input
               type="email"
-              name='email'
+              name="email"
               placeholder="Enter your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`sm:w-80 h-12 sm:h-14 px-4 sm:px-6 rounded-lg sm:rounded-xl text-base sm:text-lg bg-white border-slate-300 text-slate-900 placeholder:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:placeholder:text-slate-400 shadow-lg`}
+              className={`h-12 sm:h-14 px-4 sm:px-6 rounded-lg sm:rounded-xl text-base sm:text-lg bg-white border-slate-300 text-slate-900 placeholder:text-slate-500 
+                dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:placeholder:text-slate-400 shadow-lg flex-1 min-w-0 w-full sm:w-auto`}
             />
             <Button
-              // size='sm'
               type="submit"
-              className={`
-                    px-4 py-4 text-lg font-semibold rounded-xl border-2 transition-all duration-300 flex items-center gap-3 w-full
-                bg-slate-900 hover:bg-slate-800 text-white dark:bg-slate-800 dark:hover:bg-slate-700`}
+              className={` px-4 py-2 md:py-4 text-base font-semibold rounded-xl border-2 transition-all duration-300 flex items-center gap-3 bg-slate-900 
+                hover:bg-slate-800 text-white dark:bg-slate-800 dark:hover:bg-slate-700 w-full sm:w-48 min-w-[120px] md:max-w-xs `}
               disabled={!email}
             >
               <ArrowRight className="w-5 h-5" />
-              <span className='text-sm'>Join the Revolution</span>
+              <span className="text-sm">Subscribe</span>
             </Button>
           </div>
         </form>
