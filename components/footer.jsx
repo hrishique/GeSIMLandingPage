@@ -1,50 +1,60 @@
+'use client'
 import Image from "next/image"
-import { Twitter, Send } from "lucide-react"
 import Link from "next/link"
+import { BsTwitterX, BsInstagram, BsTelegram } from "react-icons/bs";
 
-export default function Footer({ isDark }) {
+export default function Footer() {
+
+  const socialLinks = [
+    {
+      icon: BsTwitterX,
+      href: 'https://x.com/gesimxyz',
+      target: '_blank',
+      ariaLabel: 'Follow us on X (Twitter)'
+    },
+    {
+      icon: BsInstagram,
+      href: 'https://www.instagram.com/gesimxyz/',
+      target: '_blank',
+      ariaLabel: 'Follow us on Instagram'
+    },
+    {
+      icon: BsTelegram,
+      href: 'https://t.me/gesimxyz',
+      target: '_blank',
+      ariaLabel: 'Join our Telegram'
+    }
+  ]
+
+
+  const renderIcon = (link) => {
+    return(
+      <Link
+      key={link.href}
+      href={link.href}
+      target={link.target}
+      className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors border-slate-300 text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800`}
+      aria-label={link.ariaLabel}
+    >
+      <link.icon className="w-5 h-5" />
+    </Link>
+    )
+  }
   return (
     <footer
-      className={`py-16 px-6 ${isDark ? "bg-slate-900 border-t border-slate-800" : "bg-slate-50 border-t border-slate-200"} relative`}
+      className={`py-10 px-6 bg-white border-t border-slate-200 dark:bg-slate-950 dark:border-slate-900`}
     >
-      <div className="container mx-auto text-center flex flex-col items-center justify-center">
-        <div className="flex items-center justify-center space-x-3 mb-6">
-          <div className="relative w-8 h-8 p-0.5 overflow-hidden">
-            <Image 
-              src={isDark ? "/gesim-logo.png" : "/gesim-logo.png"} 
-              alt="GeSIM" 
-              fill 
-              className="object-cover scale-150" 
-              priority
-            />
-          </div>
-          <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</span>
-        </div>
-        <div className="flex flex-col md:flex-row-reverse items-center gap-3 mb-6">
-          <div className="space-x-4 flex">
-            <Link
-              href={'https://x.com/gesimxyz'}
-              target={'_blank'}
-              className={`p-3 rounded-full transition-all duration-300 hover:scale-110 ${
-                isDark 
-                  ? "bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white" 
-                  : "bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900"
-              }`}
-              aria-label="Follow us on X (Twitter)"
-            >
-              <Twitter className="w-5 h-5" />
-            </Link>
-            <Link
-              href={'https://t.me/gesimxyz'}
-              className={`p-3 rounded-full transition-all duration-300 hover:scale-110 ${
-                isDark 
-                  ? "bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white" 
-                  : "bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900"
-              }`}
-              aria-label="Join our Telegram"
-            >
-              <Send className="w-5 h-5" />
-            </Link>
+      <div className="mx-auto max-w-6xl">
+        <div className="flex flex-col items-center gap-6">
+          <Link href="/" className="inline-flex items-center gap-3">
+            <div className={`relative w-8 h-8 p-1.5 bg-gradient-to-br from-slate-200 to-slate-300 dark:bg-slate-800 rounded-xl`}>
+              <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain rounded-lg" />
+            </div>
+            <span className={`text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-200`}>GeSIM</span>
+          </Link>
+
+          <div className="flex items-center gap-4">
+            {socialLinks.map((link) => renderIcon(link))}
           </div>
           <p
             className={`${isDark ? "text-slate-500" : "text-slate-600"} text-sm flex items-baseline justify-center gap-2`}
@@ -52,7 +62,6 @@ export default function Footer({ isDark }) {
             © {new Date().getFullYear()} GeSIM. All rights reserved.
           </p>
         </div>
-   
       </div>
     </footer>
   )

@@ -6,7 +6,7 @@ import {
 import { Button } from './ui/button'
 import Image from 'next/image'
 
-function PartnersSection({isDark}) {
+function PartnersSection() {
 
     const partners = [
         {
@@ -30,28 +30,28 @@ function PartnersSection({isDark}) {
       ]
 
   return (
-    <section id="partners" className={`py-24 px-6 ${isDark ? "bg-slate-900/30" : "bg-slate-50"}`}>
-    <div className="container mx-auto max-w-6xl">
+    <section id="partners" className={`py-24 px-6 bg-slate-50 dark:bg-slate-900/30`}>
+    <div className="md:container md:mx-auto max-w-6xl">
       <div className="text-center mb-16">
         <div className="flex items-center justify-center gap-3 mb-6">
-          <Building2 className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} />
-          <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
+          {/* <Building2 className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} /> */}
+          <h2 className={`text-3xl md:text-4xl font-bold text-slate-900 dark:text-white`}>
             Strategic Partners
           </h2>
         </div>
         <p
-          className={`text-lg ${isDark ? "text-slate-400" : "text-slate-600"} flex items-baseline justify-center gap-2`}
+          className={`text-lg text-slate-600 dark:text-slate-400 flex items-baseline justify-center gap-2`}
         >
-          <Star className="w-5 h-5 translate-y-0.5" />
+          {/* <Star className="w-5 h-5 translate-y-0.5" /> */}
           Leading the telecom revolution together
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
         {partners.map((partner, index) => (
           <div
             key={partner.name}
-            className={`group px-4 py-2 rounded-3xl backdrop-blur-sm ${isDark ? "bg-slate-800/30 border-slate-700/50 hover:bg-slate-800/50" : "bg-white/70 border-slate-200 hover:bg-white"} border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center flex items-center justify-center`}
+            className={`group px-4 py-2 rounded-3xl backdrop-blur-sm bg-white/70 border-slate-200 hover:bg-white dark:bg-slate-800/30 dark:border-slate-700/50 dark:hover:bg-slate-800/50 border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center flex items-center justify-center`}
           >
             <div className={`${partner.name === 'Airalo' ? ' w-48 h-48':' w-40 h-40'} relative group-hover:scale-110 transition-transform`}>
               <Image
@@ -59,7 +59,7 @@ function PartnersSection({isDark}) {
                 alt={partner.name}
                 fill
                 className={`object-contain  ${
-                      (partner.name === "eSIM Access" && isDark) ? "invert" : ""
+                      (partner.name === "eSIM Access") ? "dark:invert" : ""
                     }`}
               />
             </div>
@@ -71,11 +71,7 @@ function PartnersSection({isDark}) {
         <Button
           variant="outline"
           onClick={() => window.open('https://t.me/charchit_web3', '_blank')}
-          className={`px-8 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-3 mx-auto ${
-            isDark
-              ? "border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white"
-              : "border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-          }`}
+          className={`px-8 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-3 mx-auto border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white`}
         >
           <Building2 className="w-5 h-5" />
           Become a Partner

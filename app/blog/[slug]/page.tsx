@@ -173,16 +173,9 @@ const getSuggestedArticles = (currentId: number) => {
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const [isDark, setIsDark] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
   const post = getBlogPost(params.slug)
   const suggestedArticles = post ? getSuggestedArticles(post.id) : []
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark)
-  }, [isDark])
-
-  const toggleTheme = () => setIsDark(!isDark)
 
   if (!post) {
     notFound()
@@ -229,67 +222,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <div
-      className={`min-h-screen transition-all duration-700 ${isDark ? "bg-slate-950" : "bg-gradient-to-br from-slate-50 via-white to-slate-100"}`}
+      className={`min-h-screen transition-all duration-700 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:bg-none dark:bg-slate-950`}
     >
       {/* Header */}
-      <header className="relative z-50 px-6 py-6">
-        <div className="container mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="relative w-10 h-10 p-1.5 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-lg">
-              <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain" />
-            </div>
-            <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</span>
-          </Link>
-
-          <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
-            <Link
-              href="/#features"
-              className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
-            >
-              <Zap className="w-4 h-4" />
-              Features
-            </Link>
-            <Link
-              href="/#partners"
-              className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
-            >
-              <Building2 className="w-4 h-4" />
-              Partners
-            </Link>
-            <Link
-              href="/blog"
-              className={`${isDark ? "text-white" : "text-slate-900"} transition-colors flex items-center gap-2 font-semibold`}
-            >
-              <Globe className="w-4 h-4" />
-              Blog
-            </Link>
-            <Link
-              href="/#app"
-              className={`${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors flex items-center gap-2`}
-            >
-              <Smartphone className="w-4 h-4" />
-              App
-            </Link>
-          </nav>
-
-          <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className={`${isDark ? "text-slate-400 hover:text-white hover:bg-slate-800" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"} rounded-xl`}
-            >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
-            <Button
-              className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-6 py-2 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all flex items-center gap-2`}
-            >
-              <Mail className="w-4 h-4" />
-              Join Waitlist
-            </Button>
-          </div>
-        </div>
-      </header>
+     
 
       {/* Article */}
       <article className="px-6 pt-8 pb-16">
@@ -297,7 +233,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {/* Back Button */}
           <Link
             href="/blog"
-            className={`inline-flex items-center gap-2 mb-8 ${isDark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"} transition-colors group`}
+            className={`inline-flex items-center gap-2 mb-8 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors group`}
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Blog
@@ -322,7 +258,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
             {/* Title */}
             <h1
-              className={`text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight ${isDark ? "text-white" : "text-slate-900"}`}
+              className={`text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight text-slate-900 dark:text-white`}
             >
               {post.title}
             </h1>
@@ -339,17 +275,17 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   />
                 </div>
                 <div>
-                  <div className={`font-semibold ${isDark ? "text-white" : "text-slate-900"}`}>{post.author.name}</div>
-                  <div className={`text-sm ${isDark ? "text-slate-400" : "text-slate-600"}`}>{post.author.role}</div>
+                  <div className={`font-semibold text-slate-900 dark:text-white`}>{post.author.name}</div>
+                  <div className={`text-sm text-slate-600 dark:text-slate-400`}>{post.author.role}</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-6 text-sm">
-                <div className={`flex items-center gap-2 ${isDark ? "text-slate-400" : "text-slate-600"}`}>
+                <div className={`flex items-center gap-2 text-slate-600 dark:text-slate-400`}>
                   <Calendar className="w-4 h-4" />
                   {formatDate(post.publishedAt)}
                 </div>
-                <div className={`flex items-center gap-2 ${isDark ? "text-slate-400" : "text-slate-600"}`}>
+                <div className={`flex items-center gap-2 text-slate-600 dark:text-slate-400`}>
                   <Clock className="w-4 h-4" />
                   {post.readTime}
                 </div>
@@ -361,7 +297,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className={`inline-flex items-center gap-1 px-3 py-1 rounded-lg text-sm font-medium ${isDark ? "bg-slate-800 text-slate-300" : "bg-slate-100 text-slate-700"}`}
+                  className={`inline-flex items-center gap-1 px-3 py-1 rounded-lg text-sm font-medium bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300`}
                 >
                   <Tag className="w-3 h-3" />
                   {tag}
@@ -371,12 +307,12 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
             {/* Share Buttons */}
             <div className="flex items-center gap-3 mb-8">
-              <span className={`text-sm font-medium ${isDark ? "text-slate-400" : "text-slate-600"}`}>Share:</span>
+              <span className={`text-sm font-medium text-slate-600 dark:text-slate-400`}>Share:</span>
               <Button
                 variant="outline"
                 size="sm"
                 onClick={shareOnTwitter}
-                className={`${isDark ? "border-slate-700 text-slate-300 hover:bg-slate-800" : "border-slate-300 text-slate-700 hover:bg-slate-100"} rounded-lg`}
+                className={`rounded-lg border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800`}
               >
                 <Twitter className="w-4 h-4" />
               </Button>
@@ -384,7 +320,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 variant="outline"
                 size="sm"
                 onClick={shareOnFarcaster}
-                className={`${isDark ? "border-slate-700 text-slate-300 hover:bg-slate-800" : "border-slate-300 text-slate-700 hover:bg-slate-100"} rounded-lg`}
+                className={`rounded-lg border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800`}
               >
                 <Globe className="w-4 h-4" />
               </Button>
@@ -392,7 +328,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 variant="outline"
                 size="sm"
                 onClick={shareOnLinkedIn}
-                className={`${isDark ? "border-slate-700 text-slate-300 hover:bg-slate-800" : "border-slate-300 text-slate-700 hover:bg-slate-100"} rounded-lg`}
+                className={`rounded-lg border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800`}
               >
                 <Linkedin className="w-4 h-4" />
               </Button>
@@ -400,7 +336,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 variant="outline"
                 size="sm"
                 onClick={copyLink}
-                className={`${isDark ? "border-slate-700 text-slate-300 hover:bg-slate-800" : "border-slate-300 text-slate-700 hover:bg-slate-100"} rounded-lg`}
+                className={`rounded-lg border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800`}
               >
                 <LinkIcon className="w-4 h-4" />
               </Button>
@@ -414,17 +350,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
           {/* Article Content */}
           <div
-            className={`prose prose-lg max-w-none ${
-              isDark
-                ? "prose-invert prose-headings:text-white prose-p:text-slate-300 prose-strong:text-white prose-a:text-blue-400 prose-blockquote:border-slate-700 prose-blockquote:text-slate-300"
-                : "prose-headings:text-slate-900 prose-p:text-slate-700 prose-strong:text-slate-900 prose-a:text-blue-600 prose-blockquote:border-slate-300"
-            } prose-headings:font-bold prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-relaxed prose-li:leading-relaxed prose-blockquote:font-medium prose-blockquote:italic`}
+            className={`prose prose-lg max-w-none prose-headings:text-slate-900 prose-p:text-slate-700 prose-strong:text-slate-900 prose-a:text-blue-600 prose-blockquote:border-slate-300 dark:prose-invert dark:prose-headings:text-white dark:prose-p:text-slate-300 dark:prose-strong:text-white dark:prose-a:text-blue-400 dark:prose-blockquote:border-slate-700 prose-headings:font-bold prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-relaxed prose-li:leading-relaxed prose-blockquote:font-medium prose-blockquote:italic`}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
           {/* Author Bio */}
           <div
-            className={`mt-16 p-8 rounded-3xl ${isDark ? "bg-slate-800/30 border-slate-700/50" : "bg-slate-50 border-slate-200"} border`}
+            className={`mt-16 p-8 rounded-3xl bg-slate-50 border-slate-200 dark:bg-slate-800/30 dark:border-slate-700/50 border`}
           >
             <div className="flex flex-col sm:flex-row gap-6">
               <div className="relative w-20 h-20 overflow-hidden rounded-full flex-shrink-0">
@@ -436,11 +368,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 />
               </div>
               <div className="flex-1">
-                <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-slate-900"}`}>
+                <h3 className={`text-xl font-bold mb-2 text-slate-900 dark:text-white`}>
                   About {post.author.name}
                 </h3>
-                <p className={`text-sm ${isDark ? "text-slate-400" : "text-slate-600"} mb-2`}>{post.author.role}</p>
-                <p className={`${isDark ? "text-slate-300" : "text-slate-700"} leading-relaxed`}>{post.author.bio}</p>
+                <p className={`text-sm text-slate-600 dark:text-slate-400 mb-2`}>{post.author.role}</p>
+                <p className={`text-slate-700 dark:text-slate-300 leading-relaxed`}>{post.author.bio}</p>
               </div>
             </div>
           </div>
@@ -448,10 +380,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       </article>
 
       {/* Suggested Articles Carousel */}
-      <section className={`py-16 px-6 ${isDark ? "bg-slate-900/30" : "bg-slate-50"}`}>
+      <section className={`py-16 px-6 bg-slate-50 dark:bg-slate-900/30`}>
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center justify-between mb-12">
-            <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
+            <h2 className={`text-3xl md:text-4xl font-bold text-slate-900 dark:text-white`}>
               Suggested Articles
             </h2>
             <div className="flex items-center gap-2">
@@ -459,7 +391,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 variant="outline"
                 size="sm"
                 onClick={prevSlide}
-                className={`rounded-lg ${isDark ? "border-slate-700 text-slate-300 hover:bg-slate-800" : "border-slate-300 text-slate-700 hover:bg-slate-100"}`}
+                className={`rounded-lg border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800`}
               >
                 <ChevronLeft className="w-4 h-4" />
               </Button>
@@ -467,7 +399,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 variant="outline"
                 size="sm"
                 onClick={nextSlide}
-                className={`rounded-lg ${isDark ? "border-slate-700 text-slate-300 hover:bg-slate-800" : "border-slate-300 text-slate-700 hover:bg-slate-100"}`}
+                className={`rounded-lg border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800`}
               >
                 <ChevronRight className="w-4 h-4" />
               </Button>
@@ -478,7 +410,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             {suggestedArticles.map((article, index) => (
               <article
                 key={article.id}
-                className={`group rounded-3xl overflow-hidden ${isDark ? "bg-slate-800/30 border-slate-700/50" : "bg-white border-slate-200"} border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105`}
+                className={`group rounded-3xl overflow-hidden bg-white border-slate-200 dark:bg-slate-800/30 dark:border-slate-700/50 border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105`}
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -504,25 +436,25 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-3 text-sm">
-                    <div className={`flex items-center gap-1 ${isDark ? "text-slate-400" : "text-slate-600"}`}>
+                    <div className={`flex items-center gap-1 text-slate-600 dark:text-slate-400`}>
                       <Clock className="w-4 h-4" />
                       {article.readTime}
                     </div>
                   </div>
 
                   <h3
-                    className={`text-xl font-bold mb-3 ${isDark ? "text-white" : "text-slate-900"} group-hover:${isDark ? "text-white" : "text-slate-900"} line-clamp-2`}
+                    className={`text-xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-slate-900 dark:group-hover:text-white line-clamp-2`}
                   >
                     {article.title}
                   </h3>
 
-                  <p className={`${isDark ? "text-slate-400" : "text-slate-600"} mb-4 line-clamp-3 leading-relaxed`}>
+                  <p className={`text-slate-600 dark:text-slate-400 mb-4 line-clamp-3 leading-relaxed`}>
                     {article.excerpt}
                   </p>
 
                   <Link
                     href={`/blog/${article.slug}`}
-                    className={`inline-flex items-center gap-2 font-semibold ${isDark ? "text-slate-300 hover:text-white" : "text-slate-700 hover:text-slate-900"} transition-colors group-hover:gap-3`}
+                    className={`inline-flex items-center gap-2 font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors group-hover:gap-3`}
                   >
                     Read More
                     <ArrowRight className="w-4 h-4" />
@@ -534,24 +466,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer
-        className={`py-16 px-6 ${isDark ? "bg-slate-950 border-t border-slate-800" : "bg-white border-t border-slate-200"}`}
-      >
-        <div className="container mx-auto text-center">
-          <div className="flex items-center justify-center space-x-3 mb-6">
-            <div className="relative w-8 h-8 p-1.5 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-lg">
-              <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain" />
-            </div>
-            <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>GeSIM</span>
-          </div>
-          <p
-            className={`${isDark ? "text-slate-500" : "text-slate-600"} text-sm flex items-center justify-center gap-2`}
-          >
-            <Globe className="w-4 h-4" />© 2025 GeSIM. Revolutionizing global connectivity with blockchain technology.
-          </p>
-        </div>
-      </footer>
     </div>
   )
 }

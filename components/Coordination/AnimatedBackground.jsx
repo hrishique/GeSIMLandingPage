@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-export default function AnimatedBackground({ isDark }) {
+export default function AnimatedBackground() {
   const [connectionLines, setConnectionLines] = useState([])
   const [particles, setParticles] = useState([])
 
@@ -29,7 +29,7 @@ export default function AnimatedBackground({ isDark }) {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Animated network mesh */}
-      <div className={`absolute inset-0 opacity-5 ${isDark ? "opacity-10" : "opacity-5"}`}>
+      <div className={`absolute inset-0 opacity-5 dark:opacity-10`}>
         <svg className="w-full h-full" viewBox="0 0 800 600">
           <defs>
             <pattern id="network" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
@@ -66,7 +66,7 @@ export default function AnimatedBackground({ isDark }) {
         {particles.map((particle) => (
           <div
             key={particle.id}
-            className={`absolute w-1 h-1 rounded-full ${isDark ? "bg-slate-600" : "bg-slate-400"} animate-pulse`}
+            className={`absolute w-1 h-1 rounded-full bg-slate-400 dark:bg-slate-600 animate-pulse`}
             style={{
               left: `${particle.left}%`,
               top: `${particle.top}%`,
