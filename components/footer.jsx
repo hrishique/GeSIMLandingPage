@@ -56,9 +56,10 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             {socialLinks.map((link) => renderIcon(link))}
           </div>
-
-          <p className={`text-slate-500 text-sm text-center`}>
-            © {new Date().getFullYear()} GeSIM. Revolutionizing global connectivity with blockchain technology.
+          <p
+            className={`${isDark ? "text-slate-500" : "text-slate-600"} text-sm flex items-baseline justify-center gap-2`}
+          >
+            © {new Date().getFullYear()} GeSIM. All rights reserved.
           </p>
         </div>
       </div>
