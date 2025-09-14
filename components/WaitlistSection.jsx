@@ -17,15 +17,14 @@ const [isLoading, setIsLoading] = useState(false)
 const handleSubmit = async (e) => {
   e.preventDefault();
   setIsLoading(true);
-  let url =  process.env.NEXT_PUBLIC_API
-  // console.log('url',url)
+  let url =  "https://gesimbackend.onrender.com/api/email/waitlist"
 
   const inputValue = {
     'email': email,
     'createdAt': new Date(),
   }
-  try {
 
+  try {
     const response = await axios.post(url, inputValue, { headers: { "Content-Type": "application/json"} });
     console.log('response',response.status)
     setMessage({error: false, success: true, message: "Successfully subscribed!"});
