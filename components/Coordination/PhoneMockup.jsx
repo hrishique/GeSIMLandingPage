@@ -1,3 +1,4 @@
+import { Dot } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
@@ -62,25 +63,55 @@ export default function PhoneMockup() {
       connected: `Connected to ${currentLocation.city} ${currentLocation.flag}`,
     }
 
+    // Clear animation timeouts once completed
+    let animationTimeouts = []
+
+    // Animation: runs from inserting to connected
     const startAnimation = () => {
-      const sequence = setTimeout(() => {
+      // Clear any previous timeouts
+      animationTimeouts.forEach(clearTimeout)
+      animationTimeouts = []
+
+      setStatus("inserting")
+      setLogoPlugged(false)
+
+      const t0 = setTimeout(() => {
         setLogoPlugged(true)
         const t1 = setTimeout(() => {
           setStatus("connecting")
-          const t2 = setTimeout(() => setStatus("connected"), 2000)
-          return () => clearTimeout(t2)
+          const t2 = setTimeout(() => {
+            setStatus("connected")
+            // Clear all animation timeouts after animation completes
+            animationTimeouts.forEach(clearTimeout)
+            animationTimeouts = []
+          }, 2000)
+          animationTimeouts.push(t2)
         }, 1200)
-        return () => clearTimeout(t1)
+        animationTimeouts.push(t1)
       }, 800)
+      animationTimeouts.push(t0)
+    }
+
+    // New: On click, if already connected, cycle to next city
+    const nextCity = () => {
+        setCurrentLocation((prev) => {
+          const currentIndex = locations.findIndex((loc) => loc.city === prev.city)
+          const nextIndex = (currentIndex + 1) % locations.length
+          return locations[nextIndex]
+        })
     }
   
     return (
       <div
         id="phone-mockup"
         className={`relative w-80 h-[34rem] rounded-[3.5rem] p-4 shadow-2xl transition-all duration-500 hover:scale-105 group cursor-pointer dark:bg-white dark:border-slate-200 bg-slate-800 border-slate-700 shadow-slate-900/60 border`}
-        onClick={() => {
-          !isVisible && setIsVisible(true)
-          startAnimation()
+        onClick={()=>{
+          if (status === "connected") {
+            nextCity()
+          }
+          else{
+            startAnimation()
+          }
         }}
       >
         <div
@@ -92,7 +123,7 @@ export default function PhoneMockup() {
                 logoPlugged ? "translate-y-0 scale-100 opacity-100" : "-translate-y-8 scale-75 opacity-60"
               }`}
             >
-              <Image src="/gesim-logo.png" alt="GeSIM Logo" fill className="object-contain rounded-full" />
+              <Image src="/gesim-logo-icon.png" alt="GeSIM Logo" fill className="object-contain rounded-full" />
               {/* Insertion effect */}
               <div
                 className={`absolute inset-0 border-2 border-dashed transition-opacity duration-500 rounded-full ${
@@ -118,6 +149,7 @@ export default function PhoneMockup() {
             </p>
           </div>
         </div>
+        <p className="pt-8 text-xs text-center text-slate-500 dark:text-slate-400 flex items-center justify-center"><Dot className="w-6 h-6" /> Click to connect</p>
       </div>
     )
   }

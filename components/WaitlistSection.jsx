@@ -1,5 +1,5 @@
 'use client'
-import { ArrowRight, Mail, Shield, Users } from 'lucide-react'
+import { ArrowRight, Loader2, Mail, Shield, Users } from 'lucide-react'
 import React, { useState } from 'react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
@@ -7,30 +7,41 @@ import axios from 'axios'
 
 function WaitlistSection() {
   const [email, setEmail] = useState("")
-
-
+  const [message, setMessage] = useState({
+    error: false,
+    success: false,
+    message: ""
+  })
+const [isLoading, setIsLoading] = useState(false)
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  setIsLoading(true);
   let url =  process.env.NEXT_PUBLIC_API
-  console.log('url',url)
+  // console.log('url',url)
 
   const inputValue = {
     'email': email,
-    'createdAt': (new Date()).toLocaleString(),
+    'createdAt': new Date(),
   }
   try {
 
     const response = await axios.post(url, inputValue, { headers: { "Content-Type": "application/json"} });
-
-    // if (response.data.status === "success") {
-    //   // setMessage("Email saved to Google Sheet!");
-    //   setEmail("");
-    // } else {
-    //   // setMessage("Error: " + response.data.message);
-    // }
+    console.log('response',response.status)
+    setMessage({error: false, success: true, message: "Successfully subscribed!"});
+    setIsLoading(false);
+    setEmail("");
+    setTimeout(() => {
+      setMessage({error: false, success: false, message: ""});
+    }, 500);
   } catch (err) {
-    console.log("Request failed: " + err.message);
+    console.log("Request failed: " + err.status);
+    if(err.status === 409){
+      setMessage({error: true, success: false, message: "Email already exists"});
+    }else{
+      setMessage({error: true, success: false, message: "Error: " + err.status});
+    }
+    setIsLoading(false);
   }
 };
 
@@ -38,7 +49,7 @@ const handleSubmit = async (e) => {
   return (
     <section
       id="waitlist"
-      className={`py-16 sm:py-28 px-4 sm:px-6 bg-white dark:bg-slate-950`}
+      className={`py-16 sm:py-28 px-6 bg-white dark:bg-slate-950`}
     >
       <div className=" text-center">
         <div className="flex items-center justify-center gap-2 sm:flex-row sm:gap-3 mb-6 sm:mb-8">
@@ -77,12 +88,14 @@ const handleSubmit = async (e) => {
               type="submit"
               className={` px-4 py-2 md:py-4 text-base font-semibold rounded-xl border-2 transition-all duration-300 flex items-center gap-3 bg-slate-900 
                 hover:bg-slate-800 text-white dark:bg-slate-800 dark:hover:bg-slate-700 w-full sm:w-48 min-w-[120px] md:max-w-xs `}
-              disabled={!email}
+              disabled={!email || isLoading}
             >
-              <ArrowRight className="w-5 h-5" />
+              {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ArrowRight className="w-5 h-5" />}
               <span className="text-sm">Subscribe</span>
             </Button>
           </div>
+        {message.error && <span className="text-red-500">{message.message}</span>}
+        {message.success && <span className="text-green-500">{message.message}</span>}
         </form>
 
         <p

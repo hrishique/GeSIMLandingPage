@@ -9,7 +9,7 @@ import { FooterNew } from '@/components/FooterNew'
 
 export const metadata: Metadata = {
   title: 'GeSIM ',
-  description: 'Revolutionizing global connectivity with crypto-powered eSIM technology. Pay once, roam everywhere, own your data.',
+  description: 'AI-Driven blockchain eSIM: Connect globally, Pay locally.',
   icons: {
     icon: [
       { url: '/gesim-logo-icon.png', sizes: '32x32', type: 'image/png' },
