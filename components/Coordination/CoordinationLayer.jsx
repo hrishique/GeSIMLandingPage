@@ -25,7 +25,7 @@ export default function CoordinationLayer() {
         </div>
 
         <div className="text-center lg:text-left">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white`}>
+          <h2 className={`mt-4 md:mt-0 text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white`}>
             The Coordination Layer for Global Telecom
           </h2>
           <p className={`md:text-xl text-lg text-justify mb-12 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0`}>

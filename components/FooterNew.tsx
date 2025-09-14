@@ -23,7 +23,7 @@ export function FooterNew() {
               </span>
             </div>
             <p className={`text-sm font-medium dark:text-slate-400 text-slate-600`}>
-            AI-Driven blockchain eSIM
+            AI-Driven blockchain Travel eSIM
             </p>
 
             {/* <nav className="grid grid-cols-2 gap-1" aria-label="Legal navigation">
