@@ -34,11 +34,11 @@ function Header() {
       label: "App",
       icon: <Smartphone className="w-4 h-4" />,
     },
-    // {
-    //   href: "/blog",
-    //   label: "Blog",
-    //   icon: <Globe className="w-4 h-4" />,
-    // },
+    {
+      href: "/blog",
+      label: "Blog",
+      icon: <Globe className="w-4 h-4" />,
+    },
     {
       href: "https://gesim.gitbook.io/gesim",
       label: "docs",
