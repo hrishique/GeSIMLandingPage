@@ -132,7 +132,7 @@ export default function BlogPage() {
             <p
               className={`text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed`}
             >
-              Stay updated with the latest in global connectivity, Web3 technology, and digital nomad lifestyle
+              Stay updated with the latest in global connectivity, Web3 and digital nomad lifestyle
             </p>
           </div>
 
@@ -153,7 +153,7 @@ export default function BlogPage() {
             </div>
 
             {/* View Toggle */}
-            <div className="flex items-center gap-2">
+            <div className="hidden md:inline-flex items-center gap-2">
               <Button
                 variant={viewMode === "grid" ? "default" : "outline"}
                 size="sm"
@@ -219,7 +219,7 @@ export default function BlogPage() {
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
-                    <div className="absolute top-4 left-4">
+                    {/* <div className="absolute top-4 left-4">
                       <span
                         className={`px-3 py-1 rounded-full text-xs font-semibold ${
                           post.category === "Product Updates"
@@ -231,7 +231,7 @@ export default function BlogPage() {
                       >
                         {post.category}
                       </span>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="p-6">

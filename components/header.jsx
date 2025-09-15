@@ -49,15 +49,7 @@ function Header() {
   return (
     <header className={`top-0 z-50 px-6 py-6 bg-white/80 dark:bg-slate-950 transition-colors`}>
       <div className="md:container md:mx-auto flex items-center gap-4 justify-between">
-      {/* <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsMenuOpen(true)}
-            className={`md:hidden rounded-xl text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800`}
-            aria-label="Open menu"
-          >
-            <Menu className="h-5 w-5" />
-          </Button> */}
+     
         <Link href='/' className="flex items-center ">
         <div className={`relative w-8 h-8 p-1.5 bg-gradient-to-br from-slate-200 to-slate-300 dark:bg-slate-800 rounded-xl shadow-lg`}>
               <Image src="/gesim-logo.png" alt="GeSIM" fill className="object-contain rounded-lg" />
@@ -88,7 +80,7 @@ function Header() {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            className={`md:inline-flex text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800 rounded-xl`}
+            className={`hidden md:inline-flex text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800 rounded-xl`}
             aria-label="Toggle theme"
           >
             <Sun className="h-5 w-5 hidden dark:inline" />
@@ -102,7 +94,15 @@ function Header() {
             Join Waitlist
           </Button>
           {/* Mobile menu toggle */}
-         
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsMenuOpen(true)}
+            className={`md:hidden rounded-xl text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800`}
+            aria-label="Open menu"
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
         </div>
       </div>
 

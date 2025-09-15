@@ -1,15 +1,7 @@
 "use client"
-
-import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import {
-  Moon,
-  Sun,
   Globe,
-  Smartphone,
-  Building2,
-  Zap,
-  Mail,
   Calendar,
   Clock,
   ArrowLeft,
@@ -17,8 +9,6 @@ import {
   Twitter,
   Linkedin,
   LinkIcon,
-  ChevronLeft,
-  ChevronRight,
   ArrowRight,
 } from "lucide-react"
 import Image from "next/image"
@@ -284,49 +274,86 @@ const getBlogPost = (slug: string) => {
 const getSuggestedArticles = (currentId: number) => {
   const allArticles = [
     {
+      id: 1,
+      title: "GeSIM × Airalo — $100k sandbox to validate our infra",
+      excerpt:
+        "We’ve partnered with Airalo and received a $100K sandbox grant to stress-test GeSIM’s infrastructure.",
+      thumbnail: "/AiraloxGeSIMblog.png?height=300&width=500",
+      category: "Partnerships",
+      tags: ["Partnership", "Airalo", "Global"],
+      publishedAt: "2025-09-05",
+      readTime: "2 min read",
+      slug: "gesim-x-airalo-partnership",
+    },
+    {
+      id: 2,
+      title: "GeSIM × eSIMAccess — strengthening infra, distribution & revenue with wallet-first connectivity",
+      excerpt:
+        "We’re teaming up with eSIMAccess to lean on their distribution support and jointly explore global postpaid offerings",
+      thumbnail: "/eSIMACCESSxGeSIMblog.png?height=300&width=500",
+      category: "Partnerships",
+      tags: ["Product", "Crypto", "USDC", "Payments"],
+      publishedAt: "2025-09-07",
+      readTime: "3 min read",
+      slug: "gesim-x-esimaccess-partnership",
+    },
+    {
       id: 3,
       title: "The Ultimate Digital Nomad's Guide to eSIM Technology",
-      excerpt: "Everything you need to know about eSIM technology for remote work and travel.",
-      thumbnail: "/placeholder.svg?height=300&width=500",
+      excerpt:
+        "If you travel for work, creativity, or the freedom to live anywhere, reliable mobile data isn’t a luxury - it’s the infrastructure of your life.",
+      thumbnail: "/DigitalNomadblog.png?height=300&width=500",
       category: "Travel Tips",
-      slug: "digital-nomad-guide-esim-technology",
+      tags: ["Travel", "Digital Nomad", "Guide", "eSIM"],
+      publishedAt: "2025-09-10",
       readTime: "12 min read",
+      slug: "digital-nomad-guide-esim-technology",
     },
     {
       id: 4,
-      title: "Telnyx Integration: Enterprise-Grade Infrastructure for GeSIM",
-      excerpt: "Discover how our integration with Telnyx brings enterprise-grade telecom infrastructure.",
-      thumbnail: "/placeholder.svg?height=300&width=500",
+      title: "GeSIM × Telnyx — mapping SM-DP+ points to GeSIM ID to harden infra, UX & compliance",
+      excerpt:
+        "We’re integrating Telnyx’s SM-DP+ server to map critical eSIM provisioning points directly to the GeSIM ID",
+      thumbnail: "/TelnyxxGeSIMblog.png?height=300&width=500",
       category: "Partnerships",
+      tags: ["Partnership", "Telnyx", "Infrastructure", "Enterprise"],
+      publishedAt: "2025-09-13",
+      readTime: "4 min read",
       slug: "gesim-x-telnyx-partnership",
-      readTime: "6 min read",
     },
     {
       id: 5,
-      title: "DID-Linked Travel NFTs: Your Digital Identity on the Blockchain",
-      excerpt: "Learn about our innovative DID-linked travel NFTs that secure your digital identity.",
-      thumbnail: "/placeholder.svg?height=300&width=500",
+      title: "Private Testing — Join GeSIM’s Invite-Only Waitlist ",
+      excerpt:
+        "We’re opening private testing - invite-only - and we want you to poke the plumbing.",
+      thumbnail: "/privatetesting.png?height=300&width=500",
       category: "Product Updates",
-      slug: "gesim-private-testing",
+      tags: ["Product", "DID", "NFT", "Blockchain", "Security"],
+      publishedAt: "2025-09-15",
       readTime: "9 min read",
+      slug: "gesim-private-testing",
     },
-    {
-      id: 6,
-      title: "Top 10 Countries for Remote Work with GeSIM",
-      excerpt: "Explore the best destinations for digital nomads and remote workers.",
-      thumbnail: "/placeholder.svg?height=300&width=500",
-      category: "Travel Tips",
-      slug: "top-10-countries-remote-work-gesim",
-      readTime: "8 min read",
-    },
+    // {
+    //   id: 6,
+    //   title: "Top 10 Countries for Remote Work with GeSIM",
+    //   excerpt:
+    //     "Explore the best destinations for digital nomads and remote workers, complete with connectivity tips and GeSIM coverage information.",
+    //   thumbnail: "/placeholder.svg?height=300&width=500",
+    //   category: "Travel Tips",
+    //   tags: ["Travel", "Remote Work", "Countries", "Coverage"],
+    //   publishedAt: "2024-12-28",
+    //   readTime: "8 min read",
+    //   slug: "top-10-countries-remote-work-gesim",
+    // },
   ]
 
   return allArticles.filter((article) => article.id !== currentId).slice(0, 3)
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const post = getBlogPost(params.slug)
+export default  function BlogPostPage({ params }: { params: { slug: string } }) {
+  let param =  params
+  // const [currentSlide, setCurrentSlide] = useState(0)
+  const post = getBlogPost(param.slug)
   const suggestedArticles = post ? getSuggestedArticles(post.id) : []
 
   if (!post) {
@@ -341,7 +368,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     })
   }
 
-  const shareUrl = `https://gesim.com/blog/${params.slug}`
+  const shareUrl = `https://gesim.com/blog/${param.slug}`
   const shareTitle = post.title
 
   const shareOnTwitter = () => {
@@ -364,13 +391,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     // You could add a toast notification here
   }
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % suggestedArticles.length)
-  }
+  // const nextSlide = () => {
+  //   setCurrentSlide((prev) => (prev + 1) % suggestedArticles.length)
+  // }
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + suggestedArticles.length) % suggestedArticles.length)
-  }
+  // const prevSlide = () => {
+  //   setCurrentSlide((prev) => (prev - 1 + suggestedArticles.length) % suggestedArticles.length)
+  // }
 
   return (
     <div
@@ -497,7 +524,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
           {/* Featured Image */}
           <div className="relative h-96 md:h-[500px] mb-12 overflow-hidden rounded-3xl">
-            <Image src={post.thumbnail || "/placeholder.svg"} alt={post.title} fill className="object-cover" />
+            <Image src={post.thumbnail || "/placeholder.svg"} alt={post.title} fill className="object-contain" />
           </div>
 
           {/* Article Content */}
@@ -538,7 +565,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <h2 className={`text-3xl md:text-4xl font-bold text-slate-900 dark:text-white`}>
               Suggested Articles
             </h2>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <Button
                 variant="outline"
                 size="sm"
@@ -555,7 +582,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               >
                 <ChevronRight className="w-4 h-4" />
               </Button>
-            </div>
+            </div> */}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -571,7 +598,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4">
+                  {/* <div className="absolute top-4 left-4">
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-semibold ${
                         article.category === "Product Updates"
@@ -583,7 +610,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     >
                       {article.category}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="p-6">
