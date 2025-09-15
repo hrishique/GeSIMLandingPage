@@ -28,99 +28,251 @@ import { notFound } from "next/navigation"
 // Mock blog post data (in a real app, this would come from a CMS or API)
 const getBlogPost = (slug: string) => {
   const posts = {
-    "gesim-partners-airalo-global-esim-access": {
+    "gesim-x-airalo-partnership": {
       id: 1,
-      title: "GeSIM Partners with Airalo to Revolutionize Global eSIM Access",
+      title: "GeSIM × Airalo — $100k sandbox to validate our infra",
       excerpt:
-        "We're excited to announce our strategic partnership with Airalo, the world's first eSIM store, bringing seamless global connectivity to millions of travelers worldwide.",
+        "We’ve partnered with Airalo and received a $100K sandbox grant to stress-test GeSIM’s infrastructure.",
       content: `
-        <p class="lead">We're thrilled to announce a groundbreaking partnership between GeSIM and Airalo, the world's first eSIM store. This strategic alliance marks a significant milestone in our mission to revolutionize global connectivity through blockchain technology and crypto-powered eSIM solutions.</p>
+        <p class="lead">We’ve partnered with Airalo and received a $100K sandbox grant to stress-test GeSIM’s infrastructure. Airalo has already onboarded us to their Partner Platform, giving GeSIM a safe, funded environment to run large-scale, real-device experiments.</p><br>
         
-        <h2>What This Partnership Means</h2>
-        <p>By joining forces with Airalo, GeSIM users will gain access to an unprecedented network of eSIM providers across 190+ countries and regions. This partnership combines Airalo's extensive global coverage with GeSIM's innovative crypto payment infrastructure and DID-linked security features.</p>
-        
-        <blockquote>
-          <p>"This partnership represents the future of global connectivity—where traditional telecom meets Web3 innovation to create seamless, secure, and accessible mobile internet for everyone."</p>
-          <cite>— Sarah Chen, Head of Partnerships at GeSIM</cite>
-        </blockquote>
-        
-        <h2>Key Benefits for Users</h2>
+        <h3><B>What we’ll validate</B></h3><br>
         <ul>
-          <li><strong>Expanded Coverage:</strong> Access to eSIM plans in 190+ countries through Airalo's network</li>
-          <li><strong>Crypto Payments:</strong> Pay for Airalo eSIM plans using USDC, Bitcoin, and other cryptocurrencies</li>
-          <li><strong>Seamless Integration:</strong> One-click activation through the GeSIM mobile app</li>
-          <li><strong>Enhanced Security:</strong> DID-linked travel credentials for secure identity verification</li>
-          <li><strong>Real-time Tracking:</strong> Monitor your data usage and spending across all connected devices</li>
-        </ul>
-        
-        <h3>Technical Integration</h3>
-        <p>The integration leverages GeSIM's blockchain infrastructure to provide:</p>
-        <ol>
-          <li>Instant cryptocurrency settlements</li>
-          <li>Decentralized identity verification</li>
-          <li>Smart contract-based billing</li>
-          <li>Cross-border compliance automation</li>
-        </ol>
-        
-        <h2>The Future of Travel Connectivity</h2>
-        <p>This partnership represents more than just expanded coverage—it's a step toward a future where global connectivity is truly borderless, secure, and accessible to everyone. By combining traditional telecom infrastructure with Web3 innovation, we're creating a new paradigm for how travelers stay connected worldwide.</p>
-        
-        <p>Digital nomads, business travelers, and tourists will benefit from a unified platform that eliminates the complexity of managing multiple eSIM providers while ensuring the highest levels of security and transparency.</p>
-        
-        <h3>What's Next?</h3>
-        <p>The integration will roll out in phases starting Q2 2025, beginning with major travel destinations in Europe and Asia. Users can expect:</p>
-        <ul>
-          <li>Beta access for existing GeSIM users</li>
-          <li>Expanded country coverage monthly</li>
-          <li>New crypto payment options</li>
-          <li>Enhanced mobile app features</li>
-        </ul>
-        
-        <p>Stay tuned for more updates as we continue to build the future of global connectivity together. <a href="/blog">Read more insights</a> on our blog or <a href="/#waitlist">join our waitlist</a> to be among the first to experience this revolutionary partnership.</p>
+    <li>
+      <strong>Provisioning fidelity:</strong>
+      ensure GeSIM ID (our wallet-backed SBT) mint → plan assignment → activation works reliably across devices and carriers.
+    </li>
+    <li>
+      <strong>Billing &amp; metering:</strong>
+      reconcile our pay-as-you-go smart-billing with carrier usage signals to eliminate surprises.
+    </li>
+    <li>
+      <strong>Geo &amp; network edge cases:</strong>
+      exercise regional installs, roaming handovers and activation-before-arrival flows.
+    </li>
+    <li>
+      <strong>Telemetry &amp; fraud signals:</strong>
+      capture provisioning logs, error traces and consumption patterns so we can harden retries and observability.
+    </li>
+  </ul>
+</section> <br>
+
+<section aria-labelledby="why-heading">
+  <h3 id="why-heading">Why it matters</h3><br>
+  <p>
+    The sandbox support lets us run instrumented, staged rollouts so issues are found and fixed before broad release. That means faster iterations on the GeSIM ID flow, more predictable user experiences and infrastructure ready to scale without surprise support load.
+  </p><br>
+  <p>
+    If you’re a power user or OEM and want to help validate edge cases, <strong>ping the GeSIM team</strong> — we’ll be shipping targeted test drops soon.
+  </p>
+</section>
       `,
-      thumbnail: "/placeholder.svg?height=400&width=800",
+      thumbnail: "/AiraloxGeSIMblog.png?height=400&width=800",
       category: "Partnerships",
-      tags: ["Partnership", "Airalo", "Global", "eSIM", "Web3"],
+      tags: ["Airalo", "Sandbox", "Infra",  "eSIM"],
       publishedAt: "2025-01-10",
       readTime: "5 min read",
       author: {
-        name: "Sarah Chen",
-        role: "Head of Partnerships",
-        avatar: "/placeholder.svg?height=100&width=100",
-        bio: "Sarah leads strategic partnerships at GeSIM, focusing on expanding global connectivity through innovative telecom and Web3 collaborations.",
+        name: "Charchit ",
+        role: "Co-Founder and CEO",
+        avatar: "/file1.jpg?height=100&width=100",
+        bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
       },
     },
-    "crypto-payments-usdc-esim-plans": {
+    "gesim-x-esimaccess-partnership": {
       id: 2,
-      title: "Introducing Crypto Payments: Pay for Your eSIM with USDC",
+      title: "GeSIM × eSIMAccess — strengthening infra, distribution & revenue with wallet-first connectivity",
       excerpt:
-        "GeSIM now supports cryptocurrency payments! Learn how you can purchase eSIM plans using USDC, Bitcoin, and other major cryptocurrencies with instant settlement.",
+      "We’re teaming up with eSIMAccess to lean on their distribution support and jointly explore global postpaid offerings",
       content: `
-        <p class="lead">Today marks a revolutionary milestone in global connectivity as GeSIM becomes the first eSIM platform to fully integrate cryptocurrency payments. Users can now purchase eSIM plans using USDC, Bitcoin, Ethereum, and other major cryptocurrencies with instant settlement and zero traditional banking fees.</p>
+        <p>We’re teaming up with eSIMAccess to lean on their distribution support and jointly explore global postpaid offerings — and to use that real-world scale to harden GeSIM’s infrastructure. eSIMAccess gives us channels and operational partnerships; GeSIM brings the wallet-native identity and billing layer. Together we’re building a safer, more profitable connectivity stack.</p><br>
         
-        <h2>Why Crypto Payments Matter</h2>
-        <p>Traditional payment methods for international services often involve high fees, slow processing times, and complex currency conversions. Cryptocurrency payments eliminate these friction points while providing enhanced security and transparency.</p>
-        
-        <h2>Supported Cryptocurrencies</h2>
+        <h3>What we’re validating on the infra side</h3>
         <ul>
-          <li><strong>USDC:</strong> Instant settlement with stable value</li>
-          <li><strong>Bitcoin (BTC):</strong> The world's most trusted cryptocurrency</li>
-          <li><strong>Ethereum (ETH):</strong> Smart contract-powered transactions</li>
-          <li><strong>USDT:</strong> Tether stablecoin for price stability</li>
-        </ul>
-        
-        <p>This integration represents the future of borderless payments for global connectivity services.</p>
+          <li><strong>Provisioning reliability:</strong> ensure GeSIM ID mint → plan assignment → activation completes across device types and carrier flows with robust retries and idempotency.</li>
+          <li><strong>Billing reconciliation:</strong> reconcile GeSIM’s wallet-first billing with carrier consumption and postpaid settlement flows so charges align and disputes shrink.</li>
+          <li><strong>Observability & telemetry:</strong> instrument provisioning, activation, and consumption paths so we can detect regressions, identify fraud signals, and measure cohort retention.</li>
+          <li><strong>Postpaid trust experiments:</strong> develop the trust primitives that let partners offer postpaid plans without relying on international card acceptance — reducing failed payments and chargebacks.</li>
+        </ul><br>
+
+        <h3>Why postpaid matters (and where cards fail)</h3><br>
+        <p>International cards frequently face merchant declines, fraud flags, or hold periods — behaviour that hurts conversion and pushes users to prepaid alternatives with lower spend. By attaching a wallet-backed GeSIM ID to a user’s account and activity, we create a verifiable, persistent identity and payment relationship that:</p>
+        <ul>
+          <li>reduces payment friction for cross-border buyers,</li>
+          <li>enables safer partner-level credit (postpaid trials / event passes), and</li>
+          <li>provides stronger signals for fraud teams and merchant processors.</li>
+        </ul><br>
+
+        <h3>How this raises LTV & ARPU</h3><br>
+        <ul>
+          <li><strong>Higher conversion:</strong> fewer payment declines and a smoother activation flow mean more users complete purchases.</li>
+          <li><strong>Better retention:</strong> GeSIM ID enables longer-lived entitlements (subscriptions, event passes), increasing repeat usage and LTV.</li>
+          <li><strong>Upsell & yield:</strong> with clearer per-user telemetry we can target usage-based upsells (auto-topups, premium plans) that raise ARPU without harming trust.</li>
+          <li><strong>Lower support/chargeback costs:</strong> clearer identity + reconciled billing means fewer disputes and lower operational overhead.</li>
+        </ul><br>
+
+        <h3>Practical next steps</h3><br>
+        <p>We’ll run staged, instrumented rollouts through eSIMAccess channels to test postpaid flows, measure conversion and dispute rates, and iterate on safeguards (auto-stop, soft-limits, retry logic). Devs and partners will get SDK hooks and telemetry dashboards to validate flows and share findings.</p><br>
       `,
-      thumbnail: "/placeholder.svg?height=400&width=800",
+      thumbnail: "/eSIMACCESSxGeSIMblog.png?height=400&width=800",
       category: "Product Updates",
-      tags: ["Product", "Crypto", "USDC", "Payments", "Bitcoin"],
+      tags: ["eSIMAccess", "Postpaid", "Crypto", "USDC"],
       publishedAt: "2025-01-08",
       readTime: "7 min read",
       author: {
-        name: "Alex Rodriguez",
-        role: "Product Manager",
-        avatar: "/placeholder.svg?height=100&width=100",
-        bio: "Alex drives product innovation at GeSIM, specializing in Web3 integrations and cryptocurrency payment systems.",
+        name: "Charchit ",
+        role: "Co-Founder and CEO",
+        avatar: "/file1.jpg?height=100&width=100",
+        bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
+      },
+    },
+    "digital-nomad-guide-esim-technology": {
+      id: 3,
+      title: "The Ultimate Digital Nomad's Guide to eSIM Technology",
+    excerpt:
+      "If you travel for work, creativity, or the freedom to live anywhere, reliable mobile data isn’t a luxury - it’s the infrastructure of your life.",
+      content: `
+        <p><strong>If you travel for work, creativity, or the freedom to live anywhere, reliable mobile data isn’t a luxury - it’s the infrastructure of your life.</strong> eSIMs unlocked that promise: instant provisioning, multiple carriers on a single device, and less time in shops or juggling tiny physical SIMs. This guide gives digital nomads the practical knowledge to use eSIMs well - and explains how GeSIM makes that experience predictable, private and pay-as-you-go.</p><br>
+        
+        <h3><strong>What is an eSIM - short & useful</strong></h3>
+        <p>An eSIM (embedded SIM) is a programmable SIM profile inside your phone. Instead of swapping tiny plastic chips, your device downloads operator profiles over the air. That means:</p><br>
+        <ul>
+          <li><strong>Instant activation</strong> without a store visit.</li>
+          <li><strong>Multiple profiles</strong> stored on one device.</li>
+          <li><strong>Easier regional plans</strong> and short-term data bundles.</li>
+        </ul>
+        <p>But real-world problems persist: flaky activations, roaming hiccups, payment friction and fragmented UX across carriers. That’s where a coordination layer like GeSIM helps.</p><br>
+        
+        <h3><strong>Why digital nomads should care</strong></h3>
+        <p>For nomads, the value of eSIMs is simple:</p>
+        <ul>
+          <li><strong>Speed:</strong> Buy and go - useful for flights, co-working days, or last-minute conferences.</li>
+          <li><strong>Choice:</strong> Pick regional plans tailored to where you are, instead of expensive roaming.</li>
+          <li><strong>Portability:</strong> Keep one device and multiple profiles, no SIM tray juggling.</li>
+        </ul>
+        <p>But choice without coordination leads to churn, failed installs, and “bill shock.” To actually improve travel, you need predictable activations, clear billing, and the ability to recover when things break.</p><br>
+        
+        <h3><strong>Where GeSIM changes the game (private testing)</strong></h3>
+        <p>GeSIM isn’t a UI wrapper - we’re the coordination layer that sits between wallets, carriers and your device. Practical benefits for nomads:</p><br>
+        <ul>
+          <li><strong>GeSIM ID (wallet-backed SBT):</strong> Bind your identity and entitlements once. Your GeSIM ID becomes the persistent anchor used to reconcile purchases, recover failed installs, and resume activations across devices.</li>
+          <li><strong>AI Pick for Best Carrier:</strong> A light AI checks latency, cost, and signal in real time and recommends the best carrier for your needs - minimizing manual testing and guesswork.</li>
+          <li><strong>Pay only for what you use:</strong> Choose days & data. Deposit a small safety buffer that updates instantly, with a safety buffer and on-chain refund mechanics for transparency.</li>
+          <li><strong>One-tap switching & bind-once UX:</strong> Switch carriers or reassign profiles with a single tap and no lost purchases.</li>
+          <li><strong>Instrumented, auditable flows:</strong> Telemetry and crisp logs mean issues get fixed faster and disputes are simpler to resolve.</li>
+        </ul><br>
+        
+        <h3><strong>Practical checklist for nomads (before and during travel)</strong></h3><br>
+        <ul>
+          <li><strong>Check device compatibility</strong> — newer iOS and Android devices support eSIM profiles, but always verify your model.</li>
+          <li><strong>Buy a short plan first</strong> — test coverage near your arrival point before committing to a long plan.</li>
+          <li><strong>Mint your GeSIM ID early</strong> — bind once; you’ll avoid repeated onboarding and make recovery simpler if installs fail.</li>
+          <li><strong>Run the AI Pick</strong> — let GeSIM test latency, signal, and cost to recommend the carrier that will feel fastest in practice.</li>
+          <li><strong>Enable auto-stop and soft-limits</strong> — avoid surprise bills by using the deposit buffer and auto-stop thresholds.</li>
+        </ul><br>
+        
+        <h3><strong>Real-world tips we actually use</strong></h3><br>
+        <ul>
+          <li>For events or short trips, pick day-based bundles with automatic expiry - less mental overhead.</li>
+          <li>Use the AI Pick the first time you land; network conditions shift and the “best” carrier can change throughout a trip.</li>
+          <li>If activation fails, don’t panic: GeSIM ID lets support reassign or resume the profile without losing your purchase.</li>
+        </ul><br>
+        
+        <h3><strong>Final word - built for the moments that matter</strong></h3><br>
+        <p>Want to test it with us? <strong>Private testing is live - invite-only.</strong> Join the waitlist at <a href="https://GeSIM.xyz" target="_blank" rel="noopener noreferrer">GeSIM.xyz</a> to try the AI Pick, custom plans and one-tap activations. Tell us what breaks - we’ll iterate fast, and you’ll help build the connectivity nomads actually need.</p>
+      `,
+      thumbnail: "/DigitalNomadblog.png?height=400&width=800",
+      category: "Travel Tips",
+      tags: ["Digital Nomad", "Travel", "eSIM", "Guide", "Remote Work"],
+      publishedAt: "2025-01-10",
+      readTime: "5 min read",
+      author: {
+        name: "Charchit ",
+        role: "Co-Founder and CEO",
+        avatar: "/file1.jpg?height=100&width=100",
+        bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
+      },
+    },
+    "gesim-x-telnyx-partnership": {
+      id: 4,
+      title: "GeSIM × Telnyx — mapping SM-DP+ points to GeSIM ID to harden infra, UX & compliance",
+    excerpt:
+      "We’re integrating Telnyx’s SM-DP+ server to map critical eSIM provisioning points directly to the GeSIM ID",
+      content: `
+        <p>We’re integrating <strong>Telnyx’s SM-DP+ server</strong> to map critical eSIM provisioning points directly to the GeSIM ID. This is an infra-first effort: connect the secure device-profile lifecycle (SM-DP+) with our wallet-native identity primitive so activations are faster, auditable, and compliant - without adding user friction.</p><br>
+        
+        <h3>Infra priorities</h3><br>
+        <ul>
+          <li><strong>Deterministic mapping:</strong> Bind eSIM download/activation events to a single GeSIM ID so every profile has an immutable anchor for reconciliation, revocation, and lifetime entitlements.</li>
+          <li><strong>Secure attestations:</strong> Surface SM-DP+ provisioning proofs to our backend and cryptographically link them to the GeSIM ID for tamper-evident logs.</li>
+          <li><strong>Idempotent provisioning:</strong> Implement idempotency keys around SM-DP+ operations to avoid duplicate profiles on retry-heavy networks.</li>
+          <li><strong>Privacy-first data flows:</strong> Minimize PII passed through Telnyx; use ephemeral tokens and on-chain references where possible so compliance teams get auditability without storing unnecessary user data.</li>
+        </ul><br>
+
+        <h3>UX and operational wins</h3><br>
+        <ul>
+          <li><strong>One-tap activations:</strong> Map device provisioning state to a user’s GeSIM ID so activations resume across devices and sessions, eliminating repeated setup steps.</li>
+          <li><strong>Smarter recovery:</strong> When over-the-air installs fail, the GeSIM ID lets us resume or reassign profiles safely instead of orphaning user purchases.</li>
+          <li><strong>Faster dispute resolution:</strong> Reconciled, ID-anchored logs reduce chargebacks and speed partner investigations.</li>
+        </ul><br>
+
+        <h3>Compliance & observability</h3><br>
+        <ul>
+          <li><strong>Audit trails:</strong> Every SM-DP+ action tied to GeSIM ID creates a clear, exportable trail for regulators and partners.</li>
+          <li><strong>Consent receipts:</strong> Attach consent metadata to GeSIM ID records for lawful processing and easier KYC/AML handoffs when required.</li>
+          <li><strong>Telemetry hooks:</strong> Granular SM-DP+ metrics (latency, error codes, retries) instrumented per GeSIM ID so we can rollback, alert, and iterate quickly.</li>
+        </ul><br>
+
+        <p>This integration turns Telnyx’s SM-DP+ into a provable, identity-anchored provisioning layer — improving activation UX, strengthening compliance posture, and making GeSIM infrastructure production-ready at scale.</p>
+      `,
+      thumbnail: "/TelnyxxGeSIMblog.png?height=400&width=800",
+      category: "Partnerships",
+      tags: ["Telnyx", "Enterprise", "Provisioning", "Compliance", "eSIM", "Identity"],
+      publishedAt: "2025-01-12",
+      readTime: "6 min read",
+      author: {
+        name: "Charchit ",
+        role: "Co-Founder and CEO",
+        avatar: "/file1.jpg?height=100&width=100",
+        bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
+      },
+    },
+    "gesim-private-testing": {
+      id: 5,
+      title: "Private Testing — Join GeSIM’s Invite-Only Waitlist ",
+      excerpt:
+        "We’re opening private testing - invite-only - and we want you to poke the plumbing.",
+      content: `
+        <p><strong>GeSIM chooses the best network for you.</strong> A light AI checks latency, cost and signal - then picks the best carrier. We’re not here to wrap an AI agent around the UI. We’re building the coordination layer for global telecom - the real plumbing that makes eSIM adoption happen where crypto and AI meet.</p><br>
+        <p><strong>Choose days & data - pay only for what you use.</strong> The deposit updates instantly, with a safety buffer and on-chain refund. Bind once with your GeSIM ID and enjoy one-tap switching: instant, simple, auditable.</p><br>
+        
+        <h3>A quick how it works for testers</h3><br>
+        <ul>
+          <li>Sign up to the private waitlist (invite only).</li>
+          <li>Get an invite, mint your GeSIM ID, and deposit a small safety buffer.</li>
+          <li>Try the AI pick: run latency checks, switch carriers, buy custom plans, and stress activation flows.</li>
+          <li>Tell us what breaks — telemetry and your feedback will shape the next iterations.</li>
+        </ul><br>
+        
+        <h3>Founder note</h3><br>
+        <blockquote>
+          “I’m Charchit. We bootstrapped GeSIM because travel kept breaking the moments that matter. With my CTO Hrishque and our team we built this coordination layer to fix that. Private testing is live. Join us, install our eSIM, try the custom plans and tell us what breaks. We were bootstrapped—now we’re building with you.” — Charchit
+        </blockquote><br>
+        
+        <h3>Why join now</h3>
+        <p>You’ll get early access to one-tap activations, the best-carrier AI pick, and direct influence on UX, refunds, and safety logic. We’ll run tight, instrumented test drops and you’ll see the product evolve fast.</p><br>
+        <p><strong>👉 Join the private waitlist: <a href="https://GeSIM.xyz" target="_blank" rel="noopener noreferrer">GeSIM.xyz</a> - invite only.</strong></p>
+      `,
+      thumbnail: "/privatetesting.png?height=400&width=800",
+      category: "Product Updates",
+      tags: ["DID", "Travel", "Identity",  "Web3"],
+      publishedAt: "2025-01-08",
+      readTime: "7 min read",
+      author: {
+        name: "Charchit ",
+        role: "Co-Founder and CEO",
+        avatar: "/file1.jpg?height=100&width=100",
+        bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
       },
     },
   }
@@ -146,7 +298,7 @@ const getSuggestedArticles = (currentId: number) => {
       excerpt: "Discover how our integration with Telnyx brings enterprise-grade telecom infrastructure.",
       thumbnail: "/placeholder.svg?height=300&width=500",
       category: "Partnerships",
-      slug: "telnyx-integration-enterprise-infrastructure",
+      slug: "gesim-x-telnyx-partnership",
       readTime: "6 min read",
     },
     {
@@ -155,7 +307,7 @@ const getSuggestedArticles = (currentId: number) => {
       excerpt: "Learn about our innovative DID-linked travel NFTs that secure your digital identity.",
       thumbnail: "/placeholder.svg?height=300&width=500",
       category: "Product Updates",
-      slug: "did-linked-travel-nfts-digital-identity",
+      slug: "gesim-private-testing",
       readTime: "9 min read",
     },
     {
