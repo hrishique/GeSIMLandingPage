@@ -62,17 +62,17 @@ function HeroSection() {
               {/* CTA Section */}
               <div className="flex flex-col sm:flex-row gap-6 mb-16">
                 <Link
-                  href="#app"
-                  // target="_blank"
+                  href={'https://mvp.gesim.xyz/'}
+                  target="_blank"
                   className={`bg-slate-900 hover:bg-slate-800 text-white dark:bg-slate-800 dark:hover:bg-slate-700 
                     px-12 py-4 text-lg font-semibold rounded-xl border-2 transition-all duration-300 flex items-center gap-3`}
 
                 >
                   <ArrowRight className={`w-5 h-5`} />
-                  Start Your Journey
+                  EXPLORE MVP
                 </Link>
                 <Link
-                  href={'https://www.loom.com/share/5257955a15d84419916b07ecd5ef4899?sid=7c72cfb9-c83e-490e-9c3a-934f23fd9c24'}
+                  href={'https://www.loom.com/share/4faed66a3eda47708c8e1102f5b216d9?sid=17c88f64-79ff-437d-8517-a589dbe3f830'}
                   target='_blank'
                   className={`px-12 py-4 text-lg font-semibold rounded-xl border-2 transition-all duration-300 flex items-center gap-3 border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white`}
                 >
