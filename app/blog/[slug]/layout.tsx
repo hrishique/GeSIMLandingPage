@@ -1,12 +1,25 @@
 import type React from "react"
 import type { Metadata } from "next"
 
+interface BlogPost {
+  id: number
+  title: string
+  excerpt:
+    string
+  thumbnail: string
+  category: string
+  tags: string[]
+  publishedAt: string
+  readTime: string
+  slug: string
+}
+
 // This would typically fetch the post data to generate metadata
-const generateMetadata = async ({ params }: { params: { slug: string } }): Promise<Metadata> => {
+const generateMetadata = async ({ params }: { params: Promise<BlogPost> }): Promise<Metadata> => {
   // In a real app, you'd fetch the post data here
-  const postTitle = "GeSIM Partners with Airalo to Revolutionize Global eSIM Access"
-  const postExcerpt =
-    "We're excited to announce our strategic partnership with Airalo, the world's first eSIM store, bringing seamless global connectivity to millions of travelers worldwide."
+  let param = await params
+  const postTitle = param?.title || ''
+  const postExcerpt = param?.excerpt || ''
 
   return {
     title: `${postTitle} | GeSIM Insights`,
@@ -16,11 +29,11 @@ const generateMetadata = async ({ params }: { params: { slug: string } }): Promi
       title: postTitle,
       description: postExcerpt,
       type: "article",
-      url: `https://gesim.xyz/blog/${params.slug}`,
+      url: `https://gesim.xyz/blog/${param.slug}`,
       siteName: "GeSIM",
       images: [
         {
-          url: "/placeholder.svg?height=400&width=800",
+          url: param?.thumbnail || '',
           width: 800,
           height: 400,
           alt: postTitle,
@@ -28,13 +41,15 @@ const generateMetadata = async ({ params }: { params: { slug: string } }): Promi
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title: postTitle,
       description: postExcerpt,
-      images: ["/placeholder.svg?height=400&width=800"],
+      images: [param?.thumbnail || ''],
+      site: '@gesimxyz',
+      creator: '@gesimxyz',
     },
-    alternates: {
-      canonical: `https://gesim.xyz/blog/${params.slug}`,
+    alternates: { 
+      canonical: `https://gesim.xyz/blog/${param.slug}`,
     },
   }
 }
