@@ -368,7 +368,7 @@ export default  function BlogPostPage({ params }: { params: { slug: string } }) 
     })
   }
 
-  const shareUrl = `https://gesim.com/blog/${param.slug}`
+  const shareUrl = `https://gesim.xyz/blog/${param.slug}`
   const shareTitle = post.title
 
   const shareOnTwitter = () => {

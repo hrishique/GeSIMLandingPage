@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "Stay updated with GeSIM's latest insights on global connectivity, eSIM technology, Web3 innovations, partnerships, and digital nomad lifestyle tips.",
     type: "website",
-    url: "https://gesim.com/blog",
+    url: "https://gesim.xyz/blog",
     siteName: "GeSIM",
   },
   twitter: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
       "Stay updated with GeSIM's latest insights on global connectivity, eSIM technology, Web3 innovations, partnerships, and digital nomad lifestyle tips.",
   },
   alternates: {
-    canonical: "https://gesim.com/blog",
+    canonical: "https://gesim.xyz/blog",
   },
 }
 

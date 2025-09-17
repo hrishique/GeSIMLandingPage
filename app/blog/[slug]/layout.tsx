@@ -16,7 +16,7 @@ const generateMetadata = async ({ params }: { params: { slug: string } }): Promi
       title: postTitle,
       description: postExcerpt,
       type: "article",
-      url: `https://gesim.com/blog/${params.slug}`,
+      url: `https://gesim.xyz/blog/${params.slug}`,
       siteName: "GeSIM",
       images: [
         {
@@ -34,7 +34,7 @@ const generateMetadata = async ({ params }: { params: { slug: string } }): Promi
       images: ["/placeholder.svg?height=400&width=800"],
     },
     alternates: {
-      canonical: `https://gesim.com/blog/${params.slug}`,
+      canonical: `https://gesim.xyz/blog/${params.slug}`,
     },
   }
 }
