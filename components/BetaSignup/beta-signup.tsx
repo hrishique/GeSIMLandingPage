@@ -97,7 +97,6 @@ export function BetaSignup() {
 
     setIsSubmitting(true)
 
-    // API call
     try {
       const url = "https://gesimbackend.onrender.com/api/user/betasignup"
       const inputValue = {
@@ -130,7 +129,7 @@ export function BetaSignup() {
   }
 
   return (
-    <section className={`py-24 px-6 dark:bg-slate-900/50 bg-slate-50`}>
+    <section id='waitlist' className={`py-24 px-6 dark:bg-slate-900/50 bg-slate-50`}>
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="lg:sticky lg:top-8">
@@ -187,7 +186,7 @@ export function BetaSignup() {
             </div>
           </div>
 
-          <div className="order-first lg:order-last">
+          <div className="order-last">
             <Card
               className={`dark:bg-slate-800/30 dark:border-slate-700/50 bg-white border-slate-200 shadow-2xl`}
             >
@@ -208,7 +207,11 @@ export function BetaSignup() {
                         onValueChange={(value) => updateFormData("community", value)}
                       >
                         <SelectTrigger
-                          className="w-full dark:bg-slate-800 dark:border-slate-700 dark:text-white bg-white border-slate-300 text-slate-900"
+                          className={`w-full dark:bg-slate-800 dark:text-white bg-white text-slate-900 ${
+                            errors.community 
+                              ? 'border-red-500 dark:border-red-500' 
+                              : 'dark:border-slate-700 border-slate-300'
+                          }`}
                           data-field="community"
                         >
                           <SelectValue placeholder="Select a community" />
@@ -219,9 +222,10 @@ export function BetaSignup() {
                               <div className="flex items-center gap-3">
                                 <div
                                   className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
-                                    community.isPartner
-                                      ? "bg-gradient-to-br from-blue-500 to-purple-600 text-white"
-                                      : "dark:bg-slate-600 dark:text-slate-200 bg-slate-200 text-slate-700"
+                                    // community.isPartner
+                                    //   ? "bg-gradient-to-br from-blue-500 to-purple-600 text-white"
+                                      // :
+                                       "dark:bg-slate-600 dark:text-slate-200 bg-slate-200 text-slate-700"
                                   }`}
                                 >
                                   {community.initials}
@@ -235,10 +239,10 @@ export function BetaSignup() {
                           ))}
                         </SelectContent>
                       </Select>
+                      {errors.community && <p className="text-red-500 text-xs">{errors.community}</p>}
                       <p className={`text-xs dark:text-slate-400 text-slate-600`}>
                         Select where you heard about this beta. Logos help partners recognize referrals.
                       </p>
-                      {errors.community && <p className="text-red-500 text-xs">{errors.community}</p>}
                     </div>
 
                   <div className="space-y-2">
@@ -252,12 +256,16 @@ export function BetaSignup() {
                       value={formData.email}
                       onChange={(e) => updateFormData("email", e.target.value)}
                       placeholder="your@email.com"
-                      className={`dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:placeholder:text-slate-400 bg-white border-slate-300 text-slate-900 placeholder:text-slate-500`}
+                      className={`dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-400 bg-white text-slate-900 placeholder:text-slate-500 ${
+                        errors.email 
+                          ? 'border-red-500 dark:border-red-500' 
+                          : 'dark:border-slate-700 border-slate-300'
+                      }`}
                    />
+                    {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
                     <p className={`text-xs dark:text-slate-400 text-slate-600`}>
                       We'll use this email for login and to send invites, rewards, etc. No spam, ever.
                     </p>
-                    {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
                   </div>
 
                   <div className="space-y-2">
@@ -308,7 +316,11 @@ export function BetaSignup() {
                       onValueChange={(value) => updateFormData("travelProfile", value)}
                     >
                       <SelectTrigger
-                        className={`dark:bg-slate-800 dark:border-slate-700 dark:text-white bg-white border-slate-300 text-slate-900`}
+                        className={`dark:bg-slate-800 dark:text-white bg-white text-slate-900 ${
+                          errors.travelProfile 
+                            ? 'border-red-500 dark:border-red-500' 
+                            : 'dark:border-slate-700 border-slate-300'
+                        }`}
                         data-field="travelProfile"
                       >
                         <SelectValue placeholder="Select travel profile" />
@@ -323,10 +335,10 @@ export function BetaSignup() {
                         <SelectItem value="crypto-hopper">Crypto conference hopper</SelectItem>
                       </SelectContent>
                     </Select>
+                    {errors.travelProfile && <p className="text-red-500 text-xs">{errors.travelProfile}</p>}
                     <p className={`text-xs dark:text-slate-400 text-slate-600`}>
                       Pick the option that best fits — helps us assign scenarios.
                     </p>
-                    {errors.travelProfile && <p className="text-red-500 text-xs">{errors.travelProfile}</p>}
                   </div>
 
                   <div className="space-y-2">
@@ -434,17 +446,19 @@ export function BetaSignup() {
                         name="consent"
                         checked={formData.consent}
                         onChange={(e) => updateFormData("consent", e.target.checked)}
-                        className="mt-1 w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                        className={`mt-1 w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500 ${
+                          errors.consent ? 'border-red-500' : ''
+                        }`}
                       />
                       <label htmlFor="consent" className={`text-sm dark:text-white text-slate-900`}>
                         I consent to closed-beta data collection and agree to the conditions below before filling the form
                         <span className="text-red-500">*</span>
                       </label>
                     </div>
+                    {errors.consent && <p className="text-red-500 text-xs">{errors.consent}</p>}
                     <p className={`text-xs dark:text-slate-400 text-slate-600`}>
                       Beta data retained for 12 months. Request deletion anytime.
                     </p>
-                    {errors.consent && <p className="text-red-500 text-xs">{errors.consent}</p>}
                   </div>
 
                   <Button

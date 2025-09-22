@@ -34,7 +34,7 @@ export default function CoordinationLayer() {
 
           <RoadmapTimeline />
 
-          <div className="mt-16">
+          {/* <div className="mt-16">
           <Button
           onClick={()=>scrollToWaitlist()}
                   size="lg"
@@ -44,7 +44,7 @@ export default function CoordinationLayer() {
                   Join Beta Access
                 </Button>
            
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

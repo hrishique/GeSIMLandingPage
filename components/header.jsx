@@ -91,7 +91,7 @@ function Header() {
             className={`px-6 py-2 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all flex items-center gap-2 text-white bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700`}
           >
             <Mail className="w-4 h-4" />
-            Join Waitlist
+            Join Beta
           </Button>
           {/* Mobile menu toggle */}
           <Button
