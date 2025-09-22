@@ -5,6 +5,7 @@ import ProductStats from '@/components/ProductStats'
 import PartnersSection from '@/components/PartnersSection'
 import FeaturesSection from '@/components/FeaturesSection'
 import WaitlistSection from '@/components/WaitlistSection'
+import { BetaSignup } from '@/components/BetaSignup/beta-signup'
 
 export default function GeSIMLanding() {
   return (
@@ -24,9 +25,9 @@ export default function GeSIMLanding() {
       <FeaturesSection />
 
       {/* Product Preview Section */}
-    <CoordinationLayer />
-      <WaitlistSection/>
-
+      <CoordinationLayer />
+      {/* <WaitlistSection/> */}
+      <BetaSignup />
       
     </div>
   )
