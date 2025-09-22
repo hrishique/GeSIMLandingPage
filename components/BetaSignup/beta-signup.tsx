@@ -57,6 +57,8 @@ export function BetaSignup() {
     }
     if (!formData.email) {
       newErrors.email = "Email required"
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address"
     }
 
     if (!formData.travelProfile) {
@@ -69,6 +71,20 @@ export function BetaSignup() {
 
     setErrors(newErrors)
     console.log(newErrors)
+
+    // Scroll to first error field
+    if (Object.keys(newErrors).length > 0) {
+      const firstErrorField = Object.keys(newErrors)[0]
+      setTimeout(() => {
+        const element = document.querySelector(`[name="${firstErrorField}"]`) || 
+                      document.querySelector(`#${firstErrorField}`) ||
+                      document.querySelector(`[data-field="${firstErrorField}"]`)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+      }, 100)
+    }
+
     return Object.keys(newErrors).length === 0
   }
 
@@ -182,9 +198,6 @@ export function BetaSignup() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                
-
-                 
                     <div className="space-y-3">
                       <label className={`text-sm font-medium dark:text-white text-slate-900`}>
                         Which community are you joining from? <span className="text-red-500">*</span>
@@ -196,6 +209,7 @@ export function BetaSignup() {
                       >
                         <SelectTrigger
                           className="w-full dark:bg-slate-800 dark:border-slate-700 dark:text-white bg-white border-slate-300 text-slate-900"
+                          data-field="community"
                         >
                           <SelectValue placeholder="Select a community" />
                         </SelectTrigger>
@@ -224,6 +238,7 @@ export function BetaSignup() {
                       <p className={`text-xs dark:text-slate-400 text-slate-600`}>
                         Select where you heard about this beta. Logos help partners recognize referrals.
                       </p>
+                      {errors.community && <p className="text-red-500 text-xs">{errors.community}</p>}
                     </div>
 
                   <div className="space-y-2">
@@ -238,11 +253,11 @@ export function BetaSignup() {
                       onChange={(e) => updateFormData("email", e.target.value)}
                       placeholder="your@email.com"
                       className={`dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:placeholder:text-slate-400 bg-white border-slate-300 text-slate-900 placeholder:text-slate-500`}
-                      required
                    />
                     <p className={`text-xs dark:text-slate-400 text-slate-600`}>
                       We'll use this email for login and to send invites, rewards, etc. No spam, ever.
                     </p>
+                    {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
                   </div>
 
                   <div className="space-y-2">
@@ -294,6 +309,7 @@ export function BetaSignup() {
                     >
                       <SelectTrigger
                         className={`dark:bg-slate-800 dark:border-slate-700 dark:text-white bg-white border-slate-300 text-slate-900`}
+                        data-field="travelProfile"
                       >
                         <SelectValue placeholder="Select travel profile" />
                       </SelectTrigger>
