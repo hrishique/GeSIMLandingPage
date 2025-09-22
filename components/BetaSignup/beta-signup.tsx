@@ -53,7 +53,7 @@ export function BetaSignup() {
     const newErrors: Record<string, string> = {}
 
     if (!formData.community) {
-      newErrors.community = "Community required"
+      //newErrors.community = "Community required"
     }
     if (!formData.email) {
       newErrors.email = "Email required"
@@ -197,7 +197,7 @@ export function BetaSignup() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="space-y-3">
+                    {/* <div className="space-y-3">
                       <label className={`text-sm font-medium dark:text-white text-slate-900`}>
                         Which community are you joining from? <span className="text-red-500">*</span>
                       </label>
@@ -234,7 +234,7 @@ export function BetaSignup() {
                                 {/* {selectedCommunity === community.id && (
                                   <Check className="w-4 h-4 text-green-500 ml-auto" />
                                 )} */}
-                              </div>
+                          {/*    </div>
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -243,7 +243,7 @@ export function BetaSignup() {
                       <p className={`text-xs dark:text-slate-400 text-slate-600`}>
                         Select where you heard about this beta. Logos help partners recognize referrals.
                       </p>
-                    </div>
+                    </div> */}
 
                   <div className="space-y-2">
                     <label className={`text-sm font-medium dark:text-white text-slate-900`}>
@@ -341,7 +341,7 @@ export function BetaSignup() {
                     </p>
                   </div>
 
-                  <div className="space-y-2">
+                  {/* <div className="space-y-2">
                     <label className={`text-sm font-medium dark:text-white text-slate-900`}>
                       How many hours/week can you test?
                       <span className={`text-xs font-normal dark:text-slate-400 text-slate-600`}>
@@ -369,7 +369,7 @@ export function BetaSignup() {
                     <p className={`text-xs dark:text-slate-400 text-slate-600`}>
                       We'll prioritize high-availability testers for interviews.
                     </p>
-                  </div>
+                  </div> */}
 
                   <div className="space-y-2">
                     <label className={`text-sm font-medium dark:text-white text-slate-900`}>
@@ -402,7 +402,7 @@ export function BetaSignup() {
 
                   <div className="space-y-2">
                     <label className={`text-sm font-medium dark:text-white text-slate-900`}>
-                      X / Twitter
+                      Telegram
                       <span className={`text-xs font-normal dark:text-slate-400 text-slate-600`}>
                         (optional)
                       </span>
