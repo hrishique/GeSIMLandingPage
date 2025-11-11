@@ -28,7 +28,7 @@ function HeroSection() {
               {/* Tag Line */}
               <div className="flex items-center gap-3 mb-8">
                 <span className={`text-lg font-medium text-slate-600 dark:text-slate-400`}>
-                  One eSIM for the world
+                  One eSIM for the world - MVNO on-chain
                 </span>
               </div>
 
