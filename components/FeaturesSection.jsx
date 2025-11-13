@@ -1,26 +1,26 @@
 'use client'
 import React from 'react'
-import { CreditCard, Globe, Network, Zap } from 'lucide-react'
+import { CreditCard, Shield, Zap } from 'lucide-react'
 
 function FeaturesSection() {
 
   const features = [
     {
-      icon: <Globe className="h-8 w-8 min-w-[2rem] min-h-[2rem] text-white flex-shrink-0" />,
-      title: "One eSIM, anywhere, anytime",
-      description: "Travel, switch, stay connected effortlessly",
+      icon: <Zap className="h-10 w-10 min-w-[2rem] min-h-[2rem] text-white flex-shrink-0" />,
+      title: "Instant Provisioning (On-Chain SM-DP+)",
+      description: "API-first SM-DP+ that automates profile preparation and delivery. Edge-deployable, GSMA-aligned, and built to plug into existing telco stacks.",
       titleClass: "text-lg md:text-xl font-bold text-slate-900 dark:text-white",
     },
     {
-      icon: <Network className="h-8 w-8 min-w-[2rem] min-h-[2rem] text-white flex-shrink-0" />,
-      title: "Pay only for what you use",
-      description: "No surprises, instant billing, full control",
+      icon: <Shield className="h-10 w-10 min-w-[2rem] min-h-[2rem] text-white flex-shrink-0" />,
+      title: "Identity & Privacy (GeSIM ID + zk)",
+      description: "Device and user entitlement verified with GeSIM ID and zero-knowledge proofs — so activations are private, fast, and fully auditable.",
       titleClass: "text-xl font-bold text-slate-900 dark:text-white",
     },
     {
-      icon: <CreditCard className="h-8 w-8 min-w-[2rem] min-h-[2rem] text-white flex-shrink-0" />,
-      title: "Smart network choice, always optimal",
-      description: "Your signal, speed and cost optimized",
+      icon: <CreditCard className="h-10 w-10 min-w-[2rem] min-h-[2rem] text-white flex-shrink-0" />,
+      title: "Programmable Billing + Micro-Settlement",
+      description: "Micropayments for live usage, on-chain batch settlement for carriers — instant crediting and reduced reconciliation overhead.",
       titleClass: "text-xl font-bold text-slate-900 dark:text-white",
     },
   ];
@@ -31,13 +31,12 @@ function FeaturesSection() {
       
       <div className="text-center mb-20">
         <div className="flex items-center justify-center gap-3 mb-6">
-          {/* <Zap className={`w-8 h-8 ${isDark ? "text-slate-400" : "text-slate-600"}`} /> */}
           <h2 className={`text-3xl md:text-4xl font-bold text-slate-900 dark:text-white`}>
-            Revolutionary Features
+            Revolutionary On-Chain Features
           </h2>
         </div>
         <p className={`md:text-xl text-lg text-slate-600 dark:text-slate-400`}>
-          The future of global connectivity is here
+          The future of global telecom automation is here
         </p>
       </div>
 
