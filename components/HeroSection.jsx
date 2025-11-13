@@ -27,36 +27,36 @@ function HeroSection() {
             <div className="text-left">
               {/* Tag Line */}
               <div className="flex items-center gap-3 mb-8">
-                <span className={`text-lg font-medium text-slate-600 dark:text-slate-400`}>
+                <span className={`text-base font-medium text-slate-600 dark:text-slate-400`}>
                   One eSIM for the world - MVNO on-chain
                 </span>
               </div>
 
               {/* Main Heading */}
-              <h1
-                className={`text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight text-slate-900 dark:text-white`}
+               <h1
+                className={`text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight text-slate-900 dark:text-white italic`}
               >
-                Global
+                   Pay on usage
                 <br />
                 <span className={`text-slate-700 dark:text-slate-300 font-light italic`}>
-                  Connectivity
+                  Private Verification
                 </span>
                 <br />
-                <span className="relative">
-                  Reimagined
-                  <div
+                <span className="relative italic">
+                Instant activation
+                  {/* <div
                     className={`absolute -top-4 -right-8 w-8 h-8 bg-slate-900 dark:bg-slate-800 rounded-full flex items-center justify-center text-xs font-bold text-white transform rotate-12 shadow-lg`}
                   >
                     <Globe className="w-4 h-4" />
-                  </div>
+                  </div> */}
                 </span>
               </h1>
 
               {/* Subheading */}
               <p
-                className={`text-xl md:text-2xl font-medium mb-12 text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed`}
+                className={`text-base md:text-xl font-medium mb-12 text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed`}
               >
-                AI-Driven blockchain eSIM: Connect globally, Pay locally
+                GeSIM combines one global eSIM with on-chain SM-DP+ and GeSIM ID (zk) so activations are fast, private and auditable.
               </p>
 
               {/* CTA Section */}
