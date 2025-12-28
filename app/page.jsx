@@ -18,8 +18,8 @@ export default function GeSIMLanding() {
       {/* Product number stats */}
       <ProductStats />
 
-      {/* Partners Section */}
-      <PartnersSection/>
+      {/* Partners Section 
+      <PartnersSection/>*/}
 
       {/* Features Section */}
       <FeaturesSection />
