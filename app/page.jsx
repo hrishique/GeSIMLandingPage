@@ -4,6 +4,7 @@ import HeroSection from '@/components/HeroSection'
 import ProductStats from '@/components/ProductStats'
 import PartnersSection from '@/components/PartnersSection'
 import FeaturesSection from '@/components/FeaturesSection'
+import CoverageMap from '@/components/CoverageMap'
 // import WaitlistSection from '@/components/WaitlistSection'
 import { BetaSignup } from '@/components/BetaSignup/beta-signup'
 
@@ -24,11 +25,17 @@ export default function GeSIMLanding() {
       {/* Features Section */}
       <FeaturesSection />
 
+      {/* Global Coverage Map - Hidden as per user request
+      <CoverageMap /> */}
+
       {/* Product Preview Section */}
       <CoordinationLayer />
-      {/* <WaitlistSection/> */}
+
+      {/* Partners Section */}
+      <PartnersSection />
+
       <BetaSignup />
-      
+
     </div>
   )
 }

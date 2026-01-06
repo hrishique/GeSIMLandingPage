@@ -23,55 +23,35 @@ export function FooterNew() {
               </span>
             </div>
             <p className={`text-sm font-medium dark:text-slate-400 text-slate-600`}>
-            AI-Driven blockchain Travel eSIM
+              AI-Driven blockchain Travel eSIM
             </p>
 
-            {/* <nav className="grid grid-cols-2 gap-1" aria-label="Legal navigation">
-            <a
-              href="/privacy"
-              className={`text-sm font-medium transition-colors min-h-[44px] min-w-[44px] flex items-center py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
+            <nav className="grid grid-cols-2 gap-1" aria-label="Legal navigation">
+              <a
+                href="/privacy"
+                className={`text-sm font-medium transition-colors min-h-[44px] min-w-[44px] flex items-center py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
                   dark:text-slate-400 dark:hover:text-white dark:focus:ring-offset-slate-900
                  text-slate-600 hover:text-slate-900 focus:ring-offset-slate-50`
-              }
-              aria-label="Privacy Policy"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="/terms"
-              className={`text-sm font-medium transition-colors min-h-[44px] min-w-[44px] flex items-center py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
+                }
+                aria-label="Privacy Policy"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="/terms"
+                className={`text-sm font-medium transition-colors min-h-[44px] min-w-[44px] flex items-center py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
                 dark:text-slate-400 dark:hover:text-white dark:focus:ring-offset-slate-900
                  text-slate-600 hover:text-slate-900 focus:ring-offset-slate-50`
-              }
-              aria-label="Terms of Service"
-            >
-              Terms of Service
-            </a>
-            <a
-              href="/cookies"
-              className={`text-sm font-medium transition-colors min-h-[44px] min-w-[44px] flex items-center py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
-                dark:text-slate-400 dark:hover:text-white dark:focus:ring-offset-slate-900
-                 text-slate-600 hover:text-slate-900 focus:ring-offset-slate-50`
-              }
-              aria-label="Cookie Policy"
-            >
-              Cookie Policy
-            </a>
-            <a
-              href="/legal"
-              className={`text-sm font-medium transition-colors min-h-[44px] min-w-[44px] flex items-center py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
-                dark:text-slate-400 dark:hover:text-white dark:focus:ring-offset-slate-900
-                 text-slate-600 hover:text-slate-900 focus:ring-offset-slate-50`
-              }
-              aria-label="Legal and Compliance"
-            >
-              Legal & Compliance
-            </a>
-          </nav> */}
+                }
+                aria-label="Terms of Service"
+              >
+                Terms of Service
+              </a>
+            </nav>
           </div>
 
           {/* Legal Navigation */}
-      
+
 
           {/* Social Links */}
           <div className="flex gap-4 justify-center sm:justify-end flex-1" role="group" aria-label="Social media links">
@@ -97,7 +77,7 @@ export function FooterNew() {
               }
               aria-label="Follow GeSIM on Instagram"
             >
- 
+
               <FaInstagram className="w-7 h-7" />
             </a>
             <a
