@@ -108,7 +108,7 @@ export function FooterNew() {
                 dark:text-slate-400 dark:hover:text-white dark:focus:ring-offset-slate-900
                  text-slate-600 hover:text-slate-900 focus:ring-offset-slate-50`
               }
-              aria-label="Join GeSIM on Telegram"
+              aria-label="Join GeSIM on TG"
             >
 
               <FaTelegramPlane className="w-7 h-7" />
