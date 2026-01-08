@@ -47,6 +47,26 @@ export function FooterNew() {
               >
                 Terms of Service
               </a>
+              <a
+                href="/license"
+                className={`text-sm font-medium transition-colors min-h-[44px] min-w-[44px] flex items-center py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
+                  dark:text-slate-400 dark:hover:text-white dark:focus:ring-offset-slate-900
+                 text-slate-600 hover:text-slate-900 focus:ring-offset-slate-50`
+                }
+                aria-label="License Agreement"
+              >
+                License
+              </a>
+              <a
+                href="/copyright"
+                className={`text-sm font-medium transition-colors min-h-[44px] min-w-[44px] flex items-center py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
+                  dark:text-slate-400 dark:hover:text-white dark:focus:ring-offset-slate-900
+                 text-slate-600 hover:text-slate-900 focus:ring-offset-slate-50`
+                }
+                aria-label="Copyright Notice"
+              >
+                Copyright
+              </a>
             </nav>
           </div>
 
