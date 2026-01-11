@@ -23,7 +23,7 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+    --radius: 0.625rem;
   }
 
   .dark {
@@ -55,18 +55,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
-    font-weight: 400;
-  }
-}
-
-@layer utilities {
-  .animate-spin-slow {
-    animation: spin 25s linear infinite;
-  }
-
-  .animate-spin-reverse {
-    animation: spin 20s linear infinite reverse;
   }
 }
 
@@ -94,12 +82,7 @@ html {
 }
 
 /* Typography improvements */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.025em;
 }
@@ -109,6 +92,13 @@ h6 {
   box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
 }
 
-input[name="referral"] {
-  text-transform: uppercase;
+/* Animation delay utilities */
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-3000 {
+  animation-delay: 3s;
 }

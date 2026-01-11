@@ -1,24 +1,25 @@
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
-import Header from '@/components/header'
-import { FooterNew } from '@/components/FooterNew'
+import type React from "react"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import { ThemeProvider } from "@/components/theme-provider"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
+import { FloatingLogo } from "@/components/floating-logo"
+import "./globals.css"
+
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: 'GeSIM ',
-  description: 'AI-Driven blockchain eSIM: Connect globally, Pay locally.',
+  title: "GeSIM — Private eSIMs with Built-in VPN & Crypto Payments",
+  description:
+    "Private mobile data for on-chain lives. Instant eSIM provisioning with built-in VPN and wallet-first crypto payments — for DeFi users, travelers, journalists, and nomads.",
   icons: {
-    icon: [
-      { url: '/gesim-logo-icon.png', sizes: '32x32', type: 'image/png' },
-      { url: '/gesim-logo-icon.png', sizes: '16x16', type: 'image/png' },
-    ],
-    shortcut: '/gesim-logo-icon.png',
-    apple: '/gesim-logo-icon.png',
+    icon: "/gesim-logo-icon.png",
+    apple: "/gesim-logo-icon.png",
   },
 }
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,21 +27,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
-      </head>
-      <body cz-shortcut-listen="true">
-        <ThemeProvider>
-         <Header />
-          {children}
+      <body className={`${inter.className} font-sans antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+          <FloatingLogo />
           <Analytics />
-          <FooterNew />
         </ThemeProvider>
       </body>
     </html>
