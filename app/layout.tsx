@@ -3,9 +3,8 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
-import { FloatingLogo } from "@/components/floating-logo"
+import { ScrollToTop } from "@/components/scroll-to-top"
+import ClientLayout from "@/components/client-layout"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -34,12 +33,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-          <FloatingLogo />
+          <ClientLayout>{children}</ClientLayout>
+          <ScrollToTop />
           <Analytics />
         </ThemeProvider>
       </body>
