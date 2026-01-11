@@ -8,6 +8,7 @@ function HeroSection() {
   return (
       
   <section
+    id="hero"
     className="container mx-auto relative px-6 pt-20 pb-12 overflow-hidden 
               min-h-[calc(100vh-120px)] md:min-h-[calc(100vh-160px)] lg:min-h-[calc(100vh-180px)]"> 
     
@@ -21,10 +22,10 @@ function HeroSection() {
           ></div>
         </div>
 
-        <div className="mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Content */}
-            <div className="text-left">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content - Value Proposition */}
+            <div className="flex flex-col">
               {/* Tag Line */}
               <div className="flex items-center gap-3 mb-8">
                 <span className={`text-base font-medium text-slate-600 dark:text-slate-400`}>
@@ -44,11 +45,6 @@ function HeroSection() {
                 <br />
                 <span className="relative italic">
                 Instant activation
-                  {/* <div
-                    className={`absolute -top-4 -right-8 w-8 h-8 bg-slate-900 dark:bg-slate-800 rounded-full flex items-center justify-center text-xs font-bold text-white transform rotate-12 shadow-lg`}
-                  >
-                    <Globe className="w-4 h-4" />
-                  </div> */}
                 </span>
               </h1>
 
