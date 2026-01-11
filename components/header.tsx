@@ -40,7 +40,7 @@ export function Header() {
     }
 
     return (
-        <header className={`sticky top-0 z-50 px-6 py-3 backdrop-blur-md transition-all duration-300 ${isDark ? "bg-slate-950/80" : "bg-white/80"}`}>
+        <header className={`sticky top-0 z-50  py-3 backdrop-blur-md transition-all duration-300 ${isDark ? "bg-slate-950/80" : "bg-white/80"}`}>
             <div className="container mx-auto flex items-center justify-between">
                 <Link href="/" className="flex items-center space-x-3">
                     <div className="relative w-10 h-10 p-1.5 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-lg">
@@ -88,7 +88,7 @@ export function Header() {
                         rel="noopener noreferrer"
                     >
                         <Button
-                            className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-6 py-2 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all flex items-center gap-2`}
+                            className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-6 py-2 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all flex items-center gap-2 whitespace-nowrap`}
                         >
                             Request Invite
                         </Button>

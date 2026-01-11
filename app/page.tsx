@@ -330,7 +330,7 @@ export default function GeSIMLanding() {
       {/* Header removed - now in layout */}
 
       {/* Hero Section */}
-      <section id="hero" className="relative px-6 md:px-12 pt-20 pb-32 overflow-hidden">
+      <section id="hero" className="relative pl-2 pr-6 md:px-12 pt-20 pb-32 overflow-hidden">
         {/* Subtle Background Elements */}
 
 
@@ -378,7 +378,7 @@ export default function GeSIMLanding() {
                   disabled={isNavigating}
                 >
                   <CreditCard className={`w-5 h-5 ${isNavigating ? "animate-pulse" : ""}`} />
-                  {isNavigating ? "Opening App..." : "Download App (Seeker)"}
+                  {isNavigating ? "Opening App..." : "Live on Seeker(Soon)"}
                 </Button>
               </div>
 
@@ -704,7 +704,7 @@ export default function GeSIMLanding() {
         <div className="container mx-auto max-w-7xl relative z-10">
           {/* Title */}
           <div className="text-center mb-24">
-            <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-slate-900"}`}>
+            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-6 whitespace-nowrap ${isDark ? "text-white" : "text-slate-900"}`}>
               Beyond Phones
             </h2>
             <p className={`text-xl font-light max-w-2xl mx-auto ${isDark ? "text-slate-400" : "text-slate-600"}`}>

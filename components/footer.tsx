@@ -69,36 +69,6 @@ export function Footer() {
                 Privacy-first mobile connectivity for on-chain lives.
               </p>
             </div>
-
-            <div className="flex flex-col gap-2 pt-2">
-              <p className={`text-xs ${isDark ? "text-slate-600" : "text-slate-500"}`}>&copy; GeSIM, {currentYear}</p>
-              <p className={`text-xs ${isDark ? "text-slate-500" : "text-slate-400"} italic`}>Private mobile data for on-chain lives</p>
-
-              <div className="flex items-center gap-4">
-                {onToggleTheme && (
-                  <button
-                    onClick={onToggleTheme}
-                    className={`p-2 rounded-lg transition-all hover:opacity-70 ${isDark ? "text-slate-500 hover:bg-slate-800/50" : "text-slate-600 hover:bg-slate-200/50"
-                      }`}
-                    aria-label="Toggle theme"
-                  >
-                    {isDark ? (
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                          fillRule="evenodd"
-                          d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    ) : (
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                      </svg>
-                    )}
-                  </button>
-                )}
-              </div>
-            </div>
           </div>
 
           {/* Center/Right clusters: Minimal link groups */}
@@ -254,6 +224,35 @@ export function Footer() {
               <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
             </svg>
           </a>
+        </div>
+        <div className="flex flex-col gap-2 pt-2">
+          <p className={`text-xs ${isDark ? "text-slate-600" : "text-slate-500"}`}>&copy; GeSIM, {currentYear}</p>
+          <p className={`text-xs ${isDark ? "text-slate-500" : "text-slate-400"} italic`}>Private mobile data for on-chain lives</p>
+
+          <div className="flex items-center gap-4">
+            {onToggleTheme && (
+              <button
+                onClick={onToggleTheme}
+                className={`p-2 rounded-lg transition-all hover:opacity-70 ${isDark ? "text-slate-500 hover:bg-slate-800/50" : "text-slate-600 hover:bg-slate-200/50"
+                  }`}
+                aria-label="Toggle theme"
+              >
+                {isDark ? (
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                  </svg>
+                )}
+              </button>
+            )}
+          </div>
         </div>
 
       </div>
