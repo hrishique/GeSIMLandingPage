@@ -63,7 +63,7 @@ export function LegalLayout({ title, lastUpdated, icon: Icon, children }: LegalL
                 {/* Header */}
                 <header className="mb-16">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${isDark ? "bg-slate-900 border border-slate-800" : "bg-slate-100 border border-slate-200"}`}>
-                        <Icon className={`w-6 h-6 ${isDark ? "text-blue-400" : "text-blue-600"}`} />
+                        <Icon className={`w-6 h-6 ${isDark ? "text-slate-400" : "text-[#0F172F]"}`} />
                     </div>
                     <h1 className={`text-4xl md:text-5xl font-bold tracking-tight mb-4 ${isDark ? "text-white" : "text-slate-900"}`}>
                         {title}
