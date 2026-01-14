@@ -154,7 +154,7 @@ export function Header() {
                                     <Button
                                         className={`w-full h-12 rounded-xl font-semibold shadow-lg shadow-blue-500/20 ${isDark ? "bg-blue-600 hover:bg-blue-500 text-white" : "bg-blue-600 hover:bg-blue-700 text-white"}`}
                                     >
-                                        Invites
+                                        Request Invite
                                     </Button>
                                 </a>
                             </div>
@@ -214,7 +214,7 @@ export function Header() {
                                                     onClick={() => setIsMobileMenuOpen(false)}
                                                     className={`flex items-center gap-4 p-3 rounded-xl transition-all ${isDark ? "hover:bg-slate-900 text-slate-300 hover:text-white" : "hover:bg-slate-50 text-slate-700 hover:text-slate-900"}`}
                                                 >
-                                                    <div className={`p-2 rounded-lg ${isDark ? "bg-slate-900 text-purple-400" : "bg-slate-100 text-purple-600"}`}>
+                                                    <div className={`p-2 rounded-lg ${isDark ? "bg-slate-900 text-blue-400" : "bg-slate-100 text-blue-600"}`}>
                                                         <link.icon className="w-5 h-5" />
                                                     </div>
                                                     <span className="font-semibold text-base">{link.label}</span>

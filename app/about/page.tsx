@@ -29,7 +29,7 @@ export default function AboutPage() {
                         </p>
 
                         <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                            In parallel, GeSIM is building the <b>coordination layer for global telecom</b>—re-architecting how mobile connectivity is provisioned, measured, and settled at internet scale.
+                            In parallel, GeSIM is building <b>The coordination layer for global telecom</b>—re-architecting how mobile connectivity is provisioned, measured, and settled at internet scale.
                         </p>
 
                         <div className="py-8">
@@ -38,7 +38,7 @@ export default function AboutPage() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {features.map((feature, index) => (
                                     <div key={index} className="flex flex-col space-y-3 p-6 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-blue-500/30 dark:hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 group">
-                                        <h4 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-slate-800 dark:from-blue-400 dark:to-slate-200 transition-colors">
+                                        <h4 className="text-xl font-bold text-slate-900 dark:text-white transition-colors">
                                             {feature.title}
                                         </h4>
                                         <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed font-medium">{feature.description}</p>

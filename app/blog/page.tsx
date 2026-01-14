@@ -141,7 +141,7 @@ export default function BlogPage() {
             {/* Search */}
             <div className="relative flex-1 max-w-md">
               <Search
-                className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-500 dark:text-slate-400`}
+                className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-600 dark:text-blue-400`}
               />
               <Input
                 type="text"
@@ -233,11 +233,11 @@ export default function BlogPage() {
 
                   <div className="p-6">
                     <div className="flex items-center gap-4 mb-3 text-sm">
-                      <div className={`flex items-center gap-1 text-slate-600 dark:text-slate-400`}>
+                      <div className={`flex items-center gap-1 text-blue-600 dark:text-blue-400`}>
                         <Calendar className="w-4 h-4" />
                         {formatDate(post.publishedAt)}
                       </div>
-                      <div className={`flex items-center gap-1 text-slate-600 dark:text-slate-400`}>
+                      <div className={`flex items-center gap-1 text-blue-600 dark:text-blue-400`}>
                         <Clock className="w-4 h-4" />
                         {post.readTime}
                       </div>
@@ -257,7 +257,7 @@ export default function BlogPage() {
                       {post.tags.map((tag) => (
                         <span
                           key={tag}
-                          className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300`}
+                          className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300`}
                         >
                           <Tag className="w-3 h-3" />
                           {tag}
@@ -267,7 +267,7 @@ export default function BlogPage() {
 
                     <Link
                       href={`/blog/${post.slug}`}
-                      className={`inline-flex items-center gap-2 font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors group-hover:gap-3`}
+                      className={`inline-flex items-center gap-2 font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors group-hover:gap-3`}
                     >
                       Read More
                       <ArrowRight className="w-4 h-4" />
@@ -306,11 +306,11 @@ export default function BlogPage() {
 
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-3 text-sm">
-                      <div className={`flex items-center gap-1 text-slate-600 dark:text-slate-400`}>
+                      <div className={`flex items-center gap-1 text-blue-600 dark:text-blue-400`}>
                         <Calendar className="w-4 h-4" />
                         {formatDate(post.publishedAt)}
                       </div>
-                      <div className={`flex items-center gap-1 text-slate-600 dark:text-slate-400`}>
+                      <div className={`flex items-center gap-1 text-blue-600 dark:text-blue-400`}>
                         <Clock className="w-4 h-4" />
                         {post.readTime}
                       </div>
@@ -330,7 +330,7 @@ export default function BlogPage() {
                       {post.tags.map((tag) => (
                         <span
                           key={tag}
-                          className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300`}
+                          className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300`}
                         >
                           <Tag className="w-3 h-3" />
                           {tag}
@@ -340,7 +340,7 @@ export default function BlogPage() {
 
                     <Link
                       href={`/blog/${post.slug}`}
-                      className={`inline-flex items-center gap-2 font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors group-hover:gap-3`}
+                      className={`inline-flex items-center gap-2 font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors group-hover:gap-3`}
                     >
                       Read More
                       <ArrowRight className="w-4 h-4" />

@@ -74,7 +74,7 @@ export function Footer() {
                   href="https://twitter.com/gesim"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-slate-700" : "text-slate-400"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-blue-600"}`}
                   aria-label="X (Twitter)"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -85,7 +85,7 @@ export function Footer() {
                   href="https://instagram.com/gesim"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-slate-700" : "text-slate-400"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-blue-600"}`}
                   aria-label="Instagram"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -96,7 +96,7 @@ export function Footer() {
                   href="https://linkedin.com/company/gesim"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-slate-700" : "text-slate-400"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-blue-600"}`}
                   aria-label="LinkedIn"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -107,7 +107,7 @@ export function Footer() {
                   href="https://t.me/gesim"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-slate-700" : "text-slate-400"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-blue-600"}`}
                   aria-label="Telegram"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -164,11 +164,13 @@ export function Footer() {
               </h3>
               <nav className="flex flex-col gap-3">
                 <a
-                  href="#hero"
+                  href="https://gesim.gitbook.io/gesim/getting-started/quickstart"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-slate-600"
                     }`}
                 >
-                  App
+                  Setup Guide
                 </a>
               </nav>
               <nav className="flex flex-col gap-3">
@@ -234,7 +236,7 @@ export function Footer() {
             {onToggleTheme && (
               <button
                 onClick={onToggleTheme}
-                className={`p-1 rounded-md transition-all hover:opacity-70 ${isDark ? "text-slate-500 hover:bg-slate-800/50" : "text-slate-600 hover:bg-slate-200/50"}`}
+                className={`p-1 rounded-md transition-all hover:opacity-70 ${isDark ? "text-blue-400 hover:bg-slate-800/50" : "text-blue-600 hover:bg-slate-200/50"}`}
                 aria-label="Toggle theme"
               >
                 {isDark ? (

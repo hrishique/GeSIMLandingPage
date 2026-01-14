@@ -558,7 +558,7 @@ export default function GeSIMLanding() {
       {/* Privacy Orchestration Section */}
       <section className={`py-32 px-6 ${isDark ? "bg-slate-950" : "bg-white"}`}>
         <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-16 items-center lg:items-start">
             {/* Left Column: Mobile Screenshot */}
             <div className="flex flex-col items-center lg:items-start">
               <div className="relative w-full max-w-md">
@@ -572,7 +572,7 @@ export default function GeSIMLanding() {
 
             {/* Right Column: Text Content */}
             <div className="flex flex-col justify-center">
-              <h2 className={`text-4xl md:text-5xl font-semibold mb-6 ${isDark ? "text-white" : "text-slate-900"}`}>
+              <h2 className={`text-4xl md:text-5xl font-semibold mb-6 whitespace-nowrap ${isDark ? "text-white" : "text-slate-900"}`}>
                 Privacy Orchestration
               </h2>
               <p className={`text-xl mb-4 ${isDark ? "text-slate-400" : "text-slate-600"}`}>
@@ -776,7 +776,7 @@ export default function GeSIMLanding() {
           {/* Act I - Phones */}
           <div className="mb-32 max-w-4xl mx-auto px-4">
             <div className="text-center mb-16 transition-all duration-500">
-              <h2 className={`text-2xl sm:text-3xl md:text-5xl font-bold mb-6 leading-tight px-4 ${isDark ? "text-white" : "text-slate-900"}`}>
+              <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight px-4 ${isDark ? "text-white" : "text-slate-900"}`}>
                 Control global infrastructure from one mobile app
               </h2>
             </div>
@@ -824,7 +824,7 @@ export default function GeSIMLanding() {
                 <div
                   className={`relative p-8 rounded-2xl border backdrop-blur-sm h-full ${isDark ? "bg-slate-900/80 border-slate-700/50" : "bg-white/90 border-slate-200"}`}
                 >
-                  <div className="flex items-start gap-4 mb-4">
+                  <div className="flex items-start gap-4">
                     <div
                       className={`w-2 h-2 rounded-full mt-2 animate-pulse ${isDark ? "bg-cyan-400" : "bg-cyan-600"}`}
                     />
@@ -851,7 +851,7 @@ export default function GeSIMLanding() {
                 <div
                   className={`relative p-8 rounded-2xl border backdrop-blur-sm h-full ${isDark ? "bg-slate-900/80 border-slate-700/50" : "bg-white/90 border-slate-200"}`}
                 >
-                  <div className="flex items-start gap-4 mb-4">
+                  <div className="flex items-start gap-4">
                     <div
                       className={`w-2 h-2 rounded-full mt-2 animate-pulse ${isDark ? "bg-emerald-400" : "bg-emerald-600"}`}
                     />
@@ -878,7 +878,7 @@ export default function GeSIMLanding() {
                 <div
                   className={`relative p-8 rounded-2xl border backdrop-blur-sm h-full ${isDark ? "bg-slate-900/80 border-slate-700/50" : "bg-white/90 border-slate-200"}`}
                 >
-                  <div className="flex items-start gap-4 mb-4">
+                  <div className="flex items-start gap-4">
                     <div
                       className={`w-2 h-2 rounded-full mt-2 animate-pulse ${isDark ? "bg-sky-400" : "bg-sky-600"}`}
                     />
@@ -905,7 +905,7 @@ export default function GeSIMLanding() {
                 <div
                   className={`relative p-8 rounded-2xl border backdrop-blur-sm h-full ${isDark ? "bg-slate-900/80 border-slate-700/50" : "bg-white/90 border-slate-200"}`}
                 >
-                  <div className="flex items-start gap-4 mb-4">
+                  <div className="flex items-start gap-4">
                     <div
                       className={`w-2 h-2 rounded-full mt-2 animate-pulse ${isDark ? "bg-teal-400" : "bg-teal-600"}`}
                     />
