@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   description:
     "Designed for DeFi users, Journalists, and anyone who values privacy",
   icons: {
-    icon: "/SOlana_mobile_banner.png",
-    apple: "/SOlana_mobile_banner.png",
+    icon: "/gesim-logo.png",
+    apple: "/gesim-logo.png",
   },
   openGraph: {
     title: "GeSIM — Private mobile data for on-chain lives",

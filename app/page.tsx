@@ -376,7 +376,7 @@ export default function GeSIMLanding() {
                   width={180}
                   height={54}
                   className="h-[60px] w-auto cursor-pointer hover:opacity-80 transition-opacity"
-                  onClick={() => handleStartJourney()}
+
                 />
               </div>
 

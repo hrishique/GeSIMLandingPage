@@ -141,7 +141,7 @@ export default function BlogPage() {
             {/* Search */}
             <div className="relative flex-1 max-w-md">
               <Search
-                className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#0F172F] dark:text-blue-400`}
+                className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#0F172F] dark:text-slate-400`}
               />
               <Input
                 type="text"
@@ -233,11 +233,11 @@ export default function BlogPage() {
 
                   <div className="p-6">
                     <div className="flex items-center gap-4 mb-3 text-sm">
-                      <div className={`flex items-center gap-1 text-[#0F172F] dark:text-blue-400`}>
+                      <div className={`flex items-center gap-1 text-[#0F172F] dark:text-slate-400`}>
                         <Calendar className="w-4 h-4" />
                         {formatDate(post.publishedAt)}
                       </div>
-                      <div className={`flex items-center gap-1 text-[#0F172F] dark:text-blue-400`}>
+                      <div className={`flex items-center gap-1 text-[#0F172F] dark:text-slate-400`}>
                         <Clock className="w-4 h-4" />
                         {post.readTime}
                       </div>
@@ -267,7 +267,7 @@ export default function BlogPage() {
 
                     <Link
                       href={`/blog/${post.slug}`}
-                      className={`inline-flex items-center gap-2 font-semibold text-[#0F172F] hover:text-[#0F172F] dark:text-blue-400 dark:hover:text-blue-300 transition-colors group-hover:gap-3`}
+                      className={`inline-flex items-center gap-2 font-semibold text-[#0F172F] hover:text-[#0F172F] dark:text-slate-400 dark:hover:text-white transition-colors group-hover:gap-3`}
                     >
                       Read More
                       <ArrowRight className="w-4 h-4" />
@@ -306,11 +306,11 @@ export default function BlogPage() {
 
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-3 text-sm">
-                      <div className={`flex items-center gap-1 text-[#0F172F] dark:text-blue-400`}>
+                      <div className={`flex items-center gap-1 text-[#0F172F] dark:text-slate-400`}>
                         <Calendar className="w-4 h-4" />
                         {formatDate(post.publishedAt)}
                       </div>
-                      <div className={`flex items-center gap-1 text-[#0F172F] dark:text-blue-400`}>
+                      <div className={`flex items-center gap-1 text-[#0F172F] dark:text-slate-400`}>
                         <Clock className="w-4 h-4" />
                         {post.readTime}
                       </div>
@@ -340,7 +340,7 @@ export default function BlogPage() {
 
                     <Link
                       href={`/blog/${post.slug}`}
-                      className={`inline-flex items-center gap-2 font-semibold text-[#0F172F] hover:text-[#0F172F] dark:text-blue-400 dark:hover:text-blue-300 transition-colors group-hover:gap-3`}
+                      className={`inline-flex items-center gap-2 font-semibold text-[#0F172F] hover:text-[#0F172F] dark:text-slate-400 dark:hover:text-white transition-colors group-hover:gap-3`}
                     >
                       Read More
                       <ArrowRight className="w-4 h-4" />

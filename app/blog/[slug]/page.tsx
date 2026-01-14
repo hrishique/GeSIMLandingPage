@@ -376,7 +376,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {/* Back Button */}
           <Link
             href="/blog"
-            className={`inline-flex items-center gap-2 mb-8 text-[#0F172F] hover:text-[#0F172F] dark:text-blue-400 dark:hover:text-white transition-colors group`}
+            className={`inline-flex items-center gap-2 mb-8 text-[#0F172F] hover:text-[#0F172F] dark:text-slate-400 dark:hover:text-white transition-colors group`}
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Blog
@@ -423,11 +423,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               </div>
 
               <div className="flex items-center gap-6 text-sm">
-                <div className={`flex items-center gap-2 text-[#0F172F] dark:text-blue-400`}>
+                <div className={`flex items-center gap-2 text-[#0F172F] dark:text-slate-400`}>
                   <Calendar className="w-4 h-4" />
                   {formatDate(post.publishedAt)}
                 </div>
-                <div className={`flex items-center gap-2 text-[#0F172F] dark:text-blue-400`}>
+                <div className={`flex items-center gap-2 text-[#0F172F] dark:text-slate-400`}>
                   <Clock className="w-4 h-4" />
                   {post.readTime}
                 </div>
@@ -454,7 +454,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 variant="outline"
                 size="sm"
                 onClick={shareOnTwitter}
-                className={`rounded-lg border-slate-300 text-[#0F172F] hover:bg-slate-100 dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-800`}
+                className={`rounded-lg border-slate-300 text-[#0F172F] hover:bg-slate-100 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800`}
               >
                 <Twitter className="w-4 h-4" />
               </Button>
@@ -462,7 +462,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 variant="outline"
                 size="sm"
                 onClick={shareOnFarcaster}
-                className={`rounded-lg border-slate-300 text-[#0F172F] hover:bg-slate-100 dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-800`}
+                className={`rounded-lg border-slate-300 text-[#0F172F] hover:bg-slate-100 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800`}
               >
                 <Globe className="w-4 h-4" />
               </Button>
@@ -470,7 +470,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 variant="outline"
                 size="sm"
                 onClick={shareOnLinkedIn}
-                className={`rounded-lg border-slate-300 text-[#0F172F] hover:bg-slate-100 dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-800`}
+                className={`rounded-lg border-slate-300 text-[#0F172F] hover:bg-slate-100 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800`}
               >
                 <Linkedin className="w-4 h-4" />
               </Button>
@@ -478,7 +478,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 variant="outline"
                 size="sm"
                 onClick={copyLink}
-                className={`rounded-lg border-slate-300 text-[#0F172F] hover:bg-slate-100 dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-800`}
+                className={`rounded-lg border-slate-300 text-[#0F172F] hover:bg-slate-100 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800`}
               >
                 <LinkIcon className="w-4 h-4" />
               </Button>
@@ -492,7 +492,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
           {/* Article Content */}
           <div
-            className={`prose prose-lg max-w-none prose-headings:text-slate-900 prose-p:text-slate-700 prose-strong:text-slate-900 prose-a:text-[#0F172F] prose-blockquote:border-slate-300 dark:prose-invert dark:prose-headings:text-white dark:prose-p:text-slate-300 dark:prose-strong:text-white dark:prose-a:text-blue-400 dark:prose-blockquote:border-slate-700 prose-headings:font-bold prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-relaxed prose-li:leading-relaxed prose-blockquote:font-medium prose-blockquote:italic`}
+            className={`prose prose-lg max-w-none prose-headings:text-slate-900 prose-p:text-slate-700 prose-strong:text-slate-900 prose-a:text-[#0F172F] prose-blockquote:border-slate-300 dark:prose-invert dark:prose-headings:text-white dark:prose-p:text-slate-300 dark:prose-strong:text-white dark:prose-a:text-slate-400 dark:prose-blockquote:border-slate-700 prose-headings:font-bold prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-relaxed prose-li:leading-relaxed prose-blockquote:font-medium prose-blockquote:italic`}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
@@ -596,7 +596,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
                   <Link
                     href={`/blog/${article.slug}`}
-                    className={`inline-flex items-center gap-2 font-semibold text-[#0F172F] hover:text-[#0F172F] dark:text-blue-400 dark:hover:text-blue-300 transition-colors group-hover:gap-3`}
+                    className={`inline-flex items-center gap-2 font-semibold text-[#0F172F] hover:text-[#0F172F] dark:text-slate-400 dark:hover:text-white transition-colors group-hover:gap-3`}
                   >
                     Read More
                     <ArrowRight className="w-4 h-4" />

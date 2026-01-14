@@ -152,7 +152,7 @@ export function Header() {
                                     className="block"
                                 >
                                     <Button
-                                        className={`w-full h-12 rounded-xl font-semibold shadow-lg shadow-blue-500/20 ${isDark ? "bg-[#0F172F] hover:bg-slate-800 text-white" : "bg-[#0F172F] hover:bg-slate-800 text-white"}`}
+                                        className={`w-full h-12 rounded-xl font-semibold shadow-lg shadow-blue-500/20 ${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-[#0F172F] hover:bg-slate-800 text-white"}`}
                                     >
                                         Request Invite
                                     </Button>
@@ -179,7 +179,7 @@ export function Header() {
                                                         onClick={() => setIsMobileMenuOpen(false)}
                                                         className={`flex items-center gap-4 p-3 rounded-xl transition-all ${isDark ? "hover:bg-slate-900 text-slate-300 hover:text-white" : "hover:bg-slate-50 text-slate-700 hover:text-slate-900"}`}
                                                     >
-                                                        <div className={`p-2 rounded-lg ${isDark ? "bg-slate-900 text-blue-400" : "bg-slate-100 text-[#0F172F]"}`}>
+                                                        <div className={`p-2 rounded-lg ${isDark ? "bg-slate-900 text-slate-400" : "bg-slate-100 text-[#0F172F]"}`}>
                                                             <link.icon className="w-5 h-5" />
                                                         </div>
                                                         <span className="font-semibold text-base">{link.label}</span>
@@ -191,7 +191,7 @@ export function Header() {
                                                         onClick={() => setIsMobileMenuOpen(false)}
                                                         className={`flex items-center gap-4 p-3 rounded-xl transition-all ${isDark ? "hover:bg-slate-900 text-slate-300 hover:text-white" : "hover:bg-slate-50 text-slate-700 hover:text-slate-900"}`}
                                                     >
-                                                        <div className={`p-2 rounded-lg ${isDark ? "bg-slate-900 text-blue-400" : "bg-slate-100 text-[#0F172F]"}`}>
+                                                        <div className={`p-2 rounded-lg ${isDark ? "bg-slate-900 text-slate-400" : "bg-slate-100 text-[#0F172F]"}`}>
                                                             <link.icon className="w-5 h-5" />
                                                         </div>
                                                         <span className="font-semibold text-base">{link.label}</span>
@@ -206,19 +206,33 @@ export function Header() {
                                         <nav className="flex flex-col gap-1">
                                             {[
                                                 { href: "/about", label: "About GeSIM", icon: Info },
-                                                { href: "/#careers", label: "Careers", icon: Briefcase },
+                                                { href: "mailto:Contact@gesim.xyz", label: "Careers", icon: Briefcase, external: true },
                                             ].map((link) => (
-                                                <Link
-                                                    key={link.label}
-                                                    href={link.href}
-                                                    onClick={() => setIsMobileMenuOpen(false)}
-                                                    className={`flex items-center gap-4 p-3 rounded-xl transition-all ${isDark ? "hover:bg-slate-900 text-slate-300 hover:text-white" : "hover:bg-slate-50 text-slate-700 hover:text-slate-900"}`}
-                                                >
-                                                    <div className={`p-2 rounded-lg ${isDark ? "bg-slate-900 text-blue-400" : "bg-slate-100 text-[#0F172F]"}`}>
-                                                        <link.icon className="w-5 h-5" />
-                                                    </div>
-                                                    <span className="font-semibold text-base">{link.label}</span>
-                                                </Link>
+                                                link.external ? (
+                                                    <a
+                                                        key={link.label}
+                                                        href={link.href}
+                                                        onClick={() => setIsMobileMenuOpen(false)}
+                                                        className={`flex items-center gap-4 p-3 rounded-xl transition-all ${isDark ? "hover:bg-slate-900 text-slate-300 hover:text-white" : "hover:bg-slate-50 text-slate-700 hover:text-slate-900"}`}
+                                                    >
+                                                        <div className={`p-2 rounded-lg ${isDark ? "bg-slate-900 text-slate-400" : "bg-slate-100 text-[#0F172F]"}`}>
+                                                            <link.icon className="w-5 h-5" />
+                                                        </div>
+                                                        <span className="font-semibold text-base">{link.label}</span>
+                                                    </a>
+                                                ) : (
+                                                    <Link
+                                                        key={link.label}
+                                                        href={link.href}
+                                                        onClick={() => setIsMobileMenuOpen(false)}
+                                                        className={`flex items-center gap-4 p-3 rounded-xl transition-all ${isDark ? "hover:bg-slate-900 text-slate-300 hover:text-white" : "hover:bg-slate-50 text-slate-700 hover:text-slate-900"}`}
+                                                    >
+                                                        <div className={`p-2 rounded-lg ${isDark ? "bg-slate-900 text-slate-400" : "bg-slate-100 text-[#0F172F]"}`}>
+                                                            <link.icon className="w-5 h-5" />
+                                                        </div>
+                                                        <span className="font-semibold text-base">{link.label}</span>
+                                                    </Link>
+                                                )
                                             ))}
                                         </nav>
                                     </div>

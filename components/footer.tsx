@@ -71,10 +71,10 @@ export function Footer() {
               {/* Social Icons */}
               <div className="flex gap-5 mt-16 md:mt-20">
                 <a
-                  href="https://twitter.com/gesim"
+                  href="https://x.com/GeSIMxyz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-[#0F172F]"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-slate-400" : "text-[#0F172F]"}`}
                   aria-label="X (Twitter)"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -82,10 +82,10 @@ export function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://instagram.com/gesim"
+                  href="https://www.instagram.com/gesimxyz/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-[#0F172F]"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-slate-400" : "text-[#0F172F]"}`}
                   aria-label="Instagram"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -93,10 +93,10 @@ export function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://linkedin.com/company/gesim"
+                  href="https://www.linkedin.com/company/gesim-xyz/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-[#0F172F]"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-slate-400" : "text-[#0F172F]"}`}
                   aria-label="LinkedIn"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -104,7 +104,7 @@ export function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://t.me/gesim"
+                  href="https://t.me/gesimxyz"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-[#0F172F]"}`}
@@ -145,7 +145,7 @@ export function Footer() {
                   Blog
                 </Link>
                 <a
-                  href="#careers"
+                  href="mailto:Contact@gesim.xyz"
                   className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-slate-600"
                     }`}
                 >
@@ -164,6 +164,17 @@ export function Footer() {
               </h3>
               <nav className="flex flex-col gap-3">
                 <a
+                  href="https://gesim.gitbook.io/gesim/getting-started/quickstart"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-[#0F172F]"
+                    }`}
+                >
+                  Setup Guide
+                </a>
+              </nav>
+              <nav className="flex flex-col gap-3">
+                <a
                   href="https://gesim.gitbook.io/gesim"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -174,17 +185,7 @@ export function Footer() {
                   Docs
                 </a>
               </nav>
-              <nav className="flex flex-col gap-3">
-                <a
-                  href="https://gesim.gitbook.io/gesim/getting-started/quickstart"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-[#0F172F]"
-                    }`}
-                >
-                  Setup Guide
-                </a>
-              </nav>
+
 
             </div>
 
@@ -237,7 +238,7 @@ export function Footer() {
             {onToggleTheme && (
               <button
                 onClick={onToggleTheme}
-                className={`p-1 rounded-md transition-all hover:opacity-70 ${isDark ? "text-blue-400 hover:bg-slate-800/50" : "text-[#0F172F] hover:bg-slate-200/50"}`}
+                className={`p-1 rounded-md transition-all hover:opacity-70 ${isDark ? "text-slate-400 hover:bg-slate-800/50" : "text-[#0F172F] hover:bg-slate-200/50"}`}
                 aria-label="Toggle theme"
               >
                 {isDark ? (
