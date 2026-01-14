@@ -74,7 +74,7 @@ export function Footer() {
                   href="https://twitter.com/gesim"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-blue-600"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-[#0F172F]"}`}
                   aria-label="X (Twitter)"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -85,7 +85,7 @@ export function Footer() {
                   href="https://instagram.com/gesim"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-blue-600"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-[#0F172F]"}`}
                   aria-label="Instagram"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -96,7 +96,7 @@ export function Footer() {
                   href="https://linkedin.com/company/gesim"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-blue-600"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-[#0F172F]"}`}
                   aria-label="LinkedIn"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -107,7 +107,7 @@ export function Footer() {
                   href="https://t.me/gesim"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-blue-600"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-[#0F172F]"}`}
                   aria-label="Telegram"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -164,27 +164,28 @@ export function Footer() {
               </h3>
               <nav className="flex flex-col gap-3">
                 <a
-                  href="https://gesim.gitbook.io/gesim/getting-started/quickstart"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-slate-600"
-                    }`}
-                >
-                  Setup Guide
-                </a>
-              </nav>
-              <nav className="flex flex-col gap-3">
-                <a
                   href="https://gesim.gitbook.io/gesim"
                   target="_blank"
                   rel="noopener noreferrer"
 
-                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-slate-600"
+                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-[#0F172F]"
                     }`}
                 >
                   Docs
                 </a>
               </nav>
+              <nav className="flex flex-col gap-3">
+                <a
+                  href="https://gesim.gitbook.io/gesim/getting-started/quickstart"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-[#0F172F]"
+                    }`}
+                >
+                  Setup Guide
+                </a>
+              </nav>
+
             </div>
 
             {/* Legal */}
@@ -198,28 +199,28 @@ export function Footer() {
               <nav className="grid grid-cols-2 md:grid-cols-1 gap-x-12 md:gap-x-0 gap-y-3">
                 <Link
                   href="/terms"
-                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-slate-600"
+                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-[#0F172F]"
                     }`}
                 >
                   Terms
                 </Link>
                 <Link
                   href="/privacy"
-                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-slate-600"
+                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-[#0F172F]"
                     }`}
                 >
                   Privacy
                 </Link>
                 <Link
                   href="/license"
-                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-slate-600"
+                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-[#0F172F]"
                     }`}
                 >
                   License
                 </Link>
                 <Link
                   href="/copyright"
-                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-slate-600"
+                  className={`text-sm transition-opacity hover:opacity-60 ${isDark ? "text-slate-500" : "text-[#0F172F]"
                     }`}
                 >
                   Copyright
@@ -236,7 +237,7 @@ export function Footer() {
             {onToggleTheme && (
               <button
                 onClick={onToggleTheme}
-                className={`p-1 rounded-md transition-all hover:opacity-70 ${isDark ? "text-blue-400 hover:bg-slate-800/50" : "text-blue-600 hover:bg-slate-200/50"}`}
+                className={`p-1 rounded-md transition-all hover:opacity-70 ${isDark ? "text-blue-400 hover:bg-slate-800/50" : "text-[#0F172F] hover:bg-slate-200/50"}`}
                 aria-label="Toggle theme"
               >
                 {isDark ? (
@@ -274,8 +275,8 @@ export function Footer() {
         <span
           className={`
       block
-      text-[25vw]
-      md:text-[clamp(8rem,50vh,28rem)]
+      text-[22vw]
+      md:text-[20vw]
       font-bold italic leading-[0.8] select-none
       ${isDark
               ? "text-slate-100/30 md:text-slate-800/30"

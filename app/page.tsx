@@ -334,8 +334,8 @@ export default function GeSIMLanding() {
         {/* Subtle Background Elements */}
 
 
-        <div className="container mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="container mx-auto relative z-10 px-6 sm:px-12">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <div className="text-left">
               <div className="flex items-center gap-3 mb-8">
@@ -381,14 +381,14 @@ export default function GeSIMLanding() {
               </div>
 
               <p className={`text-sm ${isDark ? "text-slate-500" : "text-slate-500"} mb-16`}>
-                Android · Coming soon [iOS · Solana-Seeker] · Pay Privately with crypto
+                Solana-Seeker · Coming soon [iOS · Android ] · Pay Privately with crypto
               </p>
 
               {/* Stats */}
             </div>
 
             {/* Right Animation - Telecom x Web3 Intersection */}
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center xl:justify-center">
               <div className="relative w-96 h-96">
                 {/* Central Intersection Hub */}
                 <div className="absolute inset-0 flex items-center justify-center">
