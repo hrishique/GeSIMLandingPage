@@ -107,7 +107,7 @@ export function Footer() {
                   href="https://t.me/gesimxyz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-all hover:opacity-60 ${isDark ? "text-blue-400" : "text-[#0F172F]"}`}
+                  className={`transition-all hover:opacity-60 ${isDark ? "text-slate-400" : "text-[#0F172F]"}`}
                   aria-label="Telegram"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
