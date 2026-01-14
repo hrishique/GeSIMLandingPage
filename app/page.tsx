@@ -369,17 +369,15 @@ export default function GeSIMLanding() {
                 Designed for DeFi users, Journalists, and anyone who values privacy
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-6 mb-8">
-                <Button
-                  size="lg"
-                  className={`${isDark ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"} px-12 py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3 ${isNavigating ? "opacity-75 cursor-not-allowed" : ""
-                    }`}
+              <div className="flex flex-col sm:flex-row gap-6 mb-8 items-start">
+                <Image
+                  src="/Solana_dApp_Store_Badge_Black.png"
+                  alt="Available on Solana dApp Store"
+                  width={180}
+                  height={54}
+                  className="h-[60px] w-auto cursor-pointer hover:opacity-80 transition-opacity"
                   onClick={() => handleStartJourney()}
-                  disabled={isNavigating}
-                >
-                  <CreditCard className={`w-5 h-5 ${isNavigating ? "animate-pulse" : ""}`} />
-                  {isNavigating ? "Opening App..." : "Live on Seeker(Soon)"}
-                </Button>
+                />
               </div>
 
               <p className={`text-sm ${isDark ? "text-slate-500" : "text-slate-500"} mb-16`}>
@@ -417,7 +415,7 @@ export default function GeSIMLanding() {
 
                 {/* Mobile App Screenshots */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-full h-full flex items-center justify-center scale-90 sm:scale-100 md:scale-110 origin-center">
+                  <div className="relative w-full h-full flex items-center justify-center scale-90 sm:scale-100 md:scale-110 origin-center pr-4 md:pr-0">
                     {/* Left Screenshot - Invitation */}
                     <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[110%] sm:-translate-x-[120%] md:-translate-x-[130%] transform hover:scale-105 transition-all duration-500 z-10 group cursor-pointer">
                       <div
@@ -718,7 +716,7 @@ export default function GeSIMLanding() {
 
           {/* World Map Canvas */}
           <div
-            className={`relative w-full h-[500px] md:h-auto md:aspect-[16/9] rounded-2xl overflow-hidden border mb-20 ${isDark ? "border-slate-800 bg-slate-900/50" : "border-slate-200 bg-white/80"} backdrop-blur-sm`}
+            className={`relative w-full aspect-video rounded-2xl overflow-hidden border mb-20 ${isDark ? "border-slate-800 bg-slate-900/50" : "border-slate-200 bg-white/80"} backdrop-blur-sm`}
           >
             {/* Network topology image as background */}
             <div className={`absolute inset-0 ${isDark ? "opacity-20" : "opacity-40"}`}>

@@ -24,14 +24,12 @@ export default function AboutPage() {
                             Built for travelers, journalists, remote workers, and DeFi-native users, GeSIM keeps your network identity private while delivering fast, reliable global connectivity—directly from a single mobile app.
                         </p>
 
-                        <div className="p-6 md:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <p className="text-lg leading-relaxed mb-0">
-                                Unlike traditional eSIM providers, GeSIM is designed with <span className="font-semibold text-blue-600 dark:text-blue-400">privacy at the core</span>. Your connectivity works across borders without exposing unnecessary metadata, enabling a safer and more sovereign mobile internet experience.
-                            </p>
-                        </div>
+                        <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                            Unlike traditional eSIM providers, GeSIM is designed with <span className="font-semibold text-blue-600 dark:text-blue-400">privacy at the core</span>. Your connectivity works across borders without exposing unnecessary metadata, enabling a safer and more sovereign mobile internet experience.
+                        </p>
 
                         <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                            In parallel, GeSIM is building the coordination layer for global telecom—re-architecting how mobile connectivity is provisioned, measured, and settled at internet scale.
+                            In parallel, GeSIM is building the <b>coordination layer for global telecom</b>—re-architecting how mobile connectivity is provisioned, measured, and settled at internet scale.
                         </p>
 
                         <div className="py-8">

@@ -18,109 +18,109 @@ import { notFound } from "next/navigation"
 // Mock blog post data (in a real app, this would come from a CMS or API)
 const getBlogPost = (slug: string) => {
   const posts = {
-    "gesim-x-airalo-partnership": {
-      id: 1,
-      title: "GeSIM × Airalo — $100k sandbox to validate our infra",
-      excerpt:
-        "We’ve partnered with Airalo and received a $100K sandbox grant to stress-test GeSIM’s infrastructure.",
-      content: `
-        <p class="lead">We’ve partnered with Airalo and received a $100K sandbox grant to stress-test GeSIM’s infrastructure. Airalo has already onboarded us to their Partner Platform, giving GeSIM a safe, funded environment to run large-scale, real-device experiments.</p><br>
-        
-        <h3><B>What we’ll validate</B></h3><br>
-        <ul>
-    <li>
-      <strong>Provisioning fidelity:</strong>
-      ensure GeSIM ID (our wallet-backed SBT) mint → plan assignment → activation works reliably across devices and carriers.
-    </li>
-    <li>
-      <strong>Billing &amp; metering:</strong>
-      reconcile our pay-as-you-go smart-billing with carrier usage signals to eliminate surprises.
-    </li>
-    <li>
-      <strong>Geo &amp; network edge cases:</strong>
-      exercise regional installs, roaming handovers and activation-before-arrival flows.
-    </li>
-    <li>
-      <strong>Telemetry &amp; fraud signals:</strong>
-      capture provisioning logs, error traces and consumption patterns so we can harden retries and observability.
-    </li>
-  </ul>
-</section> <br>
+    //     "gesim-x-airalo-partnership": {
+    //       id: 1,
+    //       title: "GeSIM × Airalo — $100k sandbox to validate our infra",
+    //       excerpt:
+    //         "We’ve partnered with Airalo and received a $100K sandbox grant to stress-test GeSIM’s infrastructure.",
+    //       content: `
+    //         <p class="lead">We’ve partnered with Airalo and received a $100K sandbox grant to stress-test GeSIM’s infrastructure. Airalo has already onboarded us to their Partner Platform, giving GeSIM a safe, funded environment to run large-scale, real-device experiments.</p><br>
 
-<section aria-labelledby="why-heading">
-  <h3 id="why-heading">Why it matters</h3><br>
-  <p>
-    The sandbox support lets us run instrumented, staged rollouts so issues are found and fixed before broad release. That means faster iterations on the GeSIM ID flow, more predictable user experiences and infrastructure ready to scale without surprise support load.
-  </p><br>
-  <p>
-    If you’re a power user or OEM and want to help validate edge cases, <strong>ping the GeSIM team</strong> — we’ll be shipping targeted test drops soon.
-  </p>
-</section>
-      `,
-      thumbnail: "/AiraloxGeSIMblog.png?height=400&width=800",
-      category: "Partnerships",
-      tags: ["Airalo", "Sandbox", "Infra",  "eSIM"],
-      publishedAt: "2025-01-10",
-      readTime: "5 min read",
-      author: {
-        name: "Charchit ",
-        role: "Co-Founder and CEO",
-        avatar: "/file1.jpg?height=100&width=100",
-        bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
-      },
-    },
-    "gesim-x-esimaccess-partnership": {
-      id: 2,
-      title: "GeSIM × eSIMAccess — strengthening infra, distribution & revenue with wallet-first connectivity",
-      excerpt:
-      "We’re teaming up with eSIMAccess to lean on their distribution support and jointly explore global postpaid offerings",
-      content: `
-        <p>We’re teaming up with eSIMAccess to lean on their distribution support and jointly explore global postpaid offerings — and to use that real-world scale to harden GeSIM’s infrastructure. eSIMAccess gives us channels and operational partnerships; GeSIM brings the wallet-native identity and billing layer. Together we’re building a safer, more profitable connectivity stack.</p><br>
-        
-        <h3>What we’re validating on the infra side</h3>
-        <ul>
-          <li><strong>Provisioning reliability:</strong> ensure GeSIM ID mint → plan assignment → activation completes across device types and carrier flows with robust retries and idempotency.</li>
-          <li><strong>Billing reconciliation:</strong> reconcile GeSIM’s wallet-first billing with carrier consumption and postpaid settlement flows so charges align and disputes shrink.</li>
-          <li><strong>Observability & telemetry:</strong> instrument provisioning, activation, and consumption paths so we can detect regressions, identify fraud signals, and measure cohort retention.</li>
-          <li><strong>Postpaid trust experiments:</strong> develop the trust primitives that let partners offer postpaid plans without relying on international card acceptance — reducing failed payments and chargebacks.</li>
-        </ul><br>
+    //         <h3><B>What we’ll validate</B></h3><br>
+    //         <ul>
+    //     <li>
+    //       <strong>Provisioning fidelity:</strong>
+    //       ensure GeSIM ID (our wallet-backed SBT) mint → plan assignment → activation works reliably across devices and carriers.
+    //     </li>
+    //     <li>
+    //       <strong>Billing &amp; metering:</strong>
+    //       reconcile our pay-as-you-go smart-billing with carrier usage signals to eliminate surprises.
+    //     </li>
+    //     <li>
+    //       <strong>Geo &amp; network edge cases:</strong>
+    //       exercise regional installs, roaming handovers and activation-before-arrival flows.
+    //     </li>
+    //     <li>
+    //       <strong>Telemetry &amp; fraud signals:</strong>
+    //       capture provisioning logs, error traces and consumption patterns so we can harden retries and observability.
+    //     </li>
+    //   </ul>
+    // </section> <br>
 
-        <h3>Why postpaid matters (and where cards fail)</h3><br>
-        <p>International cards frequently face merchant declines, fraud flags, or hold periods — behaviour that hurts conversion and pushes users to prepaid alternatives with lower spend. By attaching a wallet-backed GeSIM ID to a user’s account and activity, we create a verifiable, persistent identity and payment relationship that:</p>
-        <ul>
-          <li>reduces payment friction for cross-border buyers,</li>
-          <li>enables safer partner-level credit (postpaid trials / event passes), and</li>
-          <li>provides stronger signals for fraud teams and merchant processors.</li>
-        </ul><br>
+    // <section aria-labelledby="why-heading">
+    //   <h3 id="why-heading">Why it matters</h3><br>
+    //   <p>
+    //     The sandbox support lets us run instrumented, staged rollouts so issues are found and fixed before broad release. That means faster iterations on the GeSIM ID flow, more predictable user experiences and infrastructure ready to scale without surprise support load.
+    //   </p><br>
+    //   <p>
+    //     If you’re a power user or OEM and want to help validate edge cases, <strong>ping the GeSIM team</strong> — we’ll be shipping targeted test drops soon.
+    //   </p>
+    // </section>
+    //       `,
+    //       thumbnail: "/AiraloxGeSIMblog.png?height=400&width=800",
+    //       category: "Partnerships",
+    //       tags: ["Airalo", "Sandbox", "Infra",  "eSIM"],
+    //       publishedAt: "2025-01-10",
+    //       readTime: "5 min read",
+    //       author: {
+    //         name: "Charchit ",
+    //         role: "Co-Founder and CEO",
+    //         avatar: "/file1.jpg?height=100&width=100",
+    //         bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
+    //       },
+    //     },
+    // "gesim-x-esimaccess-partnership": {
+    //   id: 2,
+    //   title: "GeSIM × eSIMAccess — strengthening infra, distribution & revenue with wallet-first connectivity",
+    //   excerpt:
+    //   "We’re teaming up with eSIMAccess to lean on their distribution support and jointly explore global postpaid offerings",
+    //   content: `
+    //     <p>We’re teaming up with eSIMAccess to lean on their distribution support and jointly explore global postpaid offerings — and to use that real-world scale to harden GeSIM’s infrastructure. eSIMAccess gives us channels and operational partnerships; GeSIM brings the wallet-native identity and billing layer. Together we’re building a safer, more profitable connectivity stack.</p><br>
 
-        <h3>How this raises LTV & ARPU</h3><br>
-        <ul>
-          <li><strong>Higher conversion:</strong> fewer payment declines and a smoother activation flow mean more users complete purchases.</li>
-          <li><strong>Better retention:</strong> GeSIM ID enables longer-lived entitlements (subscriptions, event passes), increasing repeat usage and LTV.</li>
-          <li><strong>Upsell & yield:</strong> with clearer per-user telemetry we can target usage-based upsells (auto-topups, premium plans) that raise ARPU without harming trust.</li>
-          <li><strong>Lower support/chargeback costs:</strong> clearer identity + reconciled billing means fewer disputes and lower operational overhead.</li>
-        </ul><br>
+    //     <h3>What we’re validating on the infra side</h3>
+    //     <ul>
+    //       <li><strong>Provisioning reliability:</strong> ensure GeSIM ID mint → plan assignment → activation completes across device types and carrier flows with robust retries and idempotency.</li>
+    //       <li><strong>Billing reconciliation:</strong> reconcile GeSIM’s wallet-first billing with carrier consumption and postpaid settlement flows so charges align and disputes shrink.</li>
+    //       <li><strong>Observability & telemetry:</strong> instrument provisioning, activation, and consumption paths so we can detect regressions, identify fraud signals, and measure cohort retention.</li>
+    //       <li><strong>Postpaid trust experiments:</strong> develop the trust primitives that let partners offer postpaid plans without relying on international card acceptance — reducing failed payments and chargebacks.</li>
+    //     </ul><br>
 
-        <h3>Practical next steps</h3><br>
-        <p>We’ll run staged, instrumented rollouts through eSIMAccess channels to test postpaid flows, measure conversion and dispute rates, and iterate on safeguards (auto-stop, soft-limits, retry logic). Devs and partners will get SDK hooks and telemetry dashboards to validate flows and share findings.</p><br>
-      `,
-      thumbnail: "/eSIMACCESSxGeSIMblog.png?height=400&width=800",
-      category: "Product Updates",
-      tags: ["eSIMAccess", "Postpaid", "Crypto", "USDC"],
-      publishedAt: "2025-01-08",
-      readTime: "7 min read",
-      author: {
-        name: "Charchit ",
-        role: "Co-Founder and CEO",
-        avatar: "/file1.jpg?height=100&width=100",
-        bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
-      },
-    },
+    //     <h3>Why postpaid matters (and where cards fail)</h3><br>
+    //     <p>International cards frequently face merchant declines, fraud flags, or hold periods — behaviour that hurts conversion and pushes users to prepaid alternatives with lower spend. By attaching a wallet-backed GeSIM ID to a user’s account and activity, we create a verifiable, persistent identity and payment relationship that:</p>
+    //     <ul>
+    //       <li>reduces payment friction for cross-border buyers,</li>
+    //       <li>enables safer partner-level credit (postpaid trials / event passes), and</li>
+    //       <li>provides stronger signals for fraud teams and merchant processors.</li>
+    //     </ul><br>
+
+    //     <h3>How this raises LTV & ARPU</h3><br>
+    //     <ul>
+    //       <li><strong>Higher conversion:</strong> fewer payment declines and a smoother activation flow mean more users complete purchases.</li>
+    //       <li><strong>Better retention:</strong> GeSIM ID enables longer-lived entitlements (subscriptions, event passes), increasing repeat usage and LTV.</li>
+    //       <li><strong>Upsell & yield:</strong> with clearer per-user telemetry we can target usage-based upsells (auto-topups, premium plans) that raise ARPU without harming trust.</li>
+    //       <li><strong>Lower support/chargeback costs:</strong> clearer identity + reconciled billing means fewer disputes and lower operational overhead.</li>
+    //     </ul><br>
+
+    //     <h3>Practical next steps</h3><br>
+    //     <p>We’ll run staged, instrumented rollouts through eSIMAccess channels to test postpaid flows, measure conversion and dispute rates, and iterate on safeguards (auto-stop, soft-limits, retry logic). Devs and partners will get SDK hooks and telemetry dashboards to validate flows and share findings.</p><br>
+    //   `,
+    //   thumbnail: "/eSIMACCESSxGeSIMblog.png?height=400&width=800",
+    //   category: "Product Updates",
+    //   tags: ["eSIMAccess", "Postpaid", "Crypto", "USDC"],
+    //   publishedAt: "2025-01-08",
+    //   readTime: "7 min read",
+    //   author: {
+    //     name: "Charchit ",
+    //     role: "Co-Founder and CEO",
+    //     avatar: "/file1.jpg?height=100&width=100",
+    //     bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
+    //   },
+    // },
     "digital-nomad-guide-esim-technology": {
       id: 3,
       title: "The Ultimate Digital Nomad's Guide to eSIM Technology",
-    excerpt:
-      "If you travel for work, creativity, or the freedom to live anywhere, reliable mobile data isn’t a luxury - it’s the infrastructure of your life.",
+      excerpt:
+        "If you travel for work, creativity, or the freedom to live anywhere, reliable mobile data isn’t a luxury - it’s the infrastructure of your life.",
       content: `
         <p><strong>If you travel for work, creativity, or the freedom to live anywhere, reliable mobile data isn’t a luxury - it’s the infrastructure of your life.</strong> eSIMs unlocked that promise: instant provisioning, multiple carriers on a single device, and less time in shops or juggling tiny physical SIMs. This guide gives digital nomads the practical knowledge to use eSIMs well - and explains how GeSIM makes that experience predictable, private and pay-as-you-go.</p><br>
         
@@ -183,50 +183,50 @@ const getBlogPost = (slug: string) => {
         bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
       },
     },
-    "gesim-x-telnyx-partnership": {
-      id: 4,
-      title: "GeSIM × Telnyx — mapping SM-DP+ points to GeSIM ID to harden infra, UX & compliance",
-    excerpt:
-      "We’re integrating Telnyx’s SM-DP+ server to map critical eSIM provisioning points directly to the GeSIM ID",
-      content: `
-        <p>We’re integrating <strong>Telnyx’s SM-DP+ server</strong> to map critical eSIM provisioning points directly to the GeSIM ID. This is an infra-first effort: connect the secure device-profile lifecycle (SM-DP+) with our wallet-native identity primitive so activations are faster, auditable, and compliant - without adding user friction.</p><br>
-        
-        <h3>Infra priorities</h3><br>
-        <ul>
-          <li><strong>Deterministic mapping:</strong> Bind eSIM download/activation events to a single GeSIM ID so every profile has an immutable anchor for reconciliation, revocation, and lifetime entitlements.</li>
-          <li><strong>Secure attestations:</strong> Surface SM-DP+ provisioning proofs to our backend and cryptographically link them to the GeSIM ID for tamper-evident logs.</li>
-          <li><strong>Idempotent provisioning:</strong> Implement idempotency keys around SM-DP+ operations to avoid duplicate profiles on retry-heavy networks.</li>
-          <li><strong>Privacy-first data flows:</strong> Minimize PII passed through Telnyx; use ephemeral tokens and on-chain references where possible so compliance teams get auditability without storing unnecessary user data.</li>
-        </ul><br>
+    // "gesim-x-telnyx-partnership": {
+    //   id: 4,
+    //   title: "GeSIM × Telnyx — mapping SM-DP+ points to GeSIM ID to harden infra, UX & compliance",
+    // excerpt:
+    //   "We’re integrating Telnyx’s SM-DP+ server to map critical eSIM provisioning points directly to the GeSIM ID",
+    //   content: `
+    //     <p>We’re integrating <strong>Telnyx’s SM-DP+ server</strong> to map critical eSIM provisioning points directly to the GeSIM ID. This is an infra-first effort: connect the secure device-profile lifecycle (SM-DP+) with our wallet-native identity primitive so activations are faster, auditable, and compliant - without adding user friction.</p><br>
 
-        <h3>UX and operational wins</h3><br>
-        <ul>
-          <li><strong>One-tap activations:</strong> Map device provisioning state to a user’s GeSIM ID so activations resume across devices and sessions, eliminating repeated setup steps.</li>
-          <li><strong>Smarter recovery:</strong> When over-the-air installs fail, the GeSIM ID lets us resume or reassign profiles safely instead of orphaning user purchases.</li>
-          <li><strong>Faster dispute resolution:</strong> Reconciled, ID-anchored logs reduce chargebacks and speed partner investigations.</li>
-        </ul><br>
+    //     <h3>Infra priorities</h3><br>
+    //     <ul>
+    //       <li><strong>Deterministic mapping:</strong> Bind eSIM download/activation events to a single GeSIM ID so every profile has an immutable anchor for reconciliation, revocation, and lifetime entitlements.</li>
+    //       <li><strong>Secure attestations:</strong> Surface SM-DP+ provisioning proofs to our backend and cryptographically link them to the GeSIM ID for tamper-evident logs.</li>
+    //       <li><strong>Idempotent provisioning:</strong> Implement idempotency keys around SM-DP+ operations to avoid duplicate profiles on retry-heavy networks.</li>
+    //       <li><strong>Privacy-first data flows:</strong> Minimize PII passed through Telnyx; use ephemeral tokens and on-chain references where possible so compliance teams get auditability without storing unnecessary user data.</li>
+    //     </ul><br>
 
-        <h3>Compliance & observability</h3><br>
-        <ul>
-          <li><strong>Audit trails:</strong> Every SM-DP+ action tied to GeSIM ID creates a clear, exportable trail for regulators and partners.</li>
-          <li><strong>Consent receipts:</strong> Attach consent metadata to GeSIM ID records for lawful processing and easier KYC/AML handoffs when required.</li>
-          <li><strong>Telemetry hooks:</strong> Granular SM-DP+ metrics (latency, error codes, retries) instrumented per GeSIM ID so we can rollback, alert, and iterate quickly.</li>
-        </ul><br>
+    //     <h3>UX and operational wins</h3><br>
+    //     <ul>
+    //       <li><strong>One-tap activations:</strong> Map device provisioning state to a user’s GeSIM ID so activations resume across devices and sessions, eliminating repeated setup steps.</li>
+    //       <li><strong>Smarter recovery:</strong> When over-the-air installs fail, the GeSIM ID lets us resume or reassign profiles safely instead of orphaning user purchases.</li>
+    //       <li><strong>Faster dispute resolution:</strong> Reconciled, ID-anchored logs reduce chargebacks and speed partner investigations.</li>
+    //     </ul><br>
 
-        <p>This integration turns Telnyx’s SM-DP+ into a provable, identity-anchored provisioning layer — improving activation UX, strengthening compliance posture, and making GeSIM infrastructure production-ready at scale.</p>
-      `,
-      thumbnail: "/TelnyxxGeSIMblog.png?height=400&width=800",
-      category: "Partnerships",
-      tags: ["Telnyx", "Enterprise", "Provisioning", "Compliance", "eSIM", "Identity"],
-      publishedAt: "2025-01-12",
-      readTime: "6 min read",
-      author: {
-        name: "Charchit ",
-        role: "Co-Founder and CEO",
-        avatar: "/file1.jpg?height=100&width=100",
-        bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
-      },
-    },
+    //     <h3>Compliance & observability</h3><br>
+    //     <ul>
+    //       <li><strong>Audit trails:</strong> Every SM-DP+ action tied to GeSIM ID creates a clear, exportable trail for regulators and partners.</li>
+    //       <li><strong>Consent receipts:</strong> Attach consent metadata to GeSIM ID records for lawful processing and easier KYC/AML handoffs when required.</li>
+    //       <li><strong>Telemetry hooks:</strong> Granular SM-DP+ metrics (latency, error codes, retries) instrumented per GeSIM ID so we can rollback, alert, and iterate quickly.</li>
+    //     </ul><br>
+
+    //     <p>This integration turns Telnyx’s SM-DP+ into a provable, identity-anchored provisioning layer — improving activation UX, strengthening compliance posture, and making GeSIM infrastructure production-ready at scale.</p>
+    //   `,
+    //   thumbnail: "/TelnyxxGeSIMblog.png?height=400&width=800",
+    //   category: "Partnerships",
+    //   tags: ["Telnyx", "Enterprise", "Provisioning", "Compliance", "eSIM", "Identity"],
+    //   publishedAt: "2025-01-12",
+    //   readTime: "6 min read",
+    //   author: {
+    //     name: "Charchit ",
+    //     role: "Co-Founder and CEO",
+    //     avatar: "/file1.jpg?height=100&width=100",
+    //     bio: "Charchit leads product innovation and business at GeSIM. He handles integrations, grows the community, and building an engaged nomad community.",
+    //   },
+    // },
     "gesim-private-testing": {
       id: 5,
       title: "Private Testing — Join GeSIM’s Invite-Only Waitlist ",
@@ -255,7 +255,7 @@ const getBlogPost = (slug: string) => {
       `,
       thumbnail: "/privatetesting.png?height=400&width=800",
       category: "Product Updates",
-      tags: ["DID", "Travel", "Identity",  "Web3"],
+      tags: ["DID", "Travel", "Identity", "Web3"],
       publishedAt: "2025-01-08",
       readTime: "7 min read",
       author: {
@@ -274,30 +274,6 @@ const getBlogPost = (slug: string) => {
 const getSuggestedArticles = (currentId: number) => {
   const allArticles = [
     {
-      id: 1,
-      title: "GeSIM × Airalo — $100k sandbox to validate our infra",
-      excerpt:
-        "We’ve partnered with Airalo and received a $100K sandbox grant to stress-test GeSIM’s infrastructure.",
-      thumbnail: "/AiraloxGeSIMblog.png?height=300&width=500",
-      category: "Partnerships",
-      tags: ["Partnership", "Airalo", "Global"],
-      publishedAt: "2025-09-05",
-      readTime: "2 min read",
-      slug: "gesim-x-airalo-partnership",
-    },
-    {
-      id: 2,
-      title: "GeSIM × eSIMAccess — strengthening infra, distribution & revenue with wallet-first connectivity",
-      excerpt:
-        "We’re teaming up with eSIMAccess to lean on their distribution support and jointly explore global postpaid offerings",
-      thumbnail: "/eSIMACCESSxGeSIMblog.png?height=300&width=500",
-      category: "Partnerships",
-      tags: ["Product", "Crypto", "USDC", "Payments"],
-      publishedAt: "2025-09-07",
-      readTime: "3 min read",
-      slug: "gesim-x-esimaccess-partnership",
-    },
-    {
       id: 3,
       title: "The Ultimate Digital Nomad's Guide to eSIM Technology",
       excerpt:
@@ -308,18 +284,6 @@ const getSuggestedArticles = (currentId: number) => {
       publishedAt: "2025-09-10",
       readTime: "12 min read",
       slug: "digital-nomad-guide-esim-technology",
-    },
-    {
-      id: 4,
-      title: "GeSIM × Telnyx — mapping SM-DP+ points to GeSIM ID to harden infra, UX & compliance",
-      excerpt:
-        "We’re integrating Telnyx’s SM-DP+ server to map critical eSIM provisioning points directly to the GeSIM ID",
-      thumbnail: "/TelnyxxGeSIMblog.png?height=300&width=500",
-      category: "Partnerships",
-      tags: ["Partnership", "Telnyx", "Infrastructure", "Enterprise"],
-      publishedAt: "2025-09-13",
-      readTime: "4 min read",
-      slug: "gesim-x-telnyx-partnership",
     },
     {
       id: 5,
@@ -350,8 +314,8 @@ const getSuggestedArticles = (currentId: number) => {
   return allArticles.filter((article) => article.id !== currentId).slice(0, 3)
 }
 
-export default  function BlogPostPage({ params }: { params: { slug: string } }) {
-  let param =  params
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  let param = params
   // const [currentSlide, setCurrentSlide] = useState(0)
   const post = getBlogPost(param.slug)
   const suggestedArticles = post ? getSuggestedArticles(post.id) : []
@@ -404,7 +368,7 @@ export default  function BlogPostPage({ params }: { params: { slug: string } }) 
       className={`min-h-screen transition-all duration-700 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:bg-none dark:bg-slate-950`}
     >
       {/* Header */}
-     
+
 
       {/* Article */}
       <article className="px-6 pt-8 pb-16">
@@ -423,13 +387,12 @@ export default  function BlogPostPage({ params }: { params: { slug: string } }) 
             {/* Category Badge */}
             <div className="mb-6">
               <span
-                className={`px-4 py-2 rounded-full text-sm font-semibold ${
-                  post.category === "Product Updates"
-                    ? "bg-blue-500 text-white"
-                    : post.category === "Partnerships"
-                      ? "bg-green-500 text-white"
-                      : "bg-purple-500 text-white"
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-semibold ${post.category === "Product Updates"
+                  ? "bg-blue-500 text-white"
+                  : post.category === "Partnerships"
+                    ? "bg-green-500 text-white"
+                    : "bg-purple-500 text-white"
+                  }`}
               >
                 {post.category}
               </span>

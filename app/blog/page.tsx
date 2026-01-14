@@ -126,7 +126,7 @@ export default function BlogPage() {
       <section className="relative px-6 pt-20 pb-16">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h1 className={`text-5xl md:text-6xl font-black mb-6 text-slate-900 dark:text-white whitespace-nowrap`}>
+            <h1 className={`text-3xl sm:text-4xl md:text-6xl font-black mb-6 text-slate-900 dark:text-white whitespace-nowrap`}>
               GeSIM Insights
             </h1>
             <p
