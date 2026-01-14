@@ -5,16 +5,16 @@ import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import { FloatingLogo } from "@/components/floating-logo"
+
 import { ScrollToTop } from "@/components/scroll-to-top"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "GeSIM — Private eSIMs with Built-in VPN & Crypto Payments",
+  title: "GeSIM — Private mobile data for on-chain lives",
   description:
-    "Private mobile data for on-chain lives. Instant eSIM provisioning with built-in VPN and wallet-first crypto payments — for DeFi users, travelers, journalists, and nomads.",
+    "Designed for DeFi users, Journalists, and anyone who values privacy",
   icons: {
     icon: "/gesim-logo-icon.png",
     apple: "/gesim-logo-icon.png",
@@ -40,7 +40,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <FloatingLogo />
+
           <ScrollToTop />
           <Analytics />
         </ThemeProvider>

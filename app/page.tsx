@@ -421,7 +421,7 @@ export default function GeSIMLanding() {
                     {/* Left Screenshot - Invitation */}
                     <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[110%] sm:-translate-x-[120%] md:-translate-x-[130%] transform hover:scale-105 transition-all duration-500 z-10 group cursor-pointer">
                       <div
-                        className="w-32 sm:w-40 md:w-48 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] sm:border-[8px] border-slate-900 bg-slate-900"
+                        className="w-48 sm:w-64 md:w-60 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl"
                       >
                         <Image
                           src="/images/screenshot-20251224-000031.png"
@@ -436,7 +436,7 @@ export default function GeSIMLanding() {
                     {/* Right Screenshot - QR Code */}
                     <div className="absolute left-1/2 top-1/2 -translate-y-1/2 translate-x-[10%] sm:translate-x-[20%] md:translate-x-[30%] transform hover:scale-105 transition-all duration-500 z-10 group cursor-pointer">
                       <div
-                        className="w-32 sm:w-40 md:w-48 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] sm:border-[8px] border-slate-900 bg-slate-900"
+                        className="w-48 sm:w-64 md:w-60 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl"
                       >
                         <Image
                           src="/images/screenshot-20251227-125625.png"
@@ -464,7 +464,7 @@ export default function GeSIMLanding() {
                     </div> */}
                     <div className="relative z-20 transform hover:scale-110 transition-all duration-500 group cursor-pointer">
                       <div
-                        className="w-40 sm:w-48 md:w-56 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] sm:border-[8px] border-slate-900 bg-slate-900"
+                        className="w-56 sm:w-72 md:w-72 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl"
                       >
                         <Image
                           src="/images/screenshot-20251227-125437.png"
@@ -635,9 +635,9 @@ export default function GeSIMLanding() {
       {/* How it works Section */}
       <section className={`py-32 px-6 ${isDark ? "bg-slate-950" : "bg-white"}`}>
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-20">
+          <div className="mb-20 px-4">
             <h2
-              className={`text-4xl md:text-5xl font-semibold mb-6 ${isDark ? "text-white" : "text-slate-900"}`}
+              className={`text-4xl md:text-5xl font-semibold mb-6 text-justify hyphens-auto ${isDark ? "text-white" : "text-slate-900"}`}
             >
               How it works — instant, private, wallet-native
             </h2>
@@ -718,7 +718,7 @@ export default function GeSIMLanding() {
 
           {/* World Map Canvas */}
           <div
-            className={`relative w-full aspect-[16/9] rounded-2xl overflow-hidden border mb-20 ${isDark ? "border-slate-800 bg-slate-900/50" : "border-slate-200 bg-white/80"} backdrop-blur-sm`}
+            className={`relative w-full h-[500px] md:h-auto md:aspect-[16/9] rounded-2xl overflow-hidden border mb-20 ${isDark ? "border-slate-800 bg-slate-900/50" : "border-slate-200 bg-white/80"} backdrop-blur-sm`}
           >
             {/* Network topology image as background */}
             <div className={`absolute inset-0 ${isDark ? "opacity-20" : "opacity-40"}`}>
@@ -776,9 +776,9 @@ export default function GeSIMLanding() {
           </div>
 
           {/* Act I - Phones */}
-          <div className="mb-32 max-w-4xl mx-auto">
+          <div className="mb-32 max-w-4xl mx-auto px-4">
             <div className="text-center mb-16 transition-all duration-500">
-              <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-slate-900"}`}>
+              <h2 className={`text-2xl sm:text-3xl md:text-5xl font-bold mb-6 leading-tight px-4 ${isDark ? "text-white" : "text-slate-900"}`}>
                 Control global infrastructure from one mobile app
               </h2>
             </div>

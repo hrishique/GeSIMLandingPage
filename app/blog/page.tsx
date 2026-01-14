@@ -19,30 +19,30 @@ import Link from "next/link"
 
 // Mock blog data
 const blogPosts = [
-  {
-    id: 1,
-    title: "GeSIM × Airalo — $100k sandbox to validate our infra",
-    excerpt:
-      "We’ve partnered with Airalo and received a $100K sandbox grant to stress-test GeSIM’s infrastructure.",
-    thumbnail: "/AiraloxGeSIMblog.png?height=300&width=500",
-    category: "Partnerships",
-    tags: ["Partnership", "Airalo", "Global"],
-    publishedAt: "2025-09-05",
-    readTime: "2 min read",
-    slug: "gesim-x-airalo-partnership",
-  },
-  {
-    id: 2,
-    title: "GeSIM × eSIMAccess — strengthening infra, distribution & revenue with wallet-first connectivity",
-    excerpt:
-      "We’re teaming up with eSIMAccess to lean on their distribution support and jointly explore global postpaid offerings",
-    thumbnail: "/eSIMACCESSxGeSIMblog.png?height=300&width=500",
-    category: "Partnerships",
-    tags: ["Product", "Crypto", "USDC", "Payments"],
-    publishedAt: "2025-09-07",
-    readTime: "3 min read",
-    slug: "gesim-x-esimaccess-partnership",
-  },
+  // {
+  //   id: 1,
+  //   title: "GeSIM × Airalo — $100k sandbox to validate our infra",
+  //   excerpt:
+  //     "We’ve partnered with Airalo and received a $100K sandbox grant to stress-test GeSIM’s infrastructure.",
+  //   thumbnail: "/AiraloxGeSIMblog.png?height=300&width=500",
+  //   category: "Partnerships",
+  //   tags: ["Partnership", "Airalo", "Global"],
+  //   publishedAt: "2025-09-05",
+  //   readTime: "2 min read",
+  //   slug: "gesim-x-airalo-partnership",
+  // },
+  // {
+  //   id: 2,
+  //   title: "GeSIM × eSIMAccess — strengthening infra, distribution & revenue with wallet-first connectivity",
+  //   excerpt:
+  //     "We’re teaming up with eSIMAccess to lean on their distribution support and jointly explore global postpaid offerings",
+  //   thumbnail: "/eSIMACCESSxGeSIMblog.png?height=300&width=500",
+  //   category: "Partnerships",
+  //   tags: ["Product", "Crypto", "USDC", "Payments"],
+  //   publishedAt: "2025-09-07",
+  //   readTime: "3 min read",
+  //   slug: "gesim-x-esimaccess-partnership",
+  // },
   {
     id: 3,
     title: "The Ultimate Digital Nomad's Guide to eSIM Technology",
@@ -55,18 +55,18 @@ const blogPosts = [
     readTime: "12 min read",
     slug: "digital-nomad-guide-esim-technology",
   },
-  {
-    id: 4,
-    title: "GeSIM × Telnyx — mapping SM-DP+ points to GeSIM ID to harden infra, UX & compliance",
-    excerpt:
-      "We’re integrating Telnyx’s SM-DP+ server to map critical eSIM provisioning points directly to the GeSIM ID",
-    thumbnail: "/TelnyxxGeSIMblog.png?height=300&width=500",
-    category: "Partnerships",
-    tags: ["Partnership", "Telnyx", "Infrastructure", "Enterprise"],
-    publishedAt: "2025-09-13",
-    readTime: "4 min read",
-    slug: "gesim-x-telnyx-partnership",
-  },
+  // {
+  //   id: 4,
+  //   title: "GeSIM × Telnyx — mapping SM-DP+ points to GeSIM ID to harden infra, UX & compliance",
+  //   excerpt:
+  //     "We’re integrating Telnyx’s SM-DP+ server to map critical eSIM provisioning points directly to the GeSIM ID",
+  //   thumbnail: "/TelnyxxGeSIMblog.png?height=300&width=500",
+  //   category: "Partnerships",
+  //   tags: ["Partnership", "Telnyx", "Infrastructure", "Enterprise"],
+  //   publishedAt: "2025-09-13",
+  //   readTime: "4 min read",
+  //   slug: "gesim-x-telnyx-partnership",
+  // },
   {
     id: 5,
     title: "Private Testing — Join GeSIM’s Invite-Only Waitlist ",
@@ -117,16 +117,16 @@ export default function BlogPage() {
     })
   }
 
-  
+
   return (
     <div
       className={`min-h-screen transition-all duration-700 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:bg-none dark:bg-slate-900`}
-    >    
+    >
       {/* Blog Header */}
       <section className="relative px-6 pt-20 pb-16">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h1 className={`text-5xl md:text-6xl font-black mb-6 text-slate-900 dark:text-white`}>
+            <h1 className={`text-5xl md:text-6xl font-black mb-6 text-slate-900 dark:text-white whitespace-nowrap`}>
               GeSIM Insights
             </h1>
             <p
@@ -158,11 +158,10 @@ export default function BlogPage() {
                 variant={viewMode === "grid" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setViewMode("grid")}
-                className={`rounded-lg ${
-                  viewMode === "grid"
-                    ? "bg-slate-900 text-white dark:bg-slate-800"
-                    : "border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
-                }`}
+                className={`rounded-lg ${viewMode === "grid"
+                  ? "bg-slate-900 text-white dark:bg-slate-800"
+                  : "border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+                  }`}
               >
                 <Grid3X3 className="w-4 h-4" />
               </Button>
@@ -170,11 +169,10 @@ export default function BlogPage() {
                 variant={viewMode === "list" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setViewMode("list")}
-                className={`rounded-lg ${
-                  viewMode === "list"
-                    ? "bg-slate-900 text-white dark:bg-slate-800"
-                    : "border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
-                }`}
+                className={`rounded-lg ${viewMode === "list"
+                  ? "bg-slate-900 text-white dark:bg-slate-800"
+                  : "border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+                  }`}
               >
                 <List className="w-4 h-4" />
               </Button>
@@ -188,11 +186,10 @@ export default function BlogPage() {
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
                 onClick={() => setSelectedCategory(category)}
-                className={`rounded-full px-6 py-2 font-medium transition-all ${
-                  selectedCategory === category
-                    ? "bg-slate-900 text-white dark:bg-slate-800"
-                    : "border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-                }`}
+                className={`rounded-full px-6 py-2 font-medium transition-all ${selectedCategory === category
+                  ? "bg-slate-900 text-white dark:bg-slate-800"
+                  : "border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+                  }`}
               >
                 <Filter className="w-4 h-4 mr-2" />
                 {category}
@@ -295,13 +292,12 @@ export default function BlogPage() {
                     />
                     <div className="absolute top-4 left-4">
                       <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          post.category === "Product Updates"
-                            ? "bg-blue-500 text-white"
-                            : post.category === "Partnerships"
-                              ? "bg-green-500 text-white"
-                              : "bg-purple-500 text-white"
-                        }`}
+                        className={`px-3 py-1 rounded-full text-xs font-semibold ${post.category === "Product Updates"
+                          ? "bg-blue-500 text-white"
+                          : post.category === "Partnerships"
+                            ? "bg-green-500 text-white"
+                            : "bg-purple-500 text-white"
+                          }`}
                       >
                         {post.category}
                       </span>
